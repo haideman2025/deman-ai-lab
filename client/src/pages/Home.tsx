@@ -47,6 +47,8 @@ const IMAGES = {
   pattern: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/mesmee-pattern-bg-5CeurHMgM6pcASXmR5ePH5.webp',
 };
 
+const VIDEO_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/bs-trannamchung-mesmee_1de1832a.mp4';
+
 const MESMEE_GALLERY = [
   { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_1_fbb5542f.jpg', label: 'Mes-Mee chúc ngủ ngon' },
   { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_2_be5b035c.jpg', label: 'Tiểu đường & biến chứng' },
@@ -162,7 +164,7 @@ function HeroSection() {
         >
           <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: C.teal }} />
           <span style={{ color: C.teal }} className="text-sm font-medium tracking-wide">
-            Dành cho Viện NC Ứng Dụng Công Nghệ Tế Bào Mescells
+            Dành riêng cho Viện NC Ứng Dụng Công Nghệ Tế Bào Mescells
           </span>
         </motion.div>
 
@@ -186,7 +188,7 @@ function HeroSection() {
         >
           Hành trình <span style={{ color: C.teal }} className="font-semibold">90 ngày chuyển hóa</span> —
           <br className="hidden sm:block" />
-          Nâng cấp hệ thống vận hành Marketing cho <span style={{ color: C.gold }} className="font-semibold">MESCELLS</span>.
+          Để đội ngũ <span style={{ color: C.gold }} className="font-semibold">MESCELLS</span> tỏa sáng theo cách riêng của mình.
         </motion.p>
 
         <motion.div
@@ -238,10 +240,10 @@ function HeroSection() {
 /* ─── PAIN POINT SECTION ─── */
 function PainPointSection() {
   const painPoints = [
-    { icon: PenTool, text: 'Content quá tải — vừa nghĩ ý tưởng vừa quản lý triển khai' },
-    { icon: Clock, text: 'Design & Media làm thủ công → chậm, tốn nguồn lực' },
-    { icon: Brain, text: 'Không có hệ AI tích hợp vào quy trình' },
-    { icon: BarChart3, text: 'Không có hệ đo lường tối ưu theo dữ liệu' },
+    { icon: PenTool, text: 'Content quá tải — vừa nghĩ ý tưởng vừa chạy deadline, mệt lắm phải không?' },
+    { icon: Clock, text: 'Design & Media làm thủ công — chậm, tốn sức, mà chưa chắc đã hiệu quả' },
+    { icon: Brain, text: 'Chưa có AI nào thực sự "hiểu" quy trình của team' },
+    { icon: BarChart3, text: 'Không biết đo lường thế nào cho đúng, tối ưu ra sao cho trúng' },
   ];
 
   return (
@@ -249,16 +251,16 @@ function PainPointSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="max-w-3xl mb-16">
           <span style={{ color: C.coral }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Thực trạng
+            Bạn ơi, tớ hiểu mà...
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-            Marketing ngành Healthcare
+            Marketing Healthcare
             <br />
-            <span className="text-white/40">đang thay đổi rất nhanh.</span>
+            <span className="text-white/40">đang thay đổi nhanh lắm rồi.</span>
           </h2>
           <p className="text-white/50 text-lg leading-relaxed">
-            TikTok mang lại tương tác cao vượt trội. Nội dung giáo dục, livestream, case thực tế đang chiếm ưu thế.
-            Bác sĩ có mức tương tác cao gấp nhiều lần bệnh viện. Nhưng thực tế vận hành lại cho thấy...
+            TikTok, nội dung giáo dục, livestream, case thực tế — tất cả đang thay đổi cuộc chơi.
+            Bác sĩ có tương tác cao gấp nhiều lần bệnh viện. Nhưng thực tế vận hành thì sao?
           </p>
         </AnimatedSection>
 
@@ -279,12 +281,12 @@ function PainPointSection() {
 
         <AnimatedSection delay={0.3} className="mt-10 flex flex-col sm:flex-row gap-4">
           <div className="flex-1 p-6 rounded-2xl border border-red-500/20 bg-red-500/[0.05]">
-            <p className="text-red-400 font-display font-semibold text-lg mb-2">Nếu không chuyển đổi:</p>
-            <p className="text-white/50">Chi phí tăng, hiệu suất không tăng.</p>
+            <p className="text-red-400 font-display font-semibold text-lg mb-2">Nếu cứ giữ nguyên:</p>
+            <p className="text-white/50">Chi phí cứ tăng, mà team thì kiệt sức dần...</p>
           </div>
           <div className="flex-1 p-6 rounded-2xl border" style={{ borderColor: `${C.teal}30`, backgroundColor: `${C.teal}08` }}>
-            <p style={{ color: C.teal }} className="font-display font-semibold text-lg mb-2">Nếu chuyển đổi đúng cách:</p>
-            <p className="text-white/50">AI trở thành lợi thế cạnh tranh cốt lõi.</p>
+            <p style={{ color: C.teal }} className="font-display font-semibold text-lg mb-2">Nhưng nếu chuyển đổi đúng cách:</p>
+            <p className="text-white/50">AI sẽ trở thành "người đồng hành" đáng tin nhất của team.</p>
           </div>
         </AnimatedSection>
       </div>
@@ -305,25 +307,24 @@ function VisionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
             <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-              Tầm nhìn
+              Tớ muốn chia sẻ với bạn
             </span>
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
               Mục tiêu không phải
               <br />
-              <span className="gradient-text-warm">"dạy AI"</span>
+              <span className="gradient-text-warm">"dạy dùng AI"</span>
             </h2>
             <p className="text-white/50 text-lg leading-relaxed mb-8">
-              Mục tiêu là xây dựng một <span className="text-white font-medium">AI Operating System</span> hoàn chỉnh cho phòng Marketing.
-              Trong 90 ngày, tập trung cao độ để tạo ra <span className="text-white font-medium">Organizational Acceleration</span> — nâng cấp năng lực tổ chức, không chỉ cá nhân.
+              Mục tiêu thực sự là xây dựng một <span className="text-white font-medium">hệ thống vận hành AI</span> hoàn chỉnh — để team Marketing không chỉ "biết dùng", mà <span className="text-white font-medium">tự tin làm chủ</span>. Trong 90 ngày, mình cùng nhau tạo ra sự thay đổi thực sự cho cả tổ chức.
             </p>
           </AnimatedSection>
 
           <StaggerContainer className="space-y-5" staggerDelay={0.15}>
             {[
-              { icon: TrendingUp, text: 'Tăng hiệu suất sản xuất tối thiểu 150%', color: C.teal },
-              { icon: Clock, text: 'Giảm thời gian hoàn thiện ấn phẩm 30%', color: C.teal },
-              { icon: Target, text: 'Xây dựng Case thực chiến làm chuẩn nhân rộng', color: C.gold },
-              { icon: Heart, text: 'Tạo sự chuyển hóa thực sự trong 90 ngày', color: C.coral },
+              { icon: TrendingUp, text: 'Hiệu suất sản xuất tăng ít nhất 150% — team sẽ bất ngờ đấy', color: C.teal },
+              { icon: Clock, text: 'Giảm 30% thời gian hoàn thiện — để team có thời gian sáng tạo', color: C.teal },
+              { icon: Target, text: 'Xây case study thực chiến — làm chuẩn để nhân rộng', color: C.gold },
+              { icon: Heart, text: 'Tạo sự chuyển hóa thực sự — không chỉ kỹ năng, mà cả tư duy', color: C.coral },
             ].map((item, i) => (
               <StaggerItem key={i}>
                 <div className="flex items-center gap-4 p-5 rounded-xl transition-all duration-300" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
@@ -349,19 +350,19 @@ function MethodSection() {
   const layers = [
     {
       title: 'Tư duy làm chủ AI',
-      desc: 'Hiểu bản chất AI, không chỉ biết dùng tool — giống như hiểu cơ chế tế bào trước khi ứng dụng',
+      desc: 'Hiểu bản chất AI trước khi dùng — giống như hiểu cơ chế tế bào trước khi ứng dụng vậy đó',
       icon: Lightbulb,
       color: C.gold,
     },
     {
       title: 'Nâng cấp năng lực lõi',
-      desc: 'Chuyên môn sâu kết hợp AI tạo đột phá — mỗi người trở thành chiến binh sáng tạo',
+      desc: 'Khi chuyên môn sâu gặp AI — mỗi người sẽ tỏa sáng theo cách riêng của mình',
       icon: Layers,
       color: C.teal,
     },
     {
       title: 'Công cụ & Prompt phù hợp',
-      desc: 'Toolkit được thiết kế riêng cho từng vai trò — như liệu pháp cá nhân hóa',
+      desc: 'Mỗi vai trò có bộ toolkit riêng — được "may đo" như liệu pháp cá nhân hóa vậy',
       icon: Zap,
       color: C.green,
     },
@@ -372,15 +373,15 @@ function MethodSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Phương pháp
+            Cách mình làm
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             Tư duy dẫn dắt
             <span className="gradient-text-teal"> công cụ</span>
           </h2>
           <p className="text-white/50 text-lg">
-            Không biến nhân sự thành "thợ bấm nút". Mục tiêu là biến họ thành
-            <span style={{ color: C.gold }} className="font-medium"> "chiến binh sáng tạo độc lập"</span>.
+            Mình không muốn biến team thành "thợ bấm nút". Mình muốn mỗi người trở thành
+            <span style={{ color: C.gold }} className="font-medium"> chiến binh sáng tạo — tự tin và độc lập</span>.
           </p>
         </AnimatedSection>
 
@@ -466,14 +467,14 @@ function RoadmapSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.gold }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Lộ trình
+            Hành trình của chúng mình
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             90 ngày
             <span className="gradient-text-warm"> chuyển hóa</span>
           </h2>
           <p className="text-white/40 text-lg">
-            Như hành trình tái sinh của tế bào — mỗi giai đoạn là một bước tiến hóa.
+            Như hành trình tái sinh của tế bào — mỗi giai đoạn là một bước tiến hóa, mình sẽ đi cùng bạn.
           </p>
         </AnimatedSection>
 
@@ -554,11 +555,11 @@ function RoleSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Đào tạo theo vai trò
+            Ai cũng được quan tâm
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             Mỗi vai trò,
-            <span className="gradient-text-teal"> một bộ kỹ năng AI riêng</span>
+            <span className="gradient-text-teal"> một "liệu trình" AI riêng</span>
           </h2>
         </AnimatedSection>
 
@@ -612,14 +613,14 @@ function DeliverablesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
             <span style={{ color: C.gold }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-              System Deliverables
+              Quà tặng sau hành trình
             </span>
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
               Hệ thống
               <span className="gradient-text-warm"> bàn giao</span>
             </h2>
             <p className="text-white/50 text-lg leading-relaxed">
-              Không chỉ là kiến thức — đây là toàn bộ <span className="text-white/80 font-medium">AI Operating System</span> được thiết kế riêng cho MESCELLS, sẵn sàng vận hành độc lập sau chuyển giao.
+              Không chỉ là kiến thức — đây là toàn bộ <span className="text-white/80 font-medium">"kho báu"</span> được thiết kế riêng cho MESCELLS. Sau 90 ngày, team sẽ tự tin vận hành mà không cần ai cầm tay chỉ việc nữa.
             </p>
           </AnimatedSection>
 
@@ -681,14 +682,14 @@ function KPISection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Kết quả kỳ vọng
+            Kết quả mình hứa
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-            Performance Shift sau
-            <span className="gradient-text-teal"> 90 ngày</span>
+            Sau 90 ngày,
+            <span className="gradient-text-teal"> bạn sẽ thấy</span>
           </h2>
           <p className="text-white/40 text-lg">
-            Đây là mức <span className="text-white/70 font-medium">cam kết tối thiểu</span> — khả năng thực tế có thể vượt xa hơn.
+            Đây là mức <span className="text-white/70 font-medium">cam kết tối thiểu</span> — nhưng thực tế, mình tin team sẽ vượt xa hơn nhiều.
           </p>
         </AnimatedSection>
 
@@ -771,14 +772,15 @@ function AccompanySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.coral }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Implementation & Transfer
+            Mình đi cùng bạn
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-            Triển khai + Chuyển giao
+            Triển khai +
+            <span className="gradient-text-warm"> Chuyển giao</span>
           </h2>
-          <p className="text-white/50 text-xl">
-            Không phải đào tạo lý thuyết.
-            <span style={{ color: C.coral }} className="font-medium"> Đây là triển khai thực chiến và chuyển giao hệ thống.</span>
+          <p className="text-white/50 text-lg leading-relaxed">
+            Không phải ngồi nghe lý thuyết đâu.
+            <span style={{ color: C.coral }} className="font-medium"> Mình sẽ cùng team làm thực chiến, rồi bàn giao lại toàn bộ hệ thống.</span>
           </p>
         </AnimatedSection>
 
@@ -857,15 +859,15 @@ function InvestmentSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-6">
           <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Phạm vi & Đầu tư
+            Chọn phương án phù hợp
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             Hai phương án
-            <span className="gradient-text-teal"> triển khai</span>
+            <span className="gradient-text-teal"> đồng hành</span>
           </h2>
           <p className="text-white/50 text-lg leading-relaxed">
-            Đây là đầu tư vào <span className="text-white/80 font-medium">hệ thống vận hành</span>, không phải chi phí đào tạo.
-            Mỗi phương án được thiết kế để tạo ra chuyển đổi thực sự — chỉ khác nhau về độ sâu triển khai.
+            Đây là <span className="text-white/80 font-medium">đầu tư vào hệ thống</span>, không phải chi phí đào tạo.
+            Mỗi phương án đều tạo ra chuyển đổi thực sự — bạn chọn mức độ phù hợp nhất với team nhé.
           </p>
         </AnimatedSection>
 
@@ -1010,14 +1012,14 @@ function MesmeeShowcaseSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-4xl mx-auto mb-16">
           <span style={{ color: C.green }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Proof of Concept
+            Bạn ơi, xem này!
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             Cuộc chơi đã
-            <span className="gradient-text-teal"> thay đổi</span>
+            <span className="gradient-text-teal"> thay đổi rồi</span>
           </h2>
           <p className="text-white/50 text-lg md:text-xl leading-relaxed">
-            Từ <span className="text-white/80 font-medium">17+ kênh MESCELLS</span>, AI tự động curate, viết lại theo giọng Mes-Mee, tạo hình ảnh AI, và đăng <span style={{ color: C.teal }} className="font-medium">5–10 bài/ngày</span> — hoàn toàn tự động.
+            Từ <span className="text-white/80 font-medium">17+ kênh MESCELLS</span>, AI tự động curate, viết lại theo giọng Mes-Mee, tạo hình ảnh AI, và đăng <span style={{ color: C.teal }} className="font-medium">5–10 bài/ngày</span> — hoàn toàn tự động. Tớ làm được rồi, team bạn cũng sẽ làm được!
           </p>
         </AnimatedSection>
 
@@ -1247,6 +1249,54 @@ function MesmeeShowcaseSection() {
           </div>
         </AnimatedSection>
 
+        {/* Video Showcase — Bs Trần Nam Chung */}
+        <AnimatedSection delay={0.35} className="mb-16">
+          <div className="p-8 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-3 h-3 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} />
+              <span style={{ color: C.gold }} className="font-display font-semibold text-sm tracking-wider uppercase">Video Demo — Curated Content</span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+              <div className="lg:col-span-3">
+                <div className="relative rounded-xl overflow-hidden" style={{ border: `1px solid ${C.teal}20` }}>
+                  <video
+                    controls
+                    preload="metadata"
+                    poster=""
+                    className="w-full aspect-video object-cover"
+                    style={{ backgroundColor: '#000' }}
+                  >
+                    <source src={VIDEO_URL} type="video/mp4" />
+                    Trình duyệt không hỗ trợ video.
+                  </video>
+                </div>
+              </div>
+              <div className="lg:col-span-2">
+                <h3 className="font-display font-bold text-xl md:text-2xl mb-3" style={{ color: C.gold }}>
+                  Bs. Trần Nam Chung — Ver Mes-Mee
+                </h3>
+                <p className="text-white/50 text-base leading-relaxed mb-4">
+                  Đây là ví dụ thực tế về cách AI curate nội dung từ bác sĩ chuyên gia, viết lại theo giọng Mes-Mee, và tạo video hoàn chỉnh — tất cả trong vài phút.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: C.teal }} />
+                    <span className="text-white/60 text-sm">Nội dung gốc từ chuyên gia y khoa</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: C.teal }} />
+                    <span className="text-white/60 text-sm">AI viết lại theo giọng Mes-Mee thân thiện</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: C.teal }} />
+                    <span className="text-white/60 text-sm">Video hoàn chỉnh, sẵn sàng đăng</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
         <AnimatedSection delay={0.4} className="mt-12 text-center">
           <a
             href="https://www.facebook.com/mesmee.diary/"
@@ -1287,12 +1337,12 @@ function ClosingSection() {
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-6xl leading-tight mb-8">
             AI không phải xu hướng.
             <br />
-            <span className="gradient-text-teal">AI là điều kiện sống còn.</span>
+            <span className="gradient-text-teal">AI là người đồng hành.</span>
           </h2>
 
           <p className="text-white/50 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-12">
-            Đây không phải chi phí — đây là <span className="text-white/80 font-medium">đầu tư vào hệ thống vận hành</span>.
-            Dự án giúp MESCELLS nâng cấp năng lực tổ chức, tạo lợi thế cạnh tranh dài hạn trong ngành Healthcare.
+            Mình tin rằng khi team MESCELLS được trang bị đúng cách, các bạn sẽ tạo ra những điều tuyệt vời.
+            <span className="text-white/80 font-medium"> Hãy để mình đồng hành cùng bạn trong hành trình này nhé.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
