@@ -1256,14 +1256,13 @@ function MesmeeShowcaseSection() {
               <div className="w-3 h-3 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} />
               <span style={{ color: C.gold }} className="font-display font-semibold text-sm tracking-wider uppercase">Video Demo — Curated Content</span>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-              <div className="lg:col-span-3">
-                <div className="relative rounded-xl overflow-hidden" style={{ border: `1px solid ${C.teal}20` }}>
+            <div className="flex flex-col lg:flex-row gap-8 items-center">
+              <div className="w-full max-w-[280px] md:max-w-[320px] flex-shrink-0 mx-auto lg:mx-0">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ border: `1px solid ${C.teal}20`, aspectRatio: '9/16' }}>
                   <video
                     controls
                     preload="metadata"
-                    poster=""
-                    className="w-full aspect-video object-cover"
+                    className="w-full h-full object-cover"
                     style={{ backgroundColor: '#000' }}
                   >
                     <source src={VIDEO_URL} type="video/mp4" />
@@ -1271,7 +1270,7 @@ function MesmeeShowcaseSection() {
                   </video>
                 </div>
               </div>
-              <div className="lg:col-span-2">
+              <div className="flex-1">
                 <h3 className="font-display font-bold text-xl md:text-2xl mb-3" style={{ color: C.gold }}>
                   Bs. Trần Nam Chung — Ver Mes-Mee
                 </h3>
