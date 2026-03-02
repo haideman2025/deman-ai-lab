@@ -598,9 +598,36 @@ function DeliverablesSection() {
 /* ─── KPI SECTION ─── */
 function KPISection() {
   const kpis = [
-    { value: 150, suffix: '%', prefix: '+', label: 'Hiệu suất sản xuất nội dung', color: '#00D4FF' },
-    { value: 30, suffix: '%', prefix: '-', label: 'Thời gian hoàn thiện ấn phẩm', color: '#FFB800' },
-    { value: 10, suffix: 'x', prefix: '', label: 'Phương án test A/B', color: '#00FF88' },
+    {
+      baseline: 150,
+      potential: 300,
+      suffix: '%',
+      prefix: '+',
+      label: 'Hiệu suất sản xuất nội dung',
+      baselineLabel: 'Mức cam kết tối thiểu',
+      potentialLabel: 'Tiềm năng thực tế',
+      color: '#00D4FF',
+    },
+    {
+      baseline: 30,
+      potential: 60,
+      suffix: '%',
+      prefix: '-',
+      label: 'Thời gian hoàn thiện ấn phẩm',
+      baselineLabel: 'Mức cam kết tối thiểu',
+      potentialLabel: 'Tiềm năng thực tế',
+      color: '#FFB800',
+    },
+    {
+      baseline: 10,
+      potential: 50,
+      suffix: 'x',
+      prefix: '',
+      label: 'Phương án test A/B',
+      baselineLabel: 'Mức cam kết tối thiểu',
+      potentialLabel: 'Tiềm năng thực tế',
+      color: '#00FF88',
+    },
   ];
 
   return (
@@ -614,22 +641,61 @@ function KPISection() {
             Kết quả sau
             <span className="gradient-text-cyan"> 90 ngày</span>
           </h2>
+          <p className="text-white/40 text-lg">
+            Đây là mức <span className="text-white/70 font-medium">cam kết tối thiểu</span> — khả năng thực tế có thể vượt xa hơn.
+          </p>
         </AnimatedSection>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.2}>
           {kpis.map((kpi, i) => (
             <StaggerItem key={i}>
-              <div className="text-center p-10 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500">
-                <div className="mb-4">
+              <div className="relative text-center p-8 md:p-10 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.15] transition-all duration-500 group overflow-hidden">
+                {/* Baseline */}
+                <div className="mb-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/[0.06] text-white/40 mb-4">
+                    <Shield className="w-3 h-3" />
+                    {kpi.baselineLabel}
+                  </span>
+                </div>
+                <div className="mb-1">
                   <CountUpNumber
-                    end={kpi.value}
+                    end={kpi.baseline}
                     suffix={kpi.suffix}
                     prefix={kpi.prefix}
-                    className="text-5xl md:text-6xl"
+                    className="text-4xl md:text-5xl"
                     glowColor={kpi.color === '#FFB800' ? 'gold' : 'cyan'}
                   />
                 </div>
-                <p className="text-white/50 text-lg">{kpi.label}</p>
+                <p className="text-white/50 text-base mb-6">{kpi.label}</p>
+
+                {/* Divider */}
+                <div className="relative my-4">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full h-px" style={{ background: `linear-gradient(90deg, transparent, ${kpi.color}30, transparent)` }} />
+                  </div>
+                  <div className="relative flex justify-center">
+                    <div className="px-3 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase" style={{ backgroundColor: `${kpi.color}15`, color: kpi.color }}>
+                      Có thể đạt
+                    </div>
+                  </div>
+                </div>
+
+                {/* Potential */}
+                <div className="mt-4">
+                  <div className="flex items-center justify-center gap-2">
+                    <Rocket className="w-4 h-4" style={{ color: kpi.color }} />
+                    <span className="font-display font-bold text-2xl md:text-3xl" style={{ color: kpi.color }}>
+                      {kpi.prefix}{kpi.potential}{kpi.suffix}
+                    </span>
+                  </div>
+                  <p className="text-white/30 text-sm mt-1">{kpi.potentialLabel}</p>
+                </div>
+
+                {/* Glow on hover */}
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: `linear-gradient(90deg, transparent, ${kpi.color}, transparent)` }}
+                />
               </div>
             </StaggerItem>
           ))}
