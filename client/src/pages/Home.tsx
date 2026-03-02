@@ -760,8 +760,7 @@ function KPISection() {
 /* ─── ACCOMPANY SECTION ─── */
 function AccompanySection() {
   const items = [
-    { num: '12', label: 'Workshop chiến lược', icon: Lightbulb },
-    { num: '12', label: 'Buổi Group Coach cho team core', icon: Users },
+    { num: '12', label: 'Workshop chiến lược + Group Coaching', icon: Lightbulb },
     { num: '∞', label: 'Review dự án thực tế', icon: Target },
     { num: '✓', label: 'Onsite khi cần', icon: Rocket },
     { num: '✓', label: 'Handover đầy đủ tài liệu & hệ thống', icon: BookOpen },
@@ -783,7 +782,7 @@ function AccompanySection() {
           </p>
         </AnimatedSection>
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" staggerDelay={0.1}>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.1}>
           {items.map((item, i) => (
             <StaggerItem key={i}>
               <div className="text-center p-6 rounded-2xl transition-all duration-300 h-full" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
@@ -811,12 +810,13 @@ function InvestmentSection() {
       badge: 'Đề xuất',
       title: 'Full System Transformation',
       subtitle: 'Chuyển đổi toàn diện hệ thống',
-      desc: 'Triển khai đầy đủ 90 ngày — từ Audit, Training chuyên sâu, đến Chuyển giao hoàn chỉnh. Bao gồm tầng Performance Audit & KPI Restructuring.',
+      price: '480.000.000',
+      desc: 'Triển khai đầy đủ 90 ngày — từ Audit, Training chuyên sâu, đến Chuyển giao hoàn chỉnh. Bao gồm build case study thực chiến cùng Deman AI Lab và Performance Audit & KPI Restructuring.',
       includes: [
         'Lộ trình 90 ngày chuyển đổi toàn diện',
-        '12 Workshop chiến lược',
-        '12 buổi Group Coaching cho team core',
+        '12 buổi Workshop chiến lược + Group Coaching cho team core',
         '5 buổi 1-1 chiến lược với Hải VN',
+        'Build case study thực chiến cùng Deman AI Lab × MESCELLS',
         'Triển khai + Chuyển giao nội bộ',
         'AI Operating System hoàn chỉnh',
         'Performance Audit & KPI Restructuring',
@@ -831,11 +831,11 @@ function InvestmentSection() {
       badge: 'Tối ưu phạm vi',
       title: 'Core System Deployment',
       subtitle: 'Triển khai hệ thống cốt lõi',
-      desc: 'Cùng lộ trình 90 ngày, cùng workshop & coaching — tập trung vào triển khai hệ thống AI cốt lõi với phạm vi KPI tinh gọn hơn.',
+      price: '420.000.000',
+      desc: 'Cùng lộ trình 90 ngày, cùng workshop & coaching — tập trung vào triển khai hệ thống AI cốt lõi với phạm vi tinh gọn hơn.',
       includes: [
         'Lộ trình 90 ngày — cùng framework',
-        '12 Workshop chiến lược',
-        '12 buổi Group Coaching cho team core',
+        '12 buổi Workshop chiến lược + Group Coaching cho team core',
         '5 buổi 1-1 chiến lược với Hải VN',
         'Triển khai + Chuyển giao nội bộ',
         'AI Operating System hoàn chỉnh',
@@ -909,7 +909,17 @@ function InvestmentSection() {
                   <h3 className="font-display font-bold text-2xl md:text-3xl mb-2" style={{ color: tier.color }}>
                     {tier.title}
                   </h3>
-                  <p className="text-white/60 text-base mb-2">{tier.subtitle}</p>
+                  <p className="text-white/60 text-base mb-4">{tier.subtitle}</p>
+
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display font-bold text-3xl md:text-4xl" style={{ color: tier.color }}>
+                        {tier.price}
+                      </span>
+                      <span className="text-white/30 text-sm">VNĐ</span>
+                    </div>
+                  </div>
+
                   <p className="text-white/40 text-sm leading-relaxed mb-8">{tier.desc}</p>
 
                   <div className="mb-8">
