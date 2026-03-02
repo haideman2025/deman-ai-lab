@@ -40,85 +40,90 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: 'Nunito', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  /* Mesmee Brand Colors */
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Sora', system-ui, sans-serif;
+  /* DEMAN AI LAB Brand Colors */
+  --color-gold: oklch(0.78 0.12 75);
+  --color-gold-light: oklch(0.85 0.1 75);
+  --color-gold-dark: oklch(0.65 0.14 75);
+  --color-charcoal: oklch(0.15 0.005 0);
+  --color-charcoal-deep: oklch(0.08 0.005 0);
+  /* Mesmee teal colors for proposal page */
   --color-teal: oklch(0.72 0.12 180);
   --color-mint: oklch(0.82 0.12 170);
-  --color-gold: oklch(0.8 0.15 80);
   --color-coral: oklch(0.7 0.12 25);
   --color-deep-teal: oklch(0.12 0.04 180);
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: oklch(0.09 0.03 180);
-  --foreground: oklch(0.95 0.005 180);
-  --card: oklch(0.13 0.035 180);
-  --card-foreground: oklch(0.95 0.005 180);
-  --popover: oklch(0.13 0.035 180);
-  --popover-foreground: oklch(0.95 0.005 180);
-  --primary: oklch(0.72 0.12 180);
-  --primary-foreground: oklch(0.09 0.03 180);
-  --secondary: oklch(0.15 0.03 180);
-  --secondary-foreground: oklch(0.85 0.005 180);
-  --muted: oklch(0.18 0.025 180);
-  --muted-foreground: oklch(0.6 0.03 180);
-  --accent: oklch(0.8 0.15 80);
-  --accent-foreground: oklch(0.09 0.03 180);
+  --radius: 0.5rem;
+  --background: oklch(0.08 0.005 0);
+  --foreground: oklch(0.93 0.005 75);
+  --card: oklch(0.12 0.005 0);
+  --card-foreground: oklch(0.93 0.005 75);
+  --popover: oklch(0.12 0.005 0);
+  --popover-foreground: oklch(0.93 0.005 75);
+  --primary: oklch(0.78 0.12 75);
+  --primary-foreground: oklch(0.08 0.005 0);
+  --secondary: oklch(0.15 0.005 0);
+  --secondary-foreground: oklch(0.8 0.005 75);
+  --muted: oklch(0.18 0.005 0);
+  --muted-foreground: oklch(0.55 0.01 75);
+  --accent: oklch(0.78 0.12 75);
+  --accent-foreground: oklch(0.08 0.005 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.2 0.03 180);
-  --input: oklch(0.2 0.03 180);
-  --ring: oklch(0.72 0.12 180);
-  --chart-1: oklch(0.72 0.12 180);
-  --chart-2: oklch(0.8 0.15 80);
-  --chart-3: oklch(0.82 0.12 170);
-  --chart-4: oklch(0.7 0.12 25);
-  --chart-5: oklch(0.5 0.1 180);
-  --sidebar: oklch(0.1 0.03 180);
-  --sidebar-foreground: oklch(0.95 0.005 180);
-  --sidebar-accent: oklch(0.15 0.03 180);
-  --sidebar-accent-foreground: oklch(0.95 0.005 180);
-  --sidebar-border: oklch(0.2 0.03 180);
-  --sidebar-ring: oklch(0.72 0.12 180);
-  --sidebar-primary: oklch(0.72 0.12 180);
-  --sidebar-primary-foreground: oklch(0.09 0.03 180);
+  --border: oklch(0.2 0.005 75);
+  --input: oklch(0.2 0.005 75);
+  --ring: oklch(0.78 0.12 75);
+  --chart-1: oklch(0.78 0.12 75);
+  --chart-2: oklch(0.65 0.14 75);
+  --chart-3: oklch(0.85 0.1 75);
+  --chart-4: oklch(0.55 0.01 75);
+  --chart-5: oklch(0.4 0.01 75);
+  --sidebar: oklch(0.1 0.005 0);
+  --sidebar-foreground: oklch(0.93 0.005 75);
+  --sidebar-accent: oklch(0.15 0.005 0);
+  --sidebar-accent-foreground: oklch(0.93 0.005 75);
+  --sidebar-border: oklch(0.2 0.005 75);
+  --sidebar-ring: oklch(0.78 0.12 75);
+  --sidebar-primary: oklch(0.78 0.12 75);
+  --sidebar-primary-foreground: oklch(0.08 0.005 0);
 }
 
 .dark {
-  --background: oklch(0.09 0.03 180);
-  --foreground: oklch(0.95 0.005 180);
-  --card: oklch(0.13 0.035 180);
-  --card-foreground: oklch(0.95 0.005 180);
-  --popover: oklch(0.13 0.035 180);
-  --popover-foreground: oklch(0.95 0.005 180);
-  --primary: oklch(0.72 0.12 180);
-  --primary-foreground: oklch(0.09 0.03 180);
-  --secondary: oklch(0.15 0.03 180);
-  --secondary-foreground: oklch(0.85 0.005 180);
-  --muted: oklch(0.18 0.025 180);
-  --muted-foreground: oklch(0.6 0.03 180);
-  --accent: oklch(0.8 0.15 80);
-  --accent-foreground: oklch(0.09 0.03 180);
+  --background: oklch(0.08 0.005 0);
+  --foreground: oklch(0.93 0.005 75);
+  --card: oklch(0.12 0.005 0);
+  --card-foreground: oklch(0.93 0.005 75);
+  --popover: oklch(0.12 0.005 0);
+  --popover-foreground: oklch(0.93 0.005 75);
+  --primary: oklch(0.78 0.12 75);
+  --primary-foreground: oklch(0.08 0.005 0);
+  --secondary: oklch(0.15 0.005 0);
+  --secondary-foreground: oklch(0.8 0.005 75);
+  --muted: oklch(0.18 0.005 0);
+  --muted-foreground: oklch(0.55 0.01 75);
+  --accent: oklch(0.78 0.12 75);
+  --accent-foreground: oklch(0.08 0.005 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.2 0.03 180);
-  --input: oklch(0.2 0.03 180);
-  --ring: oklch(0.72 0.12 180);
-  --chart-1: oklch(0.72 0.12 180);
-  --chart-2: oklch(0.8 0.15 80);
-  --chart-3: oklch(0.82 0.12 170);
-  --chart-4: oklch(0.7 0.12 25);
-  --chart-5: oklch(0.5 0.1 180);
-  --sidebar: oklch(0.1 0.03 180);
-  --sidebar-foreground: oklch(0.95 0.005 180);
-  --sidebar-accent: oklch(0.15 0.03 180);
-  --sidebar-accent-foreground: oklch(0.95 0.005 180);
-  --sidebar-border: oklch(0.2 0.03 180);
-  --sidebar-ring: oklch(0.72 0.12 180);
-  --sidebar-primary: oklch(0.72 0.12 180);
-  --sidebar-primary-foreground: oklch(0.09 0.03 180);
+  --border: oklch(0.2 0.005 75);
+  --input: oklch(0.2 0.005 75);
+  --ring: oklch(0.78 0.12 75);
+  --chart-1: oklch(0.78 0.12 75);
+  --chart-2: oklch(0.65 0.14 75);
+  --chart-3: oklch(0.85 0.1 75);
+  --chart-4: oklch(0.55 0.01 75);
+  --chart-5: oklch(0.4 0.01 75);
+  --sidebar: oklch(0.1 0.005 0);
+  --sidebar-foreground: oklch(0.93 0.005 75);
+  --sidebar-accent: oklch(0.15 0.005 0);
+  --sidebar-accent-foreground: oklch(0.93 0.005 75);
+  --sidebar-border: oklch(0.2 0.005 75);
+  --sidebar-ring: oklch(0.78 0.12 75);
+  --sidebar-primary: oklch(0.78 0.12 75);
+  --sidebar-primary-foreground: oklch(0.08 0.005 0);
 }
 
 @layer base {
@@ -127,7 +132,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Nunito', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -172,12 +177,22 @@
   }
 }
 
-/* ═══ Mesmee Brand Styles ═══ */
+/* ═══ DEMAN AI LAB — Dark Luxury Styles ═══ */
 .font-display {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Sora', system-ui, sans-serif;
 }
 
-/* Teal glow — primary brand */
+/* Gold glow — primary brand */
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(212, 168, 83, 0.5), 0 0 40px rgba(212, 168, 83, 0.15);
+}
+
+/* Subtle white glow */
+.text-glow-white {
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Teal glow — for Mesmee proposal page */
 .text-glow-teal {
   text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(45, 212, 191, 0.2);
 }
@@ -186,23 +201,32 @@
   text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(45, 212, 191, 0.2);
 }
 
-/* Gold glow — accent */
-.text-glow-gold {
-  text-shadow: 0 0 20px rgba(255, 184, 0, 0.5), 0 0 40px rgba(255, 184, 0, 0.15);
-}
-
 /* Glow borders */
 .glow-border {
-  box-shadow: 0 0 15px rgba(45, 212, 191, 0.15), inset 0 0 15px rgba(45, 212, 191, 0.05);
-  border: 1px solid rgba(45, 212, 191, 0.2);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.1), inset 0 0 20px rgba(212, 168, 83, 0.03);
+  border: 1px solid rgba(212, 168, 83, 0.15);
 }
 
 .glow-border-gold {
-  box-shadow: 0 0 15px rgba(255, 184, 0, 0.15), inset 0 0 15px rgba(255, 184, 0, 0.05);
-  border: 1px solid rgba(255, 184, 0, 0.2);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.15), inset 0 0 20px rgba(212, 168, 83, 0.05);
+  border: 1px solid rgba(212, 168, 83, 0.2);
 }
 
 /* Gradient texts */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #D4A853, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #D4A853, #E8C068);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .gradient-text-teal {
   background: linear-gradient(135deg, #2DD4BF, #0D9488);
   -webkit-background-clip: text;
@@ -212,20 +236,6 @@
 
 .gradient-text-cyan {
   background: linear-gradient(135deg, #2DD4BF, #0D9488);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-gold {
-  background: linear-gradient(135deg, #FFB800, #F59E0B);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-warm {
-  background: linear-gradient(135deg, #FFB800, #FB923C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -245,30 +255,36 @@
   z-index: 1;
 }
 
+/* Gold line accent */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.5), transparent);
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar — Mesmee teal */
+/* Custom scrollbar — Gold */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A2E2E;
+  background: #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(45, 212, 191, 0.3);
+  background: rgba(212, 168, 83, 0.3);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 212, 191, 0.5);
+  background: rgba(212, 168, 83, 0.5);
 }
 
-/* Sparkle animation for Mesmee magical feel */
+/* Sparkle animation */
 @keyframes sparkle {
   0%, 100% { opacity: 0.3; transform: scale(0.8); }
   50% { opacity: 1; transform: scale(1.2); }
@@ -276,4 +292,14 @@ html {
 
 .animate-sparkle {
   animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

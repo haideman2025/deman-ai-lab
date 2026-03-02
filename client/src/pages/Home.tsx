@@ -11,6 +11,7 @@ import { CountUpNumber } from '@/components/CountUpNumber';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
+  ArrowLeft,
   ArrowRight,
   BarChart3,
   BookOpen,
@@ -106,11 +107,17 @@ function Navbar() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <div className="flex items-center gap-2">
-          <Heart className="w-5 h-5" style={{ color: C.teal }} />
-          <span className="font-display font-bold text-lg tracking-tight">
-            AI Marketing <span style={{ color: C.teal }}>Transformation</span>™
-          </span>
+        <div className="flex items-center gap-4">
+          <a href="/" className="flex items-center gap-2 text-xs font-medium opacity-50 hover:opacity-100 transition-opacity" style={{ color: C.teal }}>
+            <ArrowLeft className="w-3 h-3" /> DEMAN AI LAB
+          </a>
+          <div className="w-px h-4 bg-white/10" />
+          <div className="flex items-center gap-2">
+            <Heart className="w-5 h-5" style={{ color: C.teal }} />
+            <span className="font-display font-bold text-lg tracking-tight">
+              AI Marketing <span style={{ color: C.teal }}>Transformation</span>™
+            </span>
+          </div>
         </div>
           <a
             href="#investment"
