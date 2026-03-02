@@ -18,10 +18,16 @@ import {
   CheckCircle2,
   Clock,
   Clapperboard,
+  ExternalLink,
+  Eye,
+  Globe,
+  Image,
   Layers,
   Lightbulb,
+  MessageCircle,
   Palette,
   PenTool,
+  Play,
   Rocket,
   Shield,
   Sparkles,
@@ -30,7 +36,7 @@ import {
   Users,
   Zap,
 } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const IMAGES = {
   hero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/hero-bg-NVfDk9eDHs6GxcpzpgtEvA.webp',
@@ -38,6 +44,17 @@ const IMAGES = {
   team: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/team-power-VJ9XDsLvURZxkuKMjiByNe.webp',
   pattern: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/abstract-ai-pattern-9pE6V9Uyi3pCyfw36fxcPt.webp',
 };
+
+const MESMEE_GALLERY = [
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_1_fbb5542f.jpg', label: 'Mes-Mee chúc ngủ ngon' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_2_be5b035c.jpg', label: 'Tiểu đường & biến chứng' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_3_db15287a.jpg', label: 'PRP — Liệu pháp huyết tương' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_4_1f492720.jpg', label: 'Câu chuyện bệnh nhân' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_5_47b6891b.jpg', label: 'Gan — Người hùng thầm lặng' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_6_f4b60263.jpg', label: 'Phòng Lab Mescells' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_7_50dbdfc8.jpg', label: 'Mes-Mee nhắc đi khám' },
+  { src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/post_8_31f75eb3.jpg', label: 'Thoái hóa khớp gối' },
+];
 
 export default function Home() {
   return (
@@ -51,6 +68,7 @@ export default function Home() {
       <RoadmapSection />
       <RoleSection />
       <DeliverablesSection />
+      <MesmeeShowcaseSection />
       <KPISection />
       <AccompanySection />
       <InvestmentSection />
@@ -812,6 +830,309 @@ function InvestmentSection() {
               </div>
             </div>
           </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── MESMEE SHOWCASE SECTION ─── */
+function MesmeeShowcaseSection() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % MESMEE_GALLERY.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const contentPillars = [
+    { icon: BookOpen, label: 'Nhật ký Mes-Mee', desc: 'Câu chuyện cảm xúc hàng ngày', color: '#00D4FF', pct: 60 },
+    { icon: Brain, label: 'Dr. Mescells Giải Đáp', desc: 'Giáo dục y khoa dễ hiểu', color: '#FFB800', pct: 25 },
+    { icon: Target, label: 'Hành Trình Bệnh Nhân', desc: 'Kết quả điều trị thực tế', color: '#00FF88', pct: 15 },
+  ];
+
+  const sourceChannels = [
+    { name: 'TT Cơ Xương Khớp MSC', followers: '99K', color: '#00D4FF' },
+    { name: 'BS Trần Trọng Thắng', followers: '35K', color: '#FFB800' },
+    { name: 'Viện NC Mescells', followers: '5.4K', color: '#00FF88' },
+    { name: 'GS.TS Thái Hồng Quang', followers: '2.7K', color: '#00D4FF' },
+    { name: 'PGS.TS Đỗ Tuấn Anh', followers: '1.3K', color: '#FFB800' },
+    { name: 'BS CKII Trần Khanh', followers: '1K', color: '#00FF88' },
+  ];
+
+  return (
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00D4FF]/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#FFB800]/[0.03] rounded-full blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <AnimatedSection className="text-center max-w-4xl mx-auto mb-16">
+          <span className="text-[#00FF88] font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
+            Proof of Concept
+          </span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+            Cuộc chơi đã
+            <span className="gradient-text-cyan"> thay đổi</span>
+          </h2>
+          <p className="text-white/50 text-lg md:text-xl leading-relaxed">
+            Từ <span className="text-white/80 font-medium">17+ kênh MESCELLS</span>, AI tự động curate, viết lại theo giọng Mes-Mee, tạo hình ảnh AI, và đăng <span className="text-[#00D4FF] font-medium">5–10 bài/ngày</span> — hoàn toàn tự động.
+          </p>
+        </AnimatedSection>
+
+        {/* Main showcase grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+          {/* Left: Gallery carousel */}
+          <AnimatedSection className="relative">
+            <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02]">
+              {/* Browser chrome mockup */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-white/[0.04] border-b border-white/[0.06]">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                </div>
+                <div className="flex-1 flex items-center gap-2 px-3 py-1 rounded-md bg-white/[0.04] text-white/30 text-xs">
+                  <Globe className="w-3 h-3" />
+                  facebook.com/mesmee.diary
+                </div>
+                <a
+                  href="https://www.facebook.com/mesmee.diary/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-[#00D4FF] text-xs hover:text-[#00D4FF]/80 transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  Xem page
+                </a>
+              </div>
+
+              {/* Image carousel */}
+              <div className="relative aspect-square">
+                {MESMEE_GALLERY.map((img, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute inset-0"
+                    initial={false}
+                    animate={{
+                      opacity: i === activeIdx ? 1 : 0,
+                      scale: i === activeIdx ? 1 : 1.05,
+                    }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.label}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* Overlay label */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+                      <p className="text-white font-display font-semibold text-lg">{img.label}</p>
+                      <p className="text-white/50 text-sm">Nhật Ký Của Mes-Mee</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Dots */}
+              <div className="flex items-center justify-center gap-2 py-3 bg-white/[0.02]">
+                {MESMEE_GALLERY.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIdx(i)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i === activeIdx ? 'bg-[#00D4FF] w-6' : 'bg-white/20 hover:bg-white/40'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Right: Stats & content strategy */}
+          <div className="flex flex-col gap-6">
+            {/* Live stats banner */}
+            <AnimatedSection delay={0.1}>
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-[#00D4FF]/[0.08] to-transparent border border-[#00D4FF]/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-[#00FF88] animate-pulse" />
+                  <span className="text-[#00FF88] font-display font-semibold text-sm tracking-wider uppercase">AI Content Engine — Live</span>
+                </div>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="font-display font-bold text-2xl md:text-3xl text-white">20+</div>
+                    <p className="text-white/40 text-xs mt-1">Bài đã đăng</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-display font-bold text-2xl md:text-3xl text-white">8</div>
+                    <p className="text-white/40 text-xs mt-1">Phong cách ảnh AI</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-display font-bold text-2xl md:text-3xl text-white">17+</div>
+                    <p className="text-white/40 text-xs mt-1">Kênh nguồn</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Content pillars */}
+            <AnimatedSection delay={0.2}>
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                <h3 className="font-display font-bold text-lg mb-4 text-white/80">3 Trụ cột nội dung</h3>
+                <div className="space-y-4">
+                  {contentPillars.map((pillar, i) => (
+                    <div key={i} className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${pillar.color}15` }}>
+                        <pillar.icon className="w-5 h-5" style={{ color: pillar.color }} />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-white/70 text-sm font-medium">{pillar.label}</span>
+                          <span className="text-xs font-bold" style={{ color: pillar.color }}>{pillar.pct}%</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                          <motion.div
+                            className="h-full rounded-full"
+                            style={{ backgroundColor: pillar.color }}
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${pillar.pct}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.2, delay: 0.3 + i * 0.15, ease: 'easeOut' }}
+                          />
+                        </div>
+                        <p className="text-white/30 text-xs mt-1">{pillar.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Source channels */}
+            <AnimatedSection delay={0.3}>
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                <h3 className="font-display font-bold text-lg mb-4 text-white/80">Nguồn content vô hạn</h3>
+                <p className="text-white/40 text-sm mb-4">AI curate từ hệ sinh thái 17+ kênh MESCELLS:</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {sourceChannels.map((ch, i) => (
+                    <div key={i} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.04]">
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: ch.color }} />
+                      <div className="min-w-0">
+                        <p className="text-white/60 text-xs truncate">{ch.name}</p>
+                        <p className="text-xs font-bold" style={{ color: ch.color }}>{ch.followers}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+
+        {/* How it works pipeline */}
+        <AnimatedSection delay={0.2} className="mb-16">
+          <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+            <h3 className="font-display font-bold text-xl md:text-2xl text-center mb-8">
+              Quy trình <span className="text-[#00D4FF]">AI Content Engine</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2">
+              {[
+                { step: '01', title: 'Cào nội dung', desc: 'Từ 17+ kênh MESCELLS', icon: Globe, color: '#00D4FF' },
+                { step: '02', title: 'AI Curate', desc: 'Chọn lọc bài chất lượng', icon: Brain, color: '#FFB800' },
+                { step: '03', title: 'Viết lại', desc: 'Giọng Mes-Mee độc quyền', icon: PenTool, color: '#00FF88' },
+                { step: '04', title: 'Tạo ảnh AI', desc: '8 phong cách khác nhau', icon: Image, color: '#00D4FF' },
+                { step: '05', title: 'Tự động đăng', desc: '5–10 bài/ngày theo lịch', icon: Rocket, color: '#FFB800' },
+              ].map((item, i) => (
+                <div key={i} className="relative flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3" style={{ backgroundColor: `${item.color}12` }}>
+                    <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                  </div>
+                  <div className="font-display font-bold text-xs mb-1" style={{ color: item.color }}>{item.step}</div>
+                  <h4 className="font-display font-bold text-sm text-white/80 mb-1">{item.title}</h4>
+                  <p className="text-white/40 text-xs">{item.desc}</p>
+                  {/* Arrow connector (hidden on mobile) */}
+                  {i < 4 && (
+                    <div className="hidden md:block absolute top-7 -right-1 text-white/10">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Before vs After comparison */}
+        <AnimatedSection delay={0.3}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Before */}
+            <div className="p-8 rounded-2xl bg-red-500/[0.04] border border-red-500/10">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                <span className="text-red-400 font-display font-semibold text-sm tracking-wider uppercase">Trước AI</span>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  'Team 3–5 người làm 1–2 bài/ngày',
+                  'Mất 2–4 giờ cho 1 ấn phẩm',
+                  'Nội dung lặp lại, thiếu đa dạng',
+                  'Không tận dụng được content sẵn có',
+                  'Phụ thuộc hoàn toàn vào con người',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-red-400 text-xs">✗</span>
+                    </div>
+                    <span className="text-white/50 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* After */}
+            <div className="p-8 rounded-2xl bg-[#00D4FF]/[0.04] border border-[#00D4FF]/10">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-3 h-3 rounded-full bg-[#00FF88] animate-pulse" />
+                <span className="text-[#00FF88] font-display font-semibold text-sm tracking-wider uppercase">Sau AI Transformation</span>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  'AI tạo 5–10 bài/ngày tự động',
+                  'Từ ý tưởng đến ấn phẩm trong 15 phút',
+                  '3 trụ cột × 8 phong cách = vô hạn biến thể',
+                  'Curate từ 17+ kênh — content không bao giờ cạn',
+                  'Team tập trung sáng tạo & chiến lược',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#00FF88]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00FF88]" />
+                    </div>
+                    <span className="text-white/70 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* CTA to fanpage */}
+        <AnimatedSection delay={0.4} className="mt-12 text-center">
+          <a
+            href="https://www.facebook.com/mesmee.diary/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#00D4FF]/[0.08] border border-[#00D4FF]/20 hover:border-[#00D4FF]/40 hover:bg-[#00D4FF]/[0.12] transition-all duration-300"
+          >
+            <Play className="w-5 h-5 text-[#00D4FF]" />
+            <span className="text-white/80 font-medium">Xem fanpage Nhật Ký Của Mes-Mee trên Facebook</span>
+            <ExternalLink className="w-4 h-4 text-[#00D4FF] group-hover:translate-x-1 transition-transform" />
+          </a>
         </AnimatedSection>
       </div>
     </section>
