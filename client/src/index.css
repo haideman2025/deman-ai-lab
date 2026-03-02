@@ -40,82 +40,85 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Nunito', system-ui, sans-serif;
   --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --color-cyan: oklch(0.78 0.15 200);
+  /* Mesmee Brand Colors */
+  --color-teal: oklch(0.72 0.12 180);
+  --color-mint: oklch(0.82 0.12 170);
   --color-gold: oklch(0.8 0.15 80);
-  --color-deep-navy: oklch(0.15 0.03 260);
+  --color-coral: oklch(0.7 0.12 25);
+  --color-deep-teal: oklch(0.12 0.04 180);
 }
 
 :root {
-  --radius: 0.5rem;
-  --background: oklch(0.08 0.01 260);
-  --foreground: oklch(0.95 0.005 260);
-  --card: oklch(0.12 0.015 260);
-  --card-foreground: oklch(0.95 0.005 260);
-  --popover: oklch(0.12 0.015 260);
-  --popover-foreground: oklch(0.95 0.005 260);
-  --primary: oklch(0.78 0.15 200);
-  --primary-foreground: oklch(0.08 0.01 260);
-  --secondary: oklch(0.15 0.02 260);
-  --secondary-foreground: oklch(0.85 0.005 260);
-  --muted: oklch(0.18 0.015 260);
-  --muted-foreground: oklch(0.6 0.02 260);
+  --radius: 0.75rem;
+  --background: oklch(0.09 0.03 180);
+  --foreground: oklch(0.95 0.005 180);
+  --card: oklch(0.13 0.035 180);
+  --card-foreground: oklch(0.95 0.005 180);
+  --popover: oklch(0.13 0.035 180);
+  --popover-foreground: oklch(0.95 0.005 180);
+  --primary: oklch(0.72 0.12 180);
+  --primary-foreground: oklch(0.09 0.03 180);
+  --secondary: oklch(0.15 0.03 180);
+  --secondary-foreground: oklch(0.85 0.005 180);
+  --muted: oklch(0.18 0.025 180);
+  --muted-foreground: oklch(0.6 0.03 180);
   --accent: oklch(0.8 0.15 80);
-  --accent-foreground: oklch(0.08 0.01 260);
+  --accent-foreground: oklch(0.09 0.03 180);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.2 0.02 260);
-  --input: oklch(0.2 0.02 260);
-  --ring: oklch(0.78 0.15 200);
-  --chart-1: oklch(0.78 0.15 200);
+  --border: oklch(0.2 0.03 180);
+  --input: oklch(0.2 0.03 180);
+  --ring: oklch(0.72 0.12 180);
+  --chart-1: oklch(0.72 0.12 180);
   --chart-2: oklch(0.8 0.15 80);
-  --chart-3: oklch(0.6 0.15 200);
-  --chart-4: oklch(0.7 0.1 260);
-  --chart-5: oklch(0.5 0.1 200);
-  --sidebar: oklch(0.1 0.015 260);
-  --sidebar-foreground: oklch(0.95 0.005 260);
-  --sidebar-accent: oklch(0.15 0.02 260);
-  --sidebar-accent-foreground: oklch(0.95 0.005 260);
-  --sidebar-border: oklch(0.2 0.02 260);
-  --sidebar-ring: oklch(0.78 0.15 200);
-  --sidebar-primary: oklch(0.78 0.15 200);
-  --sidebar-primary-foreground: oklch(0.08 0.01 260);
+  --chart-3: oklch(0.82 0.12 170);
+  --chart-4: oklch(0.7 0.12 25);
+  --chart-5: oklch(0.5 0.1 180);
+  --sidebar: oklch(0.1 0.03 180);
+  --sidebar-foreground: oklch(0.95 0.005 180);
+  --sidebar-accent: oklch(0.15 0.03 180);
+  --sidebar-accent-foreground: oklch(0.95 0.005 180);
+  --sidebar-border: oklch(0.2 0.03 180);
+  --sidebar-ring: oklch(0.72 0.12 180);
+  --sidebar-primary: oklch(0.72 0.12 180);
+  --sidebar-primary-foreground: oklch(0.09 0.03 180);
 }
 
 .dark {
-  --background: oklch(0.08 0.01 260);
-  --foreground: oklch(0.95 0.005 260);
-  --card: oklch(0.12 0.015 260);
-  --card-foreground: oklch(0.95 0.005 260);
-  --popover: oklch(0.12 0.015 260);
-  --popover-foreground: oklch(0.95 0.005 260);
-  --primary: oklch(0.78 0.15 200);
-  --primary-foreground: oklch(0.08 0.01 260);
-  --secondary: oklch(0.15 0.02 260);
-  --secondary-foreground: oklch(0.85 0.005 260);
-  --muted: oklch(0.18 0.015 260);
-  --muted-foreground: oklch(0.6 0.02 260);
+  --background: oklch(0.09 0.03 180);
+  --foreground: oklch(0.95 0.005 180);
+  --card: oklch(0.13 0.035 180);
+  --card-foreground: oklch(0.95 0.005 180);
+  --popover: oklch(0.13 0.035 180);
+  --popover-foreground: oklch(0.95 0.005 180);
+  --primary: oklch(0.72 0.12 180);
+  --primary-foreground: oklch(0.09 0.03 180);
+  --secondary: oklch(0.15 0.03 180);
+  --secondary-foreground: oklch(0.85 0.005 180);
+  --muted: oklch(0.18 0.025 180);
+  --muted-foreground: oklch(0.6 0.03 180);
   --accent: oklch(0.8 0.15 80);
-  --accent-foreground: oklch(0.08 0.01 260);
+  --accent-foreground: oklch(0.09 0.03 180);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.2 0.02 260);
-  --input: oklch(0.2 0.02 260);
-  --ring: oklch(0.78 0.15 200);
-  --chart-1: oklch(0.78 0.15 200);
+  --border: oklch(0.2 0.03 180);
+  --input: oklch(0.2 0.03 180);
+  --ring: oklch(0.72 0.12 180);
+  --chart-1: oklch(0.72 0.12 180);
   --chart-2: oklch(0.8 0.15 80);
-  --chart-3: oklch(0.6 0.15 200);
-  --chart-4: oklch(0.7 0.1 260);
-  --chart-5: oklch(0.5 0.1 200);
-  --sidebar: oklch(0.1 0.015 260);
-  --sidebar-foreground: oklch(0.95 0.005 260);
-  --sidebar-accent: oklch(0.15 0.02 260);
-  --sidebar-accent-foreground: oklch(0.95 0.005 260);
-  --sidebar-border: oklch(0.2 0.02 260);
-  --sidebar-ring: oklch(0.78 0.15 200);
-  --sidebar-primary: oklch(0.78 0.15 200);
-  --sidebar-primary-foreground: oklch(0.08 0.01 260);
+  --chart-3: oklch(0.82 0.12 170);
+  --chart-4: oklch(0.7 0.12 25);
+  --chart-5: oklch(0.5 0.1 180);
+  --sidebar: oklch(0.1 0.03 180);
+  --sidebar-foreground: oklch(0.95 0.005 180);
+  --sidebar-accent: oklch(0.15 0.03 180);
+  --sidebar-accent-foreground: oklch(0.95 0.005 180);
+  --sidebar-border: oklch(0.2 0.03 180);
+  --sidebar-ring: oklch(0.72 0.12 180);
+  --sidebar-primary: oklch(0.72 0.12 180);
+  --sidebar-primary-foreground: oklch(0.09 0.03 180);
 }
 
 @layer base {
@@ -124,7 +127,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Nunito', system-ui, sans-serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -169,22 +172,29 @@
   }
 }
 
-/* Cinematic Noir Custom Styles */
+/* ═══ Mesmee Brand Styles ═══ */
 .font-display {
   font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 
+/* Teal glow — primary brand */
+.text-glow-teal {
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(45, 212, 191, 0.2);
+}
+
 .text-glow-cyan {
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.2);
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.5), 0 0 40px rgba(45, 212, 191, 0.2);
 }
 
+/* Gold glow — accent */
 .text-glow-gold {
-  text-shadow: 0 0 20px rgba(255, 184, 0, 0.5), 0 0 40px rgba(0, 212, 255, 0.1);
+  text-shadow: 0 0 20px rgba(255, 184, 0, 0.5), 0 0 40px rgba(255, 184, 0, 0.15);
 }
 
+/* Glow borders */
 .glow-border {
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.15), inset 0 0 15px rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 15px rgba(45, 212, 191, 0.15), inset 0 0 15px rgba(45, 212, 191, 0.05);
+  border: 1px solid rgba(45, 212, 191, 0.2);
 }
 
 .glow-border-gold {
@@ -192,20 +202,36 @@
   border: 1px solid rgba(255, 184, 0, 0.2);
 }
 
+/* Gradient texts */
+.gradient-text-teal {
+  background: linear-gradient(135deg, #2DD4BF, #0D9488);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .gradient-text-cyan {
-  background: linear-gradient(135deg, #00D4FF, #0099CC);
+  background: linear-gradient(135deg, #2DD4BF, #0D9488);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #FFB800, #FF8C00);
+  background: linear-gradient(135deg, #FFB800, #F59E0B);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.gradient-text-warm {
+  background: linear-gradient(135deg, #FFB800, #FB923C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise texture overlay */
 .bg-noise {
   position: relative;
 }
@@ -224,20 +250,30 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar — Mesmee teal */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0F;
+  background: #0A2E2E;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.3);
+  background: rgba(45, 212, 191, 0.3);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 212, 255, 0.5);
+  background: rgba(45, 212, 191, 0.5);
+}
+
+/* Sparkle animation for Mesmee magical feel */
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
 }

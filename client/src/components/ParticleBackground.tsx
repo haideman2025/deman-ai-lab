@@ -37,7 +37,7 @@ export function ParticleBackground() {
           speedX: (Math.random() - 0.5) * 0.3,
           speedY: (Math.random() - 0.5) * 0.3,
           opacity: Math.random() * 0.5 + 0.1,
-          color: Math.random() > 0.7 ? '#FFB800' : '#00D4FF',
+          color: Math.random() > 0.7 ? '#FFB800' : Math.random() > 0.4 ? '#2DD4BF' : '#FB923C',
         });
       }
     };
@@ -83,7 +83,7 @@ export function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = '#00D4FF';
+            ctx.strokeStyle = '#2DD4BF';
             ctx.globalAlpha = (1 - dist / 150) * 0.08;
             ctx.lineWidth = 0.5;
             ctx.stroke();
