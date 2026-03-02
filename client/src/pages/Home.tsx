@@ -1,6 +1,6 @@
 /**
  * AI Marketing Transformation™ 90-Day Landing Page
- * Design: Mesmee Brand — "Chiến binh chữa lành"
+ * Design: MESCELLS Brand — "Chiến binh chữa lành" (Mes-Mee mascot)
  * Color: Deep teal + mint/teal primary + warm gold accent + coral
  * Typography: Space Grotesk (display) + Nunito (body, warm & friendly)
  * Visual: Dreamy, magical, warm glow, DNA/cell motifs
@@ -162,7 +162,7 @@ function HeroSection() {
         >
           <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: C.teal }} />
           <span style={{ color: C.teal }} className="text-sm font-medium tracking-wide">
-            Dành cho Phòng Marketing Mesmee
+            Dành cho Viện NC Ứng Dụng Công Nghệ Tế Bào Mescells
           </span>
         </motion.div>
 
@@ -186,7 +186,7 @@ function HeroSection() {
         >
           Hành trình <span style={{ color: C.teal }} className="font-semibold">90 ngày chuyển hóa</span> —
           <br className="hidden sm:block" />
-          Biến đội ngũ thành <span style={{ color: C.gold }} className="font-semibold">những chiến binh sáng tạo</span> với AI.
+          Biến đội ngũ MESCELLS thành <span style={{ color: C.gold }} className="font-semibold">những chiến binh sáng tạo</span> với AI.
         </motion.p>
 
         <motion.div
@@ -438,7 +438,7 @@ function RoadmapSection() {
       duration: 'Tháng 2',
       items: [
         'Đào tạo theo vai trò (Content / Design / Media)',
-        'Ứng dụng ngay vào Case Mesmee',
+        'Ứng dụng ngay vào Case MESCELLS',
         'So sánh hiệu suất trước & sau',
       ],
       color: C.gold,
@@ -600,7 +600,7 @@ function DeliverablesSection() {
     { icon: Brain, text: 'AI Operating System hoàn chỉnh' },
     { icon: BookOpen, text: 'Prompt Library độc quyền' },
     { icon: Layers, text: 'Workflow chuẩn hóa' },
-    { icon: Target, text: 'Case thực chiến Mesmee' },
+    { icon: Target, text: 'Case thực chiến MESCELLS' },
     { icon: Rocket, text: 'Framework nhân rộng cho các brand khác' },
     { icon: Users, text: '5 buổi 1-1 chiến lược với Hải VN' },
     { icon: Shield, text: 'Group Coach hàng tuần cho đội ngũ' },
@@ -620,7 +620,7 @@ function DeliverablesSection() {
             </h2>
             <p className="text-white/50 text-lg leading-relaxed">
               Không chỉ là kiến thức — đây là toàn bộ hệ vận hành AI Marketing
-              được thiết kế riêng cho Mesmee, như một liệu trình được cá nhân hóa.
+              được thiết kế riêng cho MESCELLS, như một liệu trình được cá nhân hóa.
             </p>
           </AnimatedSection>
 
@@ -1180,7 +1180,7 @@ function ClosingSection() {
           </h2>
 
           <p className="text-white/50 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-12">
-            Hành trình vạn dặm, bắt đầu từ một tế bào. Dự án này giúp Mesmee chuẩn hóa hệ thống Marketing,
+            Hành trình vạn dặm, bắt đầu từ một tế bào. Dự án này giúp MESCELLS chuẩn hóa hệ thống Marketing,
             tăng hiệu suất thực tế, xây nền tảng tăng trưởng dài hạn, và tạo lợi thế cạnh tranh cốt lõi trong ngành Healthcare.
           </p>
 
@@ -1213,11 +1213,11 @@ function Footer() {
           <div className="flex items-center gap-2">
             <Heart className="w-4 h-4" style={{ color: C.teal }} />
             <span className="font-display font-semibold text-sm text-white/40">
-              AI Marketing Transformation™ × Mesmee
+              AI Marketing Transformation™ × MESCELLS
             </span>
           </div>
           <p className="text-white/20 text-sm">
-            © 2025 — Chiến binh chữa lành
+            © 2025 — Viện NC Ứng Dụng Công Nghệ Tế Bào Mescells
           </p>
         </div>
       </div>
