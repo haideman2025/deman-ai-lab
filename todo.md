@@ -1,9 +1,25 @@
-# TODO: Mes-Mee Showcase Section
+# TODO: Google Drive Data Crawl & Website Restructure
 
-- [ ] Upload fanpage screenshot as CDN asset
-- [ ] Capture some content images from the fanpage for gallery
-- [ ] Build new "Case Study" / "Proof of Concept" section in Home.tsx
-- [ ] Add real results stats (posts created, content variety, AI automation)
-- [ ] Update KPI section with actual results context
-- [ ] Verify all sections render correctly
-- [ ] Save checkpoint
+## Phase 1: Cào dữ liệu Google Drive
+- [ ] Authenticate with Google Drive API using OAuth token
+- [ ] List all files in "DEMAN AI LAB" folder
+- [ ] List all files in "HAIVN - GAME OF ECOM" folder
+- [ ] Download key documents from both folders
+
+## Phase 2: Phân tích tài liệu
+- [ ] Analyze all documents for insights about capabilities, services, projects
+- [ ] Extract real metrics, case studies, testimonials
+- [ ] Map actual services vs what's on website
+
+## Phase 3: Tổng hợp & Kế hoạch
+- [ ] Create comprehensive knowledge base
+- [ ] Plan website restructure based on real data
+
+## Phase 4: Tái cấu trúc website
+- [ ] Update all sections with real data
+- [ ] Restructure services based on actual offerings
+- [ ] Update case studies with real metrics
+
+## Phase 5: Kiểm tra & Bàn giao
+- [ ] Test all pages and language toggle
+- [ ] Save checkpoint and deliver
