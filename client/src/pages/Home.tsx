@@ -110,18 +110,18 @@ function Navbar() {
             AI Marketing <span style={{ color: C.teal }}>Transformation</span>™
           </span>
         </div>
-        <a
-          href="#investment"
-          className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300"
-          style={{
-            backgroundColor: `${C.teal}15`,
-            border: `1px solid ${C.teal}40`,
-            color: C.teal,
-          }}
-        >
-          Tìm hiểu thêm
-          <ArrowRight className="w-4 h-4" />
-        </a>
+          <a
+            href="#investment"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300"
+            style={{
+              backgroundColor: `${C.teal}15`,
+              border: `1px solid ${C.teal}40`,
+              color: C.teal,
+            }}
+          >
+            Trao đổi phạm vi
+            <ArrowRight className="w-4 h-4" />
+          </a>
       </div>
     </motion.nav>
   );
@@ -186,7 +186,7 @@ function HeroSection() {
         >
           Hành trình <span style={{ color: C.teal }} className="font-semibold">90 ngày chuyển hóa</span> —
           <br className="hidden sm:block" />
-          Biến đội ngũ MESCELLS thành <span style={{ color: C.gold }} className="font-semibold">những chiến binh sáng tạo</span> với AI.
+          Nâng cấp hệ thống vận hành Marketing cho <span style={{ color: C.gold }} className="font-semibold">MESCELLS</span>.
         </motion.p>
 
         <motion.div
@@ -204,15 +204,15 @@ function HeroSection() {
             }}
           >
             <Sparkles className="w-5 h-5" />
-            Khám phá ngay
+            Xem phương án triển khai
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="#roadmap"
+            href="#investment"
             className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white/80 font-medium rounded-xl hover:text-white transition-all duration-300"
             style={{ ['--tw-border-opacity' as string]: 1 }}
           >
-            Xem lộ trình 90 ngày
+            Trao đổi phạm vi & ngân sách
           </a>
         </motion.div>
 
@@ -314,7 +314,7 @@ function VisionSection() {
             </h2>
             <p className="text-white/50 text-lg leading-relaxed mb-8">
               Mục tiêu là xây dựng một <span className="text-white font-medium">AI Operating System</span> hoàn chỉnh cho phòng Marketing.
-              Trong 90 ngày, tập trung cao độ để tạo ra sự chuyển hóa thực sự — như hành trình của một tế bào gốc, từ tiềm năng đến tái sinh.
+              Trong 90 ngày, tập trung cao độ để tạo ra <span className="text-white font-medium">Organizational Acceleration</span> — nâng cấp năng lực tổ chức, không chỉ cá nhân.
             </p>
           </AnimatedSection>
 
@@ -612,15 +612,14 @@ function DeliverablesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
             <span style={{ color: C.gold }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-              Bạn sẽ nhận được
+              System Deliverables
             </span>
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
               Hệ thống
-              <span className="gradient-text-warm"> hoàn chỉnh</span>
+              <span className="gradient-text-warm"> bàn giao</span>
             </h2>
             <p className="text-white/50 text-lg leading-relaxed">
-              Không chỉ là kiến thức — đây là toàn bộ hệ vận hành AI Marketing
-              được thiết kế riêng cho MESCELLS, như một liệu trình được cá nhân hóa.
+              Không chỉ là kiến thức — đây là toàn bộ <span className="text-white/80 font-medium">AI Operating System</span> được thiết kế riêng cho MESCELLS, sẵn sàng vận hành độc lập sau chuyển giao.
             </p>
           </AnimatedSection>
 
@@ -682,10 +681,10 @@ function KPISection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            KPI mục tiêu
+            Kết quả kỳ vọng
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-            Kết quả sau
+            Performance Shift sau
             <span className="gradient-text-teal"> 90 ngày</span>
           </h2>
           <p className="text-white/40 text-lg">
@@ -773,14 +772,14 @@ function AccompanySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span style={{ color: C.coral }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Hình thức đồng hành
+            Implementation & Transfer
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             Triển khai + Chuyển giao
           </h2>
           <p className="text-white/50 text-xl">
             Không phải đào tạo lý thuyết.
-            <span style={{ color: C.coral }} className="font-medium"> Đây là thực chiến.</span>
+            <span style={{ color: C.coral }} className="font-medium"> Đây là triển khai thực chiến và chuyển giao hệ thống.</span>
           </p>
         </AnimatedSection>
 
@@ -802,60 +801,162 @@ function AccompanySection() {
   );
 }
 
-/* ─── INVESTMENT SECTION ─── */
+/* ─── INVESTMENT SECTION — 2-TIER STRATEGIC ─── */
 function InvestmentSection() {
-  const includes = [
-    'Huấn luyện 1-1 chiến lược',
-    'Đào tạo toàn team',
-    'Thiết kế hệ thống AI',
-    'Triển khai case thực chiến',
-    'Chuẩn hóa & chuyển giao',
+  const [hoveredTier, setHoveredTier] = useState<number | null>(null);
+
+  const tiers = [
+    {
+      id: 1,
+      badge: 'Đề xuất',
+      title: 'Full System Transformation',
+      subtitle: 'Chuyển đổi toàn diện hệ thống',
+      desc: 'Triển khai đầy đủ 90 ngày — từ Audit, Training chuyên sâu, đến Chuyển giao hoàn chỉnh. Bao gồm tầng Performance Audit & KPI Restructuring.',
+      includes: [
+        'Lộ trình 90 ngày chuyển đổi toàn diện',
+        '12 Workshop chiến lược',
+        '12 buổi Group Coaching cho team core',
+        '5 buổi 1-1 chiến lược với Hải VN',
+        'Triển khai + Chuyển giao nội bộ',
+        'AI Operating System hoàn chỉnh',
+        'Performance Audit & KPI Restructuring',
+        'Prompt Library + SOP + Scoreboard',
+      ],
+      color: C.teal,
+      glowColor: C.teal,
+      featured: true,
+    },
+    {
+      id: 2,
+      badge: 'Tối ưu phạm vi',
+      title: 'Core System Deployment',
+      subtitle: 'Triển khai hệ thống cốt lõi',
+      desc: 'Cùng lộ trình 90 ngày, cùng workshop & coaching — tập trung vào triển khai hệ thống AI cốt lõi với phạm vi KPI tinh gọn hơn.',
+      includes: [
+        'Lộ trình 90 ngày — cùng framework',
+        '12 Workshop chiến lược',
+        '12 buổi Group Coaching cho team core',
+        '5 buổi 1-1 chiến lược với Hải VN',
+        'Triển khai + Chuyển giao nội bộ',
+        'AI Operating System hoàn chỉnh',
+        'Prompt Library + SOP chuẩn hóa',
+      ],
+      color: C.gold,
+      glowColor: C.gold,
+      featured: false,
+    },
   ];
 
   return (
-    <section id="investment" className="relative py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection>
-          <div className="relative p-10 md:p-16 rounded-3xl overflow-hidden">
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{ background: `linear-gradient(135deg, ${C.teal}12, ${C.bg}, ${C.gold}12)` }}
-            />
-            <div className="absolute inset-0 border rounded-3xl" style={{ borderColor: 'rgba(255,255,255,0.08)' }} />
+    <section id="investment" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[150px]" style={{ backgroundColor: `${C.teal}06` }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[150px]" style={{ backgroundColor: `${C.gold}06` }} />
+      </div>
 
-            <div className="relative z-10 text-center">
-              <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-                Đầu tư
-              </span>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-3">
-                Chương trình 90 ngày
-              </h2>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-6">
+          <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
+            Phạm vi & Đầu tư
+          </span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+            Hai phương án
+            <span className="gradient-text-teal"> triển khai</span>
+          </h2>
+          <p className="text-white/50 text-lg leading-relaxed">
+            Đây là đầu tư vào <span className="text-white/80 font-medium">hệ thống vận hành</span>, không phải chi phí đào tạo.
+            Mỗi phương án được thiết kế để tạo ra chuyển đổi thực sự — chỉ khác nhau về độ sâu triển khai.
+          </p>
+        </AnimatedSection>
 
-              <div className="my-10">
-                <div className="font-display font-bold text-5xl md:text-7xl text-glow-gold">
-                  <span className="gradient-text-warm">480.000.000</span>
+        <AnimatedSection delay={0.1} className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: `${C.gold}10`, border: `1px solid ${C.gold}25` }}>
+            <MessageCircle className="w-4 h-4" style={{ color: C.gold }} />
+            <span className="text-white/60 text-sm">
+              Phạm vi có thể điều chỉnh theo nhu cầu thực tế của tổ chức
+            </span>
+          </div>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8" staggerDelay={0.2}>
+          {tiers.map((tier) => (
+            <StaggerItem key={tier.id}>
+              <div
+                className="relative h-full rounded-3xl overflow-hidden transition-all duration-500 group"
+                style={{
+                  backgroundColor: hoveredTier === tier.id ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)',
+                  border: `1px solid ${tier.featured ? `${tier.color}30` : 'rgba(255,255,255,0.08)'}`,
+                  transform: hoveredTier === tier.id ? 'translateY(-4px)' : 'translateY(0)',
+                }}
+                onMouseEnter={() => setHoveredTier(tier.id)}
+                onMouseLeave={() => setHoveredTier(null)}
+              >
+                {tier.featured && (
+                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${tier.color}, transparent)` }} />
+                )}
+
+                <div className="p-8 md:p-10">
+                  <div className="flex items-center justify-between mb-6">
+                    <span
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase"
+                      style={{ backgroundColor: `${tier.color}15`, color: tier.color }}
+                    >
+                      {tier.featured && <Star className="w-3 h-3" />}
+                      {tier.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display font-bold text-2xl md:text-3xl mb-2" style={{ color: tier.color }}>
+                    {tier.title}
+                  </h3>
+                  <p className="text-white/60 text-base mb-2">{tier.subtitle}</p>
+                  <p className="text-white/40 text-sm leading-relaxed mb-8">{tier.desc}</p>
+
+                  <div className="mb-8">
+                    <p className="text-white/50 font-medium text-sm mb-4 tracking-wide uppercase">Bao gồm:</p>
+                    <ul className="space-y-3">
+                      {tier.includes.map((item, j) => (
+                        <li key={j} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: tier.color }} />
+                          <span className="text-white/70 text-sm">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-6" style={{ borderTop: `1px solid rgba(255,255,255,0.06)` }}>
+                    <a
+                      href="#contact"
+                      className="group/btn w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-display font-bold text-base transition-all duration-300"
+                      style={{
+                        backgroundColor: tier.featured ? `${tier.color}15` : 'rgba(255,255,255,0.04)',
+                        border: `1px solid ${tier.featured ? `${tier.color}40` : 'rgba(255,255,255,0.1)'}`,
+                        color: tier.featured ? tier.color : 'rgba(255,255,255,0.7)',
+                      }}
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      Trao đổi phạm vi
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
                 </div>
-                <p className="text-white/40 text-lg mt-2">VNĐ</p>
-              </div>
 
-              <div className="max-w-md mx-auto mb-10">
-                <p className="text-white/60 font-medium mb-4">Bao gồm:</p>
-                <ul className="space-y-3 text-left">
-                  {includes.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: C.teal }} />
-                      <span className="text-white/70">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {tier.featured && (
+                  <div
+                    className="absolute -bottom-20 -right-20 w-40 h-40 rounded-full blur-[80px] opacity-20"
+                    style={{ backgroundColor: tier.color }}
+                  />
+                )}
               </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-              <div className="pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <p className="text-white/30 text-sm">
-                  Không bao gồm: ngân sách ads, tool trả phí, chi phí media sản xuất.
-                </p>
-              </div>
-            </div>
+        <AnimatedSection delay={0.4} className="mt-12">
+          <div className="text-center">
+            <p className="text-white/30 text-sm">
+              Không bao gồm: ngân sách ads, tool trả phí, chi phí media sản xuất.
+            </p>
           </div>
         </AnimatedSection>
       </div>
@@ -1180,24 +1281,33 @@ function ClosingSection() {
           </h2>
 
           <p className="text-white/50 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-12">
-            Hành trình vạn dặm, bắt đầu từ một tế bào. Dự án này giúp MESCELLS chuẩn hóa hệ thống Marketing,
-            tăng hiệu suất thực tế, xây nền tảng tăng trưởng dài hạn, và tạo lợi thế cạnh tranh cốt lõi trong ngành Healthcare.
+            Đây không phải chi phí — đây là <span className="text-white/80 font-medium">đầu tư vào hệ thống vận hành</span>.
+            Dự án giúp MESCELLS nâng cấp năng lực tổ chức, tạo lợi thế cạnh tranh dài hạn trong ngành Healthcare.
           </p>
 
-          <motion.a
-            href="#investment"
-            className="group inline-flex items-center gap-3 px-10 py-5 font-display font-bold text-xl rounded-2xl transition-all duration-500"
-            style={{
-              background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})`,
-              color: C.bg,
-            }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Sparkles className="w-6 h-6" />
-            Bắt đầu chuyển đổi
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.a
+              href="#investment"
+              className="group inline-flex items-center gap-3 px-10 py-5 font-display font-bold text-xl rounded-2xl transition-all duration-500"
+              style={{
+                background: `linear-gradient(135deg, ${C.teal}, ${C.tealDark})`,
+                color: C.bg,
+              }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <MessageCircle className="w-6 h-6" />
+              Trao đổi phạm vi & ngân sách
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+            <motion.a
+              href="#roadmap"
+              className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white/70 font-medium rounded-xl hover:text-white transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+            >
+              Xem chi tiết lộ trình
+            </motion.a>
+          </div>
         </AnimatedSection>
       </div>
     </section>
@@ -1217,7 +1327,7 @@ function Footer() {
             </span>
           </div>
           <p className="text-white/20 text-sm">
-            © 2025 — Viện NC Ứng Dụng Công Nghệ Tế Bào Mescells
+            © 2026 — Viện NC Ứng Dụng Công Nghệ Tế Bào Mescells
           </p>
         </div>
       </div>
