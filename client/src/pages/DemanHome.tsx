@@ -508,7 +508,7 @@ function CaseStudiesSection() {
         'Real story, real emotions — the journey from a tiny grocery store to a Human × AI ecosystem. 16 chapters about failure, rising up, and building the future.'
       ),
       results: [t('16 chương', '16 chapters'), t('From Vietnam Go Global', 'From Vietnam Go Global'), t('Ebook miễn phí', 'Free Ebook')],
-      links: [{ label: t('Đọc Ebook', 'Read Ebook'), href: '/game-of-ecom' }, { label: 'gameofecom.com', href: 'https://gameofecom.com' }],
+      links: [{ label: t('Đọc Ebook', 'Read Ebook'), href: '/game-of-ecom' }],
       icon: BookOpen, color: '#10B981',
       image: IMAGES.gameofecomHero,
       logo: null as string | null,
@@ -589,10 +589,47 @@ function CaseStudiesSection() {
 function AboutSection() {
   const { t } = useLanguage();
 
+  const nocValues = [
+    {
+      num: '01',
+      title: t('Cho là Nhận', 'Giving is Receiving'),
+      desc: t(
+        'Khi bạn cho đi bằng sự chân thành, bạn không mất đi — bạn đang gieo hạt. Sự chia sẻ vốn dĩ đã là hạnh phúc.',
+        'When you give with sincerity, you don\'t lose — you\'re planting seeds. Sharing itself is happiness.'
+      ),
+    },
+    {
+      num: '02',
+      title: t('Mình là Gốc Rễ của Mọi Vấn Đề', 'I Am the Root of Every Problem'),
+      desc: t(
+        'Trước khi đổ lỗi cho hoàn cảnh, hãy nhìn vào chính mình. Mình thay đổi thì mọi thứ xung quanh sẽ thay đổi theo.',
+        'Before blaming circumstances, look at yourself. When you change, everything around you changes too.'
+      ),
+    },
+    {
+      num: '03',
+      title: t('Đức Năng Thắng Số', 'Virtue Conquers Fate'),
+      desc: t(
+        'Phẩm chất và năng lực thắng số lượng. Chăm chỉ và tích cực — hai đức tính tạo nên sự khác biệt bền vững.',
+        'Quality and capability beat quantity. Diligence and positivity — two virtues that create lasting difference.'
+      ),
+    },
+  ];
+
+  const ecosystem = [
+    { icon: '🧴', name: 'Oniiz', desc: t('Chăm sóc cá nhân nam giới — BE YOUR POWER', 'Men\'s personal care — BE YOUR POWER') },
+    { icon: '🌎', name: 'Oniiz US', desc: t('Go Global qua Amazon', 'Go Global via Amazon') },
+    { icon: '💜', name: 'V2Joy', desc: t('Chăm sóc cá nhân nam & nữ', 'Personal care for all') },
+    { icon: '🌿', name: 'MystiGarden', desc: t('Chữa lành & nuôi dưỡng', 'Healing & nurturing') },
+    { icon: '🎭', name: 'Masqmuse', desc: t('Cá tính & sáng tạo', 'Personality & creativity') },
+    { icon: '🤖', name: 'DEMAN AI LAB', desc: t('AI phụng sự con người', 'AI serving humanity') },
+  ];
+
   return (
     <section id="about" className="relative py-28 md:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Hero intro */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <FadeInSection>
             <div className="relative flex justify-center">
               <div className="relative">
@@ -605,40 +642,41 @@ function AboutSection() {
           </FadeInSection>
 
           <FadeInSection delay={0.2}>
-            <SectionLabel>{t('Về mình', 'About Me')}</SectionLabel>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6" style={{ color: C.white }}>
-              {t('Vũ Ngọc Hải', 'Vu Ngoc Hai')}
-              <br />
-              <span className="gradient-text-gold">AI Architect</span>
+            <SectionLabel>{t('Về tác giả', 'About the Author')}</SectionLabel>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-3" style={{ color: C.white }}>
+              {t('Hải VN', 'Hai VN')}
             </h2>
+            <p className="text-base mb-6" style={{ color: C.goldLight }}>
+              Founder & CEO DeMAN · AI Architect · {t('Người kiến tạo hệ sinh thái Human × AI', 'Human × AI Ecosystem Builder')}
+            </p>
             <div className="space-y-4 mb-8">
               <p className="text-base leading-relaxed" style={{ color: C.whiteMuted }}>
                 {t(
-                  'Mình không phải là một chuyên gia nổi tiếng. Mình chỉ là một người đã từng thất bại rất nhiều lần, đã từng mất tiền, mất người, mất cả niềm tin vào chính mình. Và rồi mình đã đứng dậy.',
-                  "I'm not a famous expert. I'm just someone who has failed many times, lost money, lost people, lost faith in myself. And then I stood back up."
+                  'Vũ Ngọc Hải lớn lên trong một gia đình bình thường ở Việt Nam. Bố là người dậy sớm nhất nhà, lặng lẽ nấu cơm cho cả gia đình. Mẹ là người sáng tạo, biến tiệm tạp hóa nhỏ thành nguồn thu nuôi cả nhà. Những bài học đầu đời không đến từ sách vở — mà đến từ tấm lưng bố bên bếp lửa, từ nụ cười mẹ khi bán được hàng.',
+                  'Vu Ngoc Hai grew up in an ordinary family in Vietnam. His father was the earliest riser, quietly cooking for the whole family. His mother was creative, turning a tiny grocery store into the family\'s livelihood. Life\'s first lessons didn\'t come from books — but from his father\'s back by the stove, from his mother\'s smile when she made a sale.'
                 )}
               </p>
               <p className="text-base leading-relaxed" style={{ color: C.whiteMuted }}>
                 {t(
-                  'Từ cái tiệm tạp hóa nhỏ xíu của bố mẹ ở quê, đến 3M+ sản phẩm đã bán qua ONIIZ, 11+ chương trình đào tạo AI đã triển khai, 8+ framework độc quyền — giờ đây mình đang kiến tạo DEMAN AI LAB, hệ sinh thái nơi con người và AI cùng nhau tỏa sáng.',
-                  "From my parents' tiny grocery store, to 3M+ products sold through ONIIZ, 11+ AI training programs delivered, 8+ proprietary frameworks — now I'm creating DEMAN AI LAB, an ecosystem where humans and AI shine together."
+                  'Hành trình kinh doanh bắt đầu từ rất sớm — và cũng thất bại từ rất sớm. Từ việc bán 100 cái áo Pokemon lỗ sấp mặt, đến "Lời Nguyền 3 Năm" khi mọi thứ dường như đổ vỡ. Nhưng mỗi lần gục ngã, Hải lại đứng dậy với một bài học mới.',
+                  'The business journey started early — and failed early too. From selling 100 Pokemon shirts at a total loss, to the "3-Year Curse" when everything seemed to collapse. But every time he fell, Hai stood back up with a new lesson.'
                 )}
               </p>
-              <p className="text-base leading-relaxed italic" style={{ color: C.gold }}>
+              <p className="text-base leading-relaxed" style={{ color: C.whiteMuted }}>
                 {t(
-                  '"Đức năng thắng số. Bạn cứ chăm chỉ, cứ chân thành, cứ tích cực — rồi mọi thứ sẽ ổn."',
-                  '"Persistence beats luck. Stay diligent, stay authentic, stay positive — and everything will work out."'
+                  'Ngày 7/7/2021, giữa đại dịch COVID, Oniiz ra đời — thương hiệu chăm sóc cá nhân cho nam giới, được xây dựng trên nền tảng niềm tin về Nam Tính Mới. Từ Oniiz, Hải tiếp tục xây dựng hệ sinh thái DeMAN — Delicious Man — với sứ mệnh Tôn Vinh Giá Trị Con Người.',
+                  'On July 7, 2021, amid the COVID pandemic, Oniiz was born — a men\'s personal care brand built on the belief of New Masculinity. From Oniiz, Hai continued building the DeMAN ecosystem — Delicious Man — with the mission of Honoring Human Value.'
                 )}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               {[
-                t('Founder DeMAN AI LAB', 'Founder DeMAN AI LAB'),
+                t('Founder DeMAN', 'Founder DeMAN'),
+                'AI Architect',
                 'Clone Your Mind™',
                 t('11+ Chương trình', '11+ Programs'),
                 t('6+ Thương hiệu', '6+ Brands'),
-                'Vibe Coding',
                 t('Tác giả Game of Ecom', 'Author: Game of Ecom'),
               ].map(tag => (
                 <span key={tag} className="text-xs px-3 py-1.5 font-medium" style={{ color: C.gold, border: `1px solid ${C.goldAlpha(0.2)}`, borderRadius: '2px' }}>{tag}</span>
@@ -646,6 +684,80 @@ function AboutSection() {
             </div>
           </FadeInSection>
         </div>
+
+        {/* 3 NỌC — Core Values */}
+        <FadeInSection className="mb-24">
+          <div className="text-center mb-12">
+            <SectionLabel>{t('Triết lý sống', 'Life Philosophy')}</SectionLabel>
+            <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl leading-tight" style={{ color: C.white }}>
+              {t('3 NỌC', '3 Core Values')} — <span className="gradient-text-gold">{t('Kim chỉ nam cho mọi quyết định', 'Compass for every decision')}</span>
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {nocValues.map((noc, i) => (
+              <div key={i} className="p-8 transition-all duration-500 group" style={{ backgroundColor: C.surfaceLight, border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = C.goldAlpha(0.3); e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = C.whiteAlpha(0.06); e.currentTarget.style.transform = 'translateY(0)'; }}>
+                <span className="font-display font-bold text-3xl block mb-3" style={{ color: C.goldAlpha(0.25) }}>NỌC {noc.num}</span>
+                <h4 className="font-display font-bold text-lg mb-3" style={{ color: C.gold }}>{noc.title}</h4>
+                <p className="text-sm leading-relaxed" style={{ color: C.whiteMuted }}>{noc.desc}</p>
+              </div>
+            ))}
+          </div>
+        </FadeInSection>
+
+        {/* Hệ sinh thái DeMAN */}
+        <FadeInSection className="mb-16">
+          <div className="text-center mb-12">
+            <SectionLabel>{t('Hệ sinh thái', 'Ecosystem')}</SectionLabel>
+            <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl leading-tight mb-4" style={{ color: C.white }}>
+              DeMAN — <span className="gradient-text-gold">{t('Tôn Vinh Giá Trị Con Người', 'Honoring Human Value')}</span>
+            </h3>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: C.whiteMuted }}>
+              {t(
+                'Từ một chai bọt vệ sinh nam đến hệ sinh thái toàn cầu — mỗi thương hiệu đều mang cùng một sứ mệnh.',
+                'From a men\'s foam cleanser to a global ecosystem — every brand carries the same mission.'
+              )}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {ecosystem.map((brand, i) => (
+              <div key={i} className="text-center p-5 transition-all duration-300" style={{ backgroundColor: C.surface, border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = C.goldAlpha(0.3); }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = C.whiteAlpha(0.06); }}>
+                <span className="text-2xl block mb-2">{brand.icon}</span>
+                <span className="font-display font-bold text-sm block mb-1" style={{ color: C.white }}>{brand.name}</span>
+                <span className="text-xs" style={{ color: C.whiteDim }}>{brand.desc}</span>
+              </div>
+            ))}
+          </div>
+        </FadeInSection>
+
+        {/* Quotes */}
+        <FadeInSection>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              t(
+                '"Bạn cứ chăm chỉ, cứ chân thành, cứ tích cực — rồi mọi thứ sẽ ổn. Không phải ngay lập tức, nhưng chắc chắn sẽ ổn."',
+                '"Stay diligent, stay authentic, stay positive — and everything will work out. Not immediately, but it surely will."'
+              ),
+              t(
+                '"Sản phẩm chỉ là phương tiện. Văn hóa mới là đích đến. Bạn có thể copy sản phẩm, copy giá, copy marketing — nhưng bạn không thể copy linh hồn."',
+                '"Products are just vehicles. Culture is the destination. You can copy products, prices, marketing — but you can\'t copy the soul."'
+              ),
+              t(
+                '"Cuộc đời chỉ có một, nhưng mỗi giai đoạn là một cuộc sống nhỏ khác nhau. Hãy sống thật với từng cuộc sống nhỏ đó."',
+                '"Life is one, but each phase is a different small life. Live authentically in each of those small lives."'
+              ),
+            ].map((quote, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <Quote size={20} className="flex-shrink-0 mt-1" style={{ color: C.goldAlpha(0.4) }} />
+                <p className="text-base leading-relaxed italic" style={{ color: C.goldLight }}>{quote}</p>
+              </div>
+            ))}
+            <p className="text-right text-sm font-display font-semibold" style={{ color: C.whiteDim }}>— Hải VN, Game of Ecom</p>
+          </div>
+        </FadeInSection>
       </div>
     </section>
   );

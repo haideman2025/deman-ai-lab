@@ -23,3 +23,10 @@
 ## Phase 5: Kiểm tra & Bàn giao
 - [ ] Test all pages and language toggle
 - [ ] Save checkpoint and deliver
+
+## Current Task: Remove gameofecom.com CTA + Update About
+- [ ] Remove gameofecom.com CTA link from GAME OF ECOM case study card
+- [ ] Scrape data from https://gameofecom-ap55h3md.manus.space/about
+- [ ] Update #about section in DemanHome.tsx with scraped Hải VN data
+- [ ] Verify all changes in browser
+- [ ] Save checkpoint
