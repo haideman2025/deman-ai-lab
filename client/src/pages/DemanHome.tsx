@@ -328,7 +328,7 @@ function ProgramsSection() {
     },
     {
       icon: Megaphone, name: 'Affiliate Model x AI', sessions: t('Full course', 'Full course'), status: t('Hoàn thành', 'Completed'),
-      desc: t('Tái cấu trúc kênh bán hàng thương hiệu cá nhân — xây dựng tài sản số bền vững bằng AI. Case study thực tế: Chị Cúc Ngô (15K followers).', 'Restructure personal brand sales channels — build sustainable digital assets with AI. Real case study: Ms. Cuc Ngo (15K followers).'),
+      desc: t('Tái cấu trúc kênh bán hàng thương hiệu cá nhân — xây dựng tài sản số bền vững bằng AI. Case study thực tế: Học viên C** (15K followers).', 'Restructure personal brand sales channels — build sustainable digital assets with AI. Real case study: Student C** (15K followers).'),
       deliverables: [t('Chiến lược tái cấu trúc kênh', 'Channel Restructuring Strategy'), t('Xây dựng thương hiệu cá nhân', 'Personal Brand Building'), t('AI Content cho TikTok & FB', 'AI Content for TikTok & FB')],
       color: '#EF4444',
     },
@@ -819,7 +819,7 @@ function TestimonialsSection() {
 
   const testimonials = [
     {
-      name: t('Chị Cúc Ngô', 'Ms. Cuc Ngo'),
+      name: t('Chị C** N.', 'Ms. C** N.'),
       role: t('Học viên AI for Affiliate', 'AI for Affiliate Student'),
       quote: t(
         'Trước khi học, mình chỉ biết đăng bài bán hàng thủ công. Sau khóa học, mình đã xây được hệ thống content tự động, từ 0 lên 15K followers trong 3 tháng. Anh Hải không chỉ dạy AI, anh ấy dạy cách tư duy.',
@@ -829,8 +829,8 @@ function TestimonialsSection() {
       program: 'AI for Affiliate',
     },
     {
-      name: t('Anh Minh Trần', 'Mr. Minh Tran'),
-      role: t('Founder startup Nội thất 369', 'Founder, Interior 369 Startup'),
+      name: t('Anh M** T.', 'Mr. M** T.'),
+      role: t('Founder startup Nội thất', 'Furniture Startup Founder'),
       quote: t(
         'Mình tham gia AI for Dropship với tâm thế hoài nghi. Nhưng sau 4 buổi, mình đã setup được store tự động, AI viết mô tả sản phẩm, AI tạo ảnh — tiết kiệm 70% thời gian so với trước. Game changer thật sự.',
         'I joined AI for Dropship skeptically. But after 4 sessions, I set up an automated store, AI writes descriptions, AI creates images — saving 70% time. A real game changer.'
@@ -839,7 +839,7 @@ function TestimonialsSection() {
       program: 'AI for Dropship',
     },
     {
-      name: t('Chị Hương Lê', 'Ms. Huong Le'),
+      name: t('Chị H** L.', 'Ms. H** L.'),
       role: t('Content Creator & Affiliate Marketer', 'Content Creator & Affiliate Marketer'),
       quote: t(
         'Khóa Brand Storytelling của anh Hải thay đổi hoàn toàn cách mình nhìn nhận content. Không còn là "viết bài bán hàng" nữa, mà là kể câu chuyện thương hiệu. Doanh thu affiliate tăng 200% sau 2 tháng áp dụng.',
@@ -849,7 +849,7 @@ function TestimonialsSection() {
       program: 'Brand Storytelling',
     },
     {
-      name: 'CABIS',
+      name: t('Đối tác D***', 'Partner D***'),
       role: t('Đối tác doanh nghiệp', 'Enterprise Partner'),
       quote: t(
         'DEMAN AI LAB đã giúp chúng tôi xây dựng hệ thống content marketing hoàn toàn tự động. Từ việc phải thuê team 5 người làm content, giờ chỉ cần 1 người giám sát AI. Chi phí giảm 60%, output tăng 300%.',
@@ -859,7 +859,7 @@ function TestimonialsSection() {
       program: 'AI System Architecture',
     },
     {
-      name: t('Anh Tuấn Nguyễn', 'Mr. Tuan Nguyen'),
+      name: t('Anh T** N.', 'Mr. T** N.'),
       role: t('Trader & Nhà đầu tư Crypto', 'Crypto Trader & Investor'),
       quote: t(
         'Khóa AI for Crypto mở ra một góc nhìn hoàn toàn mới. Mình đã dùng AI để phân tích on-chain data, sentiment analysis, và tự động hóa signal tracking. Từ việc trade theo cảm tính, giờ mình có hệ thống rõ ràng.',
@@ -869,7 +869,7 @@ function TestimonialsSection() {
       program: 'AI for Crypto',
     },
     {
-      name: t('Chị Linh Đặng', 'Ms. Linh Dang'),
+      name: t('Chị L** Đ.', 'Ms. L** D.'),
       role: t('Chủ shop thời trang online', 'Online Fashion Shop Owner'),
       quote: t(
         'Mình từng burn-out vì phải tự làm mọi thứ — chụp ảnh, viết bài, chạy ads. Sau khóa AI Marketing Automation, AI giúp mình tạo 30 bài/tuần, tự động đăng, tự động trả lời comment. Doanh thu tăng mà mình lại có thời gian cho gia đình.',
