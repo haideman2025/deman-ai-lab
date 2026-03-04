@@ -457,12 +457,12 @@ function CaseStudiesSection() {
   const cases = [
     {
       name: 'ONIIZ',
-      type: t('Thời trang nam / E-commerce', "Men's Fashion / E-commerce"),
+      type: t('Menscare — Tôn vinh nam tính mới', 'Menscare — Celebrating New Masculinity'),
       desc: t(
-        'Thương hiệu chăm sóc nam giới mà mình xây từ con số 0 giữa đại dịch COVID. Từ cái tiệm tạp hóa nhỏ xíu của bố mẹ đến 3 triệu sản phẩm đã bán, 300K+ đánh giá 5 sao trên Shopee, và đang mở rộng ra Amazon quốc tế.',
-        "The men's grooming brand I built from zero during COVID. From my parents' tiny grocery store to 3M+ products sold, 300K+ 5-star Shopee reviews, and expanding to Amazon internationally."
+        'Thương hiệu Menscare mà mình xây từ con số 0 giữa đại dịch COVID. Sản phẩm chiến lược Masculine Foam — tôn vinh nam tính mới. Từ cái tiệm tạp hóa nhỏ xíu của bố mẹ đến 3 triệu sản phẩm đã bán, 300K+ đánh giá 5 sao trên Shopee, và đang mở rộng ra Amazon quốc tế.',
+        "The Menscare brand I built from zero during COVID. Hero product Masculine Foam — celebrating new masculinity. From my parents' tiny grocery store to 3M+ products sold, 300K+ 5-star Shopee reviews, and expanding to Amazon internationally."
       ),
-      results: [t('3M+ sản phẩm đã bán', '3M+ products sold'), t('300K+ đánh giá 5 sao', '300K+ 5-star reviews'), t('Shopee + Amazon', 'Shopee + Amazon'), t('Mascot Ziino', 'Mascot Ziino')],
+      results: [t('3M+ sản phẩm đã bán', '3M+ products sold'), t('Masculine Foam', 'Masculine Foam'), t('Shopee + Amazon', 'Shopee + Amazon'), t('Mascot Ziino', 'Mascot Ziino')],
       links: [{ label: 'oniiz.vn', href: 'https://oniiz.vn' }, { label: 'Shopee', href: 'https://shopee.vn/oniizvietnam' }],
       icon: ShoppingCart, color: '#3B82F6',
     },
@@ -479,12 +479,12 @@ function CaseStudiesSection() {
     },
     {
       name: 'V2JOY',
-      type: t('Lifestyle & Wellness', 'Lifestyle & Wellness'),
+      type: t('Tôn vinh khoảnh khắc tình yêu', 'Celebrating Moments of Love'),
       desc: t(
-        'Thương hiệu lifestyle "Fun all the way" — 80% vận hành bằng AI, từ idea đến publish chỉ cần review. Co-branded với ONIIZ tạo hệ sinh thái sản phẩm hoàn chỉnh.',
-        'Lifestyle brand "Fun all the way" — 80% AI-powered, from idea to publish just needs review. Co-branded with ONIIZ for a complete product ecosystem.'
+        '"FUN ALL THE WAY — Bật mode yêu mới." Thương hiệu tôn vinh khoảnh khắc trong tình yêu — 80% vận hành bằng AI, từ idea đến publish chỉ cần review. Co-branded với ONIIZ tạo hệ sinh thái sản phẩm hoàn chỉnh.',
+        '"FUN ALL THE WAY — Turn on the new love mode." A brand celebrating moments of love — 80% AI-powered, from idea to publish just needs review. Co-branded with ONIIZ for a complete product ecosystem.'
       ),
-      results: [t('80% AI-powered', '80% AI-powered'), t('Idea → Publish tự động', 'Idea → Publish automated')],
+      results: [t('FUN ALL THE WAY', 'FUN ALL THE WAY'), t('80% AI-powered', '80% AI-powered'), t('Bật mode yêu mới', 'New love mode')],
       links: [{ label: 'Shopee', href: 'https://shopee.vn/v2joyvietnam' }],
       icon: Star, color: '#8B5CF6',
     },
