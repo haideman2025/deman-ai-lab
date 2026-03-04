@@ -495,8 +495,8 @@ function CaseStudiesSection() {
         'Câu chuyện thật, cảm xúc thật — hành trình từ tiệm tạp hóa nhỏ đến hệ sinh thái Human × AI. 16 chương kể về thất bại, đứng dậy, và kiến tạo tương lai.',
         'Real story, real emotions — the journey from a tiny grocery store to a Human × AI ecosystem. 16 chapters about failure, rising up, and building the future.'
       ),
-      results: [t('16 chương', '16 chapters'), t('From Vietnam Go Global', 'From Vietnam Go Global')],
-      links: [{ label: 'gameofecom.com', href: 'https://gameofecom.com' }],
+      results: [t('16 chương', '16 chapters'), t('From Vietnam Go Global', 'From Vietnam Go Global'), t('Ebook miễn phí', 'Free Ebook')],
+      links: [{ label: t('Đọc Ebook', 'Read Ebook'), href: 'https://gameofecom-ap55h3md.manus.space/' }, { label: 'gameofecom.com', href: 'https://gameofecom.com' }],
       icon: BookOpen, color: '#10B981',
     },
   ];
@@ -706,7 +706,7 @@ function ContactSection() {
             {[
               { label: 'Facebook', href: 'https://www.facebook.com/demanlab' },
               { label: 'HAIVN.AI', href: 'https://haivn.ai' },
-              { label: 'Game of Ecom', href: 'https://gameofecom.com' },
+              { label: 'Game of Ecom', href: 'https://gameofecom-ap55h3md.manus.space/' },
               { label: 'Skool', href: '#' },
             ].map(social => (
               <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-xs font-medium tracking-wider uppercase transition-colors duration-300" style={{ color: C.whiteDim }} onMouseEnter={e => (e.currentTarget.style.color = C.gold)} onMouseLeave={e => (e.currentTarget.style.color = C.whiteDim)}>
