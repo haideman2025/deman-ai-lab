@@ -303,3 +303,36 @@ html {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
+
+/* ═══ GAME OF ECOM — Ebook Reader Styles ═══ */
+.ebook-page {
+  --ebook-bg: #FAFAF8;
+  --ebook-fg: #1a1a2e;
+  --ebook-muted: #6b7280;
+  --ebook-border: #e5e7eb;
+  --ebook-card: #ffffff;
+  --ebook-primary: #0d9488;
+}
+
+.ebook-page .font-ebook-display {
+  font-family: 'Be Vietnam Pro', 'Sora', sans-serif;
+}
+
+.ebook-page .font-ebook-body {
+  font-family: 'Be Vietnam Pro', 'DM Sans', sans-serif;
+}
+
+.ebook-page .font-ebook-ui {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Prose chapter — reading typography */
+.ebook-page .prose-chapter p {
+  margin-bottom: 1.25rem;
+  line-height: 1.85;
+  font-size: 0.9375rem;
+}
+
+.ebook-page .prose-chapter p:last-child {
+  margin-bottom: 0;
+}

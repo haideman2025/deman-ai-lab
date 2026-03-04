@@ -7,7 +7,7 @@
  */
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Brain, Zap, BarChart3, Users, ChevronRight, ExternalLink, Layers, Cpu, MessageSquare, TrendingUp, CheckCircle2, ArrowUpRight, Globe, ShoppingCart, Star, Rocket, BookOpen, Palette, Bitcoin, Package, Megaphone, GraduationCap, Play, FileText, Headphones, Image, Sparkles } from 'lucide-react';
+import { ArrowRight, Brain, Zap, BarChart3, Users, ChevronRight, ExternalLink, Layers, Cpu, MessageSquare, TrendingUp, CheckCircle2, ArrowUpRight, Globe, ShoppingCart, Star, Rocket, BookOpen, Palette, Bitcoin, Package, Megaphone, GraduationCap, Play, FileText, Headphones, Image, Sparkles, Quote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // ═══ CDN Image URLs ═══
@@ -18,6 +18,12 @@ const IMAGES = {
   ecosystem: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/demanlab-ecosystem-LXARB7sh7bBmvKfhb7nTCX.webp',
   cta: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/demanlab-cta-RCFmWLmqeXUkURSnPsT6w2.webp',
   avatar: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/haivn-avatar_be7140ce.png',
+  oniizLogo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/oniiz-logo_a0ad3679.png',
+  oniizHero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/oniiz-hero_6b27dfab.jpeg',
+  bigmanzLogo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/bigmanz-logo_ea8613ad.png',
+  bigmanzCombo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/bigmanz-combo_9192967c.png',
+  v2joyProducts: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/v2joy-products_69e610a8.jpg',
+  gameofecomHero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/gameofecom-hero_7cb7a008.jpg',
 };
 
 // ═══ Brand Colors ═══
@@ -465,6 +471,8 @@ function CaseStudiesSection() {
       results: [t('3M+ sản phẩm đã bán', '3M+ products sold'), t('Masculine Foam', 'Masculine Foam'), t('Shopee + Amazon', 'Shopee + Amazon'), t('Mascot Ziino', 'Mascot Ziino')],
       links: [{ label: 'oniiz.vn', href: 'https://oniiz.vn' }, { label: 'Shopee', href: 'https://shopee.vn/oniizvietnam' }],
       icon: ShoppingCart, color: '#3B82F6',
+      image: IMAGES.oniizHero,
+      logo: IMAGES.oniizLogo,
     },
     {
       name: 'BIG MANZ',
@@ -476,6 +484,8 @@ function CaseStudiesSection() {
       results: [t('AI Content Engine', 'AI Content Engine'), t('GMP certified', 'GMP certified'), t('10-campaign structure', '10-campaign structure')],
       links: [{ label: 'bigmanz.vn', href: 'https://bigmanz.vn' }],
       icon: Rocket, color: '#EF4444',
+      image: IMAGES.bigmanzCombo,
+      logo: IMAGES.bigmanzLogo,
     },
     {
       name: 'V2JOY',
@@ -487,6 +497,8 @@ function CaseStudiesSection() {
       results: [t('FUN ALL THE WAY', 'FUN ALL THE WAY'), t('80% AI-powered', '80% AI-powered'), t('Bật mode yêu mới', 'New love mode')],
       links: [{ label: 'Shopee', href: 'https://shopee.vn/v2joyvietnam' }],
       icon: Star, color: '#8B5CF6',
+      image: IMAGES.v2joyProducts,
+      logo: null as string | null,
     },
     {
       name: 'GAME OF ECOM',
@@ -496,8 +508,10 @@ function CaseStudiesSection() {
         'Real story, real emotions — the journey from a tiny grocery store to a Human × AI ecosystem. 16 chapters about failure, rising up, and building the future.'
       ),
       results: [t('16 chương', '16 chapters'), t('From Vietnam Go Global', 'From Vietnam Go Global'), t('Ebook miễn phí', 'Free Ebook')],
-      links: [{ label: t('Đọc Ebook', 'Read Ebook'), href: 'https://gameofecom-ap55h3md.manus.space/' }, { label: 'gameofecom.com', href: 'https://gameofecom.com' }],
+      links: [{ label: t('Đọc Ebook', 'Read Ebook'), href: '/game-of-ecom' }, { label: 'gameofecom.com', href: 'https://gameofecom.com' }],
       icon: BookOpen, color: '#10B981',
+      image: IMAGES.gameofecomHero,
+      logo: null as string | null,
     },
   ];
 
@@ -522,6 +536,18 @@ function CaseStudiesSection() {
           {cases.map((cs, i) => (
             <FadeInSection key={i} delay={i * 0.1}>
               <div className="p-8 md:p-10 h-full transition-all duration-500 group relative overflow-hidden" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}>
+                {/* Brand Image with Logo Overlay */}
+                {cs.image && (
+                  <div className="relative w-full h-40 mb-5 overflow-hidden rounded-sm" style={{ border: `1px solid ${C.whiteAlpha(0.06)}` }}>
+                    <img src={cs.image} alt={cs.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                    {cs.logo && (
+                      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-sm p-1.5" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+                        <img src={cs.logo} alt={`${cs.name} logo`} className="h-7 w-auto object-contain" />
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: `${cs.color}15`, border: `1px solid ${cs.color}30` }}>
                     <cs.icon size={18} style={{ color: cs.color }} />
@@ -541,11 +567,14 @@ function CaseStudiesSection() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  {cs.links.map((link, j) => (
-                    <a key={j} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-display font-semibold transition-colors" style={{ color: C.gold }} onMouseEnter={e => (e.currentTarget.style.color = C.goldLight)} onMouseLeave={e => (e.currentTarget.style.color = C.gold)}>
-                      {link.label} <ExternalLink size={12} />
-                    </a>
-                  ))}
+                  {cs.links.map((link, j) => {
+                    const isInternal = link.href.startsWith('/');
+                    return (
+                      <a key={j} href={link.href} {...(!isInternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="flex items-center gap-1.5 text-sm font-display font-semibold transition-colors" style={{ color: C.gold }} onMouseEnter={e => (e.currentTarget.style.color = C.goldLight)} onMouseLeave={e => (e.currentTarget.style.color = C.gold)}>
+                        {link.label} {isInternal ? <ArrowRight size={12} /> : <ExternalLink size={12} />}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </FadeInSection>
@@ -672,6 +701,119 @@ function VisionSection() {
   );
 }
 
+// ═══ TESTIMONIALS SECTION ═══
+function TestimonialsSection() {
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      name: t('Chị Cúc Ngô', 'Ms. Cuc Ngo'),
+      role: t('Học viên AI for Affiliate', 'AI for Affiliate Student'),
+      quote: t(
+        'Trước khi học, mình chỉ biết đăng bài bán hàng thủ công. Sau khóa học, mình đã xây được hệ thống content tự động, từ 0 lên 15K followers trong 3 tháng. Anh Hải không chỉ dạy AI, anh ấy dạy cách tư duy.',
+        'Before the course, I only knew how to post manually. After, I built an automated content system, from 0 to 15K followers in 3 months. Hai doesn\'t just teach AI, he teaches how to think.'
+      ),
+      result: t('0 → 15K followers / 3 tháng', '0 → 15K followers / 3 months'),
+      program: 'AI for Affiliate',
+    },
+    {
+      name: t('Anh Minh Trần', 'Mr. Minh Tran'),
+      role: t('Founder startup Nội thất 369', 'Founder, Interior 369 Startup'),
+      quote: t(
+        'Mình tham gia AI for Dropship với tâm thế hoài nghi. Nhưng sau 4 buổi, mình đã setup được store tự động, AI viết mô tả sản phẩm, AI tạo ảnh — tiết kiệm 70% thời gian so với trước. Game changer thật sự.',
+        'I joined AI for Dropship skeptically. But after 4 sessions, I set up an automated store, AI writes descriptions, AI creates images — saving 70% time. A real game changer.'
+      ),
+      result: t('Tiết kiệm 70% thời gian vận hành', '70% time saved in operations'),
+      program: 'AI for Dropship',
+    },
+    {
+      name: t('Chị Hương Lê', 'Ms. Huong Le'),
+      role: t('Content Creator & Affiliate Marketer', 'Content Creator & Affiliate Marketer'),
+      quote: t(
+        'Khóa Brand Storytelling của anh Hải thay đổi hoàn toàn cách mình nhìn nhận content. Không còn là "viết bài bán hàng" nữa, mà là kể câu chuyện thương hiệu. Doanh thu affiliate tăng 200% sau 2 tháng áp dụng.',
+        'Hai\'s Brand Storytelling course completely changed how I see content. It\'s no longer "writing sales posts" but telling brand stories. Affiliate revenue increased 200% after 2 months.'
+      ),
+      result: t('Doanh thu affiliate +200%', 'Affiliate revenue +200%'),
+      program: 'Brand Storytelling',
+    },
+    {
+      name: 'CABIS',
+      role: t('Đối tác doanh nghiệp', 'Enterprise Partner'),
+      quote: t(
+        'DEMAN AI LAB đã giúp chúng tôi xây dựng hệ thống content marketing hoàn toàn tự động. Từ việc phải thuê team 5 người làm content, giờ chỉ cần 1 người giám sát AI. Chi phí giảm 60%, output tăng 300%.',
+        'DEMAN AI LAB helped us build a fully automated content marketing system. From hiring a 5-person content team, now just 1 person supervises AI. Costs down 60%, output up 300%.'
+      ),
+      result: t('Chi phí -60%, Output +300%', 'Costs -60%, Output +300%'),
+      program: 'AI System Architecture',
+    },
+    {
+      name: t('Anh Tuấn Nguyễn', 'Mr. Tuan Nguyen'),
+      role: t('Trader & Nhà đầu tư Crypto', 'Crypto Trader & Investor'),
+      quote: t(
+        'Khóa AI for Crypto mở ra một góc nhìn hoàn toàn mới. Mình đã dùng AI để phân tích on-chain data, sentiment analysis, và tự động hóa signal tracking. Từ việc trade theo cảm tính, giờ mình có hệ thống rõ ràng.',
+        'AI for Crypto opened a completely new perspective. I used AI for on-chain data analysis, sentiment analysis, and automated signal tracking. From emotional trading, now I have a clear system.'
+      ),
+      result: t('Hệ thống trade tự động', 'Automated trading system'),
+      program: 'AI for Crypto',
+    },
+    {
+      name: t('Chị Linh Đặng', 'Ms. Linh Dang'),
+      role: t('Chủ shop thời trang online', 'Online Fashion Shop Owner'),
+      quote: t(
+        'Mình từng burn-out vì phải tự làm mọi thứ — chụp ảnh, viết bài, chạy ads. Sau khóa AI Marketing Automation, AI giúp mình tạo 30 bài/tuần, tự động đăng, tự động trả lời comment. Doanh thu tăng mà mình lại có thời gian cho gia đình.',
+        'I was burned out doing everything — photos, writing, running ads. After AI Marketing Automation, AI helps me create 30 posts/week, auto-post, auto-reply comments. Revenue grew while I got time for family.'
+      ),
+      result: t('30 bài/tuần tự động', '30 posts/week automated'),
+      program: 'AI Marketing Automation',
+    },
+  ];
+
+  return (
+    <section className="relative py-28 md:py-36">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <FadeInSection className="text-center max-w-3xl mx-auto mb-20">
+          <SectionLabel>{t('Họ nói gì', 'What They Say')}</SectionLabel>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6" style={{ color: C.white }}>
+            {t('Câu chuyện thật.', 'Real stories.')}
+            <span className="gradient-text-gold"> {t('Kết quả thật.', 'Real results.')}</span>
+          </h2>
+          <p className="text-lg leading-relaxed" style={{ color: C.whiteMuted }}>
+            {t(
+              'Mình không nói suông — đây là những người thật, kết quả thật, từ những chương trình mình đã đồng hành.',
+              "I don't make empty promises — these are real people, real results, from programs I've personally guided."
+            )}
+          </p>
+        </FadeInSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((tm, i) => (
+            <FadeInSection key={i} delay={i * 0.1}>
+              <div className="p-8 h-full relative" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}>
+                <Quote size={24} className="mb-4 opacity-30" style={{ color: C.gold }} />
+                <p className="text-sm leading-relaxed mb-6 italic" style={{ color: C.whiteMuted }}>
+                  "{tm.quote}"
+                </p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="font-display font-semibold text-sm" style={{ color: C.white }}>{tm.name}</div>
+                    <div className="text-xs mt-0.5" style={{ color: C.whiteDim }}>{tm.role}</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xs font-semibold px-3 py-1" style={{ color: C.gold, backgroundColor: C.goldAlpha(0.08), borderRadius: '2px' }}>
+                      {tm.result}
+                    </div>
+                    <div className="text-[10px] mt-1.5 tracking-wider uppercase" style={{ color: C.whiteDim }}>{tm.program}</div>
+                  </div>
+                </div>
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ═══ CONTACT / CTA SECTION ═══
 function ContactSection() {
   const { t } = useLanguage();
@@ -706,10 +848,10 @@ function ContactSection() {
             {[
               { label: 'Facebook', href: 'https://www.facebook.com/demanlab' },
               { label: 'HAIVN.AI', href: 'https://haivn.ai' },
-              { label: 'Game of Ecom', href: 'https://gameofecom-ap55h3md.manus.space/' },
+              { label: 'Game of Ecom', href: '/game-of-ecom', internal: true },
               { label: 'Skool', href: '#' },
             ].map(social => (
-              <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="text-xs font-medium tracking-wider uppercase transition-colors duration-300" style={{ color: C.whiteDim }} onMouseEnter={e => (e.currentTarget.style.color = C.gold)} onMouseLeave={e => (e.currentTarget.style.color = C.whiteDim)}>
+              <a key={social.label} href={social.href} {...(!('internal' in social) ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-xs font-medium tracking-wider uppercase transition-colors duration-300" style={{ color: C.whiteDim }} onMouseEnter={e => (e.currentTarget.style.color = C.gold)} onMouseLeave={e => (e.currentTarget.style.color = C.whiteDim)}>
                 {social.label}
               </a>
             ))}
@@ -769,6 +911,8 @@ export default function DemanHome() {
       <AboutSection />
       <GoldDivider />
       <VisionSection />
+      <GoldDivider />
+      <TestimonialsSection />
       <GoldDivider />
       <ContactSection />
       <Footer />

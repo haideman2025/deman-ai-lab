@@ -7,12 +7,14 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import DemanHome from "./pages/DemanHome";
 import Home from "./pages/Home";
+import GameOfEcom from "./pages/GameOfEcom";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={DemanHome} />
       <Route path={"/mescells-proposal"} component={Home} />
+      <Route path={"/game-of-ecom"} component={GameOfEcom} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
