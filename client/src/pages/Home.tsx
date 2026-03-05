@@ -434,35 +434,60 @@ function RoadmapSection() {
     {
       phase: '01',
       title: 'Audit & Foundation',
-      duration: 'Tháng 1',
+      duration: 'Tháng 4/2025',
+      budget: '100.000.000 VNĐ',
       items: [
-        'Đánh giá Org Chart, JD, quy trình',
-        'Xác định điểm nghẽn vận hành',
-        'Đào tạo AI Mindset cho toàn bộ team',
-        'Thiết kế AI Workflow chuẩn',
+        'Đánh giá Org Chart, JD, quy trình hiện tại',
+        'Xác định điểm nghẽn vận hành & cơ hội AI',
+        'Đào tạo AI Mindset cho toàn bộ team MKT',
+        'Thiết kế AI Workflow chuẩn cho từng vai trò',
+        'Phỏng vấn & đánh giá năng lực AI cá nhân',
+      ],
+      results: [
+        'Báo cáo Audit toàn diện phòng MKT',
+        'AI Readiness Score cho từng thành viên',
+        'Blueprint AI Workflow v1.0',
+        'Kế hoạch đào tạo cá nhân hóa',
       ],
       color: C.teal,
     },
     {
       phase: '02',
       title: 'Training & Pilot',
-      duration: 'Tháng 2',
+      duration: 'Tháng 5/2025',
+      budget: '100.000.000 VNĐ',
       items: [
-        'Đào tạo theo vai trò (Content / Design / Media)',
-        'Ứng dụng ngay vào Case MESCELLS',
-        'So sánh hiệu suất trước & sau',
+        'Đào tạo chuyên sâu theo vai trò (Content / Design / Media)',
+        'Triển khai AI Content Engine cho MESCELLS',
+        'Ứng dụng thực chiến vào case MESCELLS',
+        'So sánh hiệu suất trước & sau AI',
+        'Nâng cấp công cụ AI cá nhân cho từng người',
+      ],
+      results: [
+        'Team tự vận hành AI workflow cơ bản',
+        'AI Content Engine hoạt động thực tế',
+        'Báo cáo hiệu suất Before/After',
+        'Prompt Library v1.0 cho từng vai trò',
       ],
       color: C.gold,
     },
     {
       phase: '03',
       title: 'Optimize & Handover',
-      duration: 'Tháng 3',
+      duration: 'Tháng 6/2025',
+      budget: '100.000.000 VNĐ',
       items: [
-        'Chuẩn hóa SOP',
-        'Xây Prompt Library',
+        'Chuẩn hóa SOP vận hành AI',
+        'Xây dựng Prompt Library hoàn chỉnh',
         'Thiết kế hệ thống đào tạo nội bộ',
-        'Bàn giao hệ vận hành hoàn chỉnh',
+        'Tối ưu & scale AI Content Engine',
+        'Bàn giao toàn bộ hệ vận hành',
+      ],
+      results: [
+        'AI Operating System hoàn chỉnh',
+        'SOP + Prompt Library + Scoreboard',
+        'Framework nhân rộng cho brand khác',
+        'Team tự vận hành độc lập 100%',
       ],
       color: C.green,
     },
@@ -499,25 +524,52 @@ function RoadmapSection() {
                   {phase.phase}
                 </div>
 
-                <div
-                  className="inline-flex px-3 py-1 rounded-full text-xs font-semibold mb-4"
-                  style={{ backgroundColor: `${phase.color}15`, color: phase.color }}
-                >
-                  {phase.duration}
+                <div className="flex items-center gap-3 mb-4">
+                  <div
+                    className="inline-flex px-3 py-1 rounded-full text-xs font-semibold"
+                    style={{ backgroundColor: `${phase.color}15`, color: phase.color }}
+                  >
+                    {phase.duration}
+                  </div>
+                  <div
+                    className="inline-flex px-3 py-1 rounded-full text-xs font-bold"
+                    style={{ backgroundColor: `${C.coral}15`, color: C.coral }}
+                  >
+                    {phase.budget}
+                  </div>
                 </div>
 
                 <h3 className="font-display font-bold text-xl mb-5" style={{ color: phase.color }}>
                   {phase.title}
                 </h3>
 
-                <ul className="space-y-3">
-                  {phase.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: phase.color }} />
-                      <span className="text-white/60 text-sm leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mb-5">
+                  <span className="text-xs font-semibold tracking-[0.15em] uppercase mb-3 block" style={{ color: `${phase.color}99` }}>
+                    Hạng mục công việc
+                  </span>
+                  <ul className="space-y-2.5">
+                    {phase.items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: phase.color }} />
+                        <span className="text-white/60 text-sm leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <span className="text-xs font-semibold tracking-[0.15em] uppercase mb-3 block" style={{ color: `${C.coral}cc` }}>
+                    Kết quả bàn giao
+                  </span>
+                  <ul className="space-y-2.5">
+                    {phase.results.map((result, j) => (
+                      <li key={j} className="flex items-start gap-3">
+                        <Target className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: C.coral }} />
+                        <span className="text-white/50 text-sm leading-relaxed font-medium">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <div
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -527,6 +579,28 @@ function RoadmapSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* Total Budget Summary */}
+        <AnimatedSection delay={0.3} className="mt-12">
+          <div className="max-w-2xl mx-auto p-6 rounded-xl text-center" style={{ backgroundColor: `${C.gold}08`, border: `1px solid ${C.gold}20` }}>
+            <div className="flex items-center justify-center gap-6 flex-wrap">
+              <div>
+                <span className="text-white/40 text-sm block mb-1">Tổng ngân sách</span>
+                <span className="font-display font-bold text-2xl" style={{ color: C.gold }}>300.000.000 VNĐ</span>
+              </div>
+              <div className="w-px h-10 bg-white/10 hidden sm:block" />
+              <div>
+                <span className="text-white/40 text-sm block mb-1">Thời gian</span>
+                <span className="font-display font-bold text-2xl" style={{ color: C.teal }}>3 tháng</span>
+              </div>
+              <div className="w-px h-10 bg-white/10 hidden sm:block" />
+              <div>
+                <span className="text-white/40 text-sm block mb-1">Triển khai</span>
+                <span className="font-display font-bold text-2xl" style={{ color: C.green }}>T4–T6/2025</span>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
@@ -987,51 +1061,72 @@ function AccompanySection() {
   );
 }
 
-/* ─── INVESTMENT SECTION — 2-TIER STRATEGIC ─── */
+/* ─── INVESTMENT SECTION — SINGLE PACKAGE 300M ─── */
 function InvestmentSection() {
-  const [hoveredTier, setHoveredTier] = useState<number | null>(null);
-
-  const tiers = [
+  const monthlyBreakdown = [
     {
-      id: 1,
-      badge: 'Đề xuất',
-      title: 'Full System Transformation',
-      subtitle: 'Chuyển đổi toàn diện hệ thống',
-      price: '480.000.000',
-      desc: 'Triển khai đầy đủ 90 ngày — từ Audit, Training chuyên sâu, đến Chuyển giao hoàn chỉnh. Bao gồm build case study thực chiến cùng Deman AI Lab và Performance Audit & KPI Restructuring.',
-      includes: [
-        'Lộ trình 90 ngày chuyển đổi toàn diện',
-        '12 buổi Workshop chiến lược + Group Coaching cho team core',
-        '5 buổi 1-1 chiến lược với Hải VN',
-        'Build case study thực chiến cùng Deman AI Lab × MESCELLS',
-        'Triển khai + Chuyển giao nội bộ',
-        'AI Operating System hoàn chỉnh',
-        'Performance Audit & KPI Restructuring',
-        'Prompt Library + SOP + Scoreboard',
+      month: 'Tháng 4/2025',
+      title: 'Audit & Foundation',
+      budget: '100.000.000',
+      items: [
+        'Đánh giá toàn diện Org Chart, JD, quy trình',
+        'Phỏng vấn & đánh giá năng lực AI cá nhân',
+        'Đào tạo AI Mindset cho toàn bộ team',
+        'Thiết kế AI Workflow chuẩn',
+      ],
+      deliverables: [
+        'Báo cáo Audit phòng MKT',
+        'AI Readiness Score',
+        'Blueprint AI Workflow v1.0',
+        'Kế hoạch đào tạo cá nhân hóa',
       ],
       color: C.teal,
-      glowColor: C.teal,
-      featured: true,
     },
     {
-      id: 2,
-      badge: 'Tối ưu phạm vi',
-      title: 'Core System Deployment',
-      subtitle: 'Triển khai hệ thống cốt lõi',
-      price: '420.000.000',
-      desc: 'Cùng lộ trình 90 ngày, cùng workshop & coaching — tập trung vào triển khai hệ thống AI cốt lõi với phạm vi tinh gọn hơn.',
-      includes: [
-        'Lộ trình 90 ngày — cùng framework',
-        '12 buổi Workshop chiến lược + Group Coaching cho team core',
-        '5 buổi 1-1 chiến lược với Hải VN',
-        'Triển khai + Chuyển giao nội bộ',
-        'AI Operating System hoàn chỉnh',
-        'Prompt Library + SOP chuẩn hóa',
+      month: 'Tháng 5/2025',
+      title: 'Training & Pilot',
+      budget: '100.000.000',
+      items: [
+        'Đào tạo chuyên sâu theo vai trò',
+        'Triển khai AI Content Engine',
+        'Ứng dụng thực chiến vào case MESCELLS',
+        'Nâng cấp công cụ AI cá nhân',
+      ],
+      deliverables: [
+        'Team vận hành AI workflow',
+        'AI Content Engine hoạt động',
+        'Báo cáo Before/After',
+        'Prompt Library v1.0',
       ],
       color: C.gold,
-      glowColor: C.gold,
-      featured: false,
     },
+    {
+      month: 'Tháng 6/2025',
+      title: 'Optimize & Handover',
+      budget: '100.000.000',
+      items: [
+        'Chuẩn hóa SOP vận hành AI',
+        'Hoàn thiện Prompt Library',
+        'Thiết kế hệ thống đào tạo nội bộ',
+        'Bàn giao toàn bộ hệ vận hành',
+      ],
+      deliverables: [
+        'AI Operating System hoàn chỉnh',
+        'SOP + Prompt Library + Scoreboard',
+        'Framework nhân rộng',
+        'Team vận hành độc lập 100%',
+      ],
+      color: C.green,
+    },
+  ];
+
+  const packageIncludes = [
+    'Lộ trình 90 ngày chuyển đổi toàn diện (T4–T6/2025)',
+    '12 buổi Workshop chiến lược + Group Coaching',
+    '5 buổi 1-1 chiến lược với Hải VN',
+    'Build case study thực chiến MESCELLS',
+    'AI Operating System + Prompt Library + SOP',
+    'Triển khai + Chuyển giao nội bộ hoàn chỉnh',
   ];
 
   return (
@@ -1044,106 +1139,113 @@ function InvestmentSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-6">
           <span style={{ color: C.teal }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
-            Chọn phương án phù hợp
+            Phương án đầu tư
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-            Hai phương án
-            <span className="gradient-text-teal"> đồng hành</span>
+            AI Marketing
+            <span className="gradient-text-teal"> Transformation™</span>
           </h2>
           <p className="text-white/50 text-lg leading-relaxed">
             Đây là <span className="text-white/80 font-medium">đầu tư vào hệ thống</span>, không phải chi phí đào tạo.
-            Mỗi phương án đều tạo ra chuyển đổi thực sự — bạn chọn mức độ phù hợp nhất với team nhé.
+            Mỗi đồng đều được phân bổ rõ ràng vào hạng mục công việc và kết quả bàn giao cụ thể.
           </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.1} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: `${C.gold}10`, border: `1px solid ${C.gold}25` }}>
-            <MessageCircle className="w-4 h-4" style={{ color: C.gold }} />
-            <span className="text-white/60 text-sm">
-              Phạm vi có thể điều chỉnh theo nhu cầu thực tế của tổ chức
-            </span>
+        {/* Main Package Card */}
+        <AnimatedSection delay={0.1} className="mb-12">
+          <div className="relative rounded-3xl overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: `1px solid ${C.teal}30` }}>
+            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${C.teal}, transparent)` }} />
+            
+            <div className="p-8 md:p-10">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-3" style={{ backgroundColor: `${C.teal}15`, color: C.teal }}>
+                    <Star className="w-3 h-3" />
+                    Gói chuyển đổi toàn diện
+                  </span>
+                  <h3 className="font-display font-bold text-2xl md:text-3xl" style={{ color: C.teal }}>
+                    Full System Transformation
+                  </h3>
+                  <p className="text-white/50 mt-1">Triển khai tháng 4 – tháng 6/2025</p>
+                </div>
+                <div className="text-right">
+                  <div className="flex items-baseline gap-2 justify-end">
+                    <span className="font-display font-bold text-4xl md:text-5xl" style={{ color: C.gold }}>300.000.000</span>
+                    <span className="text-white/30 text-sm">VNĐ</span>
+                  </div>
+                  <p className="text-white/40 text-sm mt-1">100.000.000 VNĐ / tháng × 3 tháng</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                {packageIncludes.map((item, j) => (
+                  <div key={j} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: C.teal }} />
+                    <span className="text-white/70 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-6 flex flex-col sm:flex-row gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                <a
+                  href="#contact"
+                  className="group/btn flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-display font-bold text-base transition-all duration-300"
+                  style={{ backgroundColor: `${C.teal}15`, border: `1px solid ${C.teal}40`, color: C.teal }}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Trao đổi phạm vi & ngân sách
+                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
-        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8" staggerDelay={0.2}>
-          {tiers.map((tier) => (
-            <StaggerItem key={tier.id}>
-              <div
-                className="relative h-full rounded-3xl overflow-hidden transition-all duration-500 group"
-                style={{
-                  backgroundColor: hoveredTier === tier.id ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)',
-                  border: `1px solid ${tier.featured ? `${tier.color}30` : 'rgba(255,255,255,0.08)'}`,
-                  transform: hoveredTier === tier.id ? 'translateY(-4px)' : 'translateY(0)',
-                }}
-                onMouseEnter={() => setHoveredTier(tier.id)}
-                onMouseLeave={() => setHoveredTier(null)}
-              >
-                {tier.featured && (
-                  <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${tier.color}, transparent)` }} />
-                )}
+        {/* Monthly Cost Breakdown */}
+        <AnimatedSection delay={0.2} className="mb-8">
+          <h3 className="font-display font-bold text-xl text-center mb-8" style={{ color: C.gold }}>
+            Phân bổ chi phí & kết quả theo tháng
+          </h3>
+        </AnimatedSection>
 
-                <div className="p-8 md:p-10">
-                  <div className="flex items-center justify-between mb-6">
-                    <span
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase"
-                      style={{ backgroundColor: `${tier.color}15`, color: tier.color }}
-                    >
-                      {tier.featured && <Star className="w-3 h-3" />}
-                      {tier.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display font-bold text-2xl md:text-3xl mb-2" style={{ color: tier.color }}>
-                    {tier.title}
-                  </h3>
-                  <p className="text-white/60 text-base mb-4">{tier.subtitle}</p>
-
-                  <div className="mb-6">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display font-bold text-3xl md:text-4xl" style={{ color: tier.color }}>
-                        {tier.price}
-                      </span>
-                      <span className="text-white/30 text-sm">VNĐ</span>
-                    </div>
-                  </div>
-
-                  <p className="text-white/40 text-sm leading-relaxed mb-8">{tier.desc}</p>
-
-                  <div className="mb-8">
-                    <p className="text-white/50 font-medium text-sm mb-4 tracking-wide uppercase">Bao gồm:</p>
-                    <ul className="space-y-3">
-                      {tier.includes.map((item, j) => (
-                        <li key={j} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: tier.color }} />
-                          <span className="text-white/70 text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-6" style={{ borderTop: `1px solid rgba(255,255,255,0.06)` }}>
-                    <a
-                      href="#contact"
-                      className="group/btn w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-display font-bold text-base transition-all duration-300"
-                      style={{
-                        backgroundColor: tier.featured ? `${tier.color}15` : 'rgba(255,255,255,0.04)',
-                        border: `1px solid ${tier.featured ? `${tier.color}40` : 'rgba(255,255,255,0.1)'}`,
-                        color: tier.featured ? tier.color : 'rgba(255,255,255,0.7)',
-                      }}
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      Trao đổi phạm vi
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
+          {monthlyBreakdown.map((m, i) => (
+            <StaggerItem key={i}>
+              <div className="relative h-full p-6 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="inline-flex px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: `${m.color}15`, color: m.color }}>
+                    {m.month}
+                  </span>
+                  <span className="font-display font-bold text-sm" style={{ color: C.coral }}>
+                    {m.budget} VNĐ
+                  </span>
                 </div>
 
-                {tier.featured && (
-                  <div
-                    className="absolute -bottom-20 -right-20 w-40 h-40 rounded-full blur-[80px] opacity-20"
-                    style={{ backgroundColor: tier.color }}
-                  />
-                )}
+                <h4 className="font-display font-bold text-lg mb-4" style={{ color: m.color }}>{m.title}</h4>
+
+                <div className="mb-4">
+                  <span className="text-xs font-semibold tracking-[0.12em] uppercase mb-2 block" style={{ color: `${m.color}99` }}>Hạng mục</span>
+                  <ul className="space-y-2">
+                    {m.items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: m.color }} />
+                        <span className="text-white/60 text-xs leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <span className="text-xs font-semibold tracking-[0.12em] uppercase mb-2 block" style={{ color: `${C.coral}cc` }}>Kết quả</span>
+                  <ul className="space-y-2">
+                    {m.deliverables.map((d, j) => (
+                      <li key={j} className="flex items-start gap-2">
+                        <Target className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: C.coral }} />
+                        <span className="text-white/50 text-xs leading-relaxed font-medium">{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </StaggerItem>
           ))}
@@ -1152,7 +1254,7 @@ function InvestmentSection() {
         <AnimatedSection delay={0.4} className="mt-12">
           <div className="text-center">
             <p className="text-white/30 text-sm">
-              Không bao gồm: ngân sách ads, tool trả phí, chi phí media sản xuất.
+              Không bao gồm: ngân sách ads, tool trả phí, chi phí media sản xuất. Phạm vi có thể điều chỉnh sau khi chốt hợp đồng tư vấn.
             </p>
           </div>
         </AnimatedSection>
