@@ -536,19 +536,40 @@ function RoleSection() {
       title: 'Content Team',
       icon: PenTool,
       color: C.teal,
+      desc: 'AI hiện thực hoá ý tưởng thành visual, brief bằng hình ảnh',
       skills: ['AI Research & Planning', 'Prototype nhanh Visual/Video', 'Lập kế hoạch chiến dịch siêu tốc'],
+      details: [
+        'Dùng AI để research chủ đề, insight, xu hướng ngành',
+        'Tạo brief bằng hình ảnh thay vì văn bản dài',
+        'Prototype nhanh ý tưởng visual/video trong vài phút',
+        'Lên kế hoạch chiến dịch siêu tốc với AI assistant',
+      ],
     },
     {
       title: 'Design Team',
       icon: Palette,
       color: C.gold,
+      desc: 'Tìm kiếm từ stock thành tư liệu sẵn có, dùng kỹ năng hình ảnh để sản xuất sản phẩm cuối',
       skills: ['Text-to-Image', 'Generative Fill', 'Visual hóa ý tưởng phức tạp'],
+      details: [
+        'Tìm kiếm & tổng hợp tư liệu từ stock thành bài sẵn có',
+        'Dùng AI Generative Fill để chỉnh sửa & mở rộng hình ảnh',
+        'Text-to-Image: tạo visual từ mô tả ý tưởng',
+        'Sản xuất sản phẩm cuối cùng với kỹ năng hình ảnh chuyên sâu',
+      ],
     },
     {
       title: 'Media / Editor',
       icon: Clapperboard,
       color: C.green,
+      desc: 'Sources quay của đội đi quay, thêm nhóm sources về cảnh trám, cảnh quay sản phẩm, nhạc nền',
       skills: ['AI Video', 'AI Sound', 'Tạo B-roll thông minh'],
+      details: [
+        'Tổng hợp sources quay từ đội đi quay thực tế',
+        'Thêm nhóm sources về cảnh trám, cảnh quay sản phẩm',
+        'AI tạo nhạc nền phù hợp tông video',
+        'Tạo B-roll thông minh bằng AI Video',
+      ],
     },
   ];
 
@@ -581,18 +602,37 @@ function RoleSection() {
                   <role.icon className="w-7 h-7" style={{ color: role.color }} />
                 </div>
 
-                <h3 className="font-display font-bold text-xl mb-6" style={{ color: role.color }}>
+                <h3 className="font-display font-bold text-xl mb-3" style={{ color: role.color }}>
                   {role.title}
                 </h3>
 
-                <ul className="space-y-4">
-                  {role.skills.map((skill, j) => (
-                    <li key={j} className="flex items-center gap-3">
-                      <Star className="w-4 h-4 flex-shrink-0" style={{ color: role.color }} />
-                      <span className="text-white/60">{skill}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm text-white/50 mb-5 leading-relaxed italic">
+                  {role.desc}
+                </p>
+
+                <div className="mb-5">
+                  <span className="text-xs font-semibold tracking-[0.15em] uppercase mb-3 block" style={{ color: `${role.color}99` }}>Kỹ năng AI chính</span>
+                  <ul className="space-y-3">
+                    {role.skills.map((skill, j) => (
+                      <li key={j} className="flex items-center gap-3">
+                        <Star className="w-4 h-4 flex-shrink-0" style={{ color: role.color }} />
+                        <span className="text-white/60 text-sm">{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <span className="text-xs font-semibold tracking-[0.15em] uppercase mb-3 block" style={{ color: `${role.color}99` }}>Quy trình thực tế</span>
+                  <ul className="space-y-2.5">
+                    {role.details.map((detail, j) => (
+                      <li key={j} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: `${role.color}80` }} />
+                        <span className="text-white/50 text-sm leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </StaggerItem>
           ))}
