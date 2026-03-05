@@ -35,7 +35,9 @@ import {
   Star,
   Target,
   TrendingUp,
+  UserCog,
   Users,
+  Workflow,
   Zap,
 } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
@@ -85,6 +87,7 @@ export default function Home() {
       <MethodSection />
       <RoadmapSection />
       <RoleSection />
+      <AIMarketingRoleSection />
       <DeliverablesSection />
       <MesmeeShowcaseSection />
       <KPISection />
@@ -637,6 +640,141 @@ function RoleSection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ─── AI MARKETING ROLE SECTION ─── */
+function AIMarketingRoleSection() {
+  const responsibilities = [
+    {
+      icon: UserCog,
+      title: 'Phối hợp cùng TP Marketing',
+      desc: 'Hỗ trợ Trưởng phòng Marketing trong việc phỏng vấn, đánh giá năng lực AI của team, và lên kế hoạch đào tạo phù hợp từng người.',
+    },
+    {
+      icon: Brain,
+      title: 'Đồng hành đào tạo 1-1',
+      desc: 'Làm việc trực tiếp với từng thành viên — nâng cấp kỹ năng AI cá nhân bằng các công cụ phù hợp với vai trò (Content, Design, Media).',
+    },
+    {
+      icon: Workflow,
+      title: 'Vận hành AI Content Engine',
+      desc: 'Phụ trách quy trình AI Content Engine — từ cào nội dung, AI curate, viết lại, tạo ảnh AI đến tự động đăng bài.',
+    },
+    {
+      icon: Target,
+      title: 'Cấu trúc phòng MKT mới',
+      desc: 'Bổ sung vị trí AI Marketing vào org chart — người kết nối giữa chiến lược và công nghệ, đảm bảo AI được ứng dụng đúng cách.',
+    },
+    {
+      icon: Zap,
+      title: 'Nâng cấp công cụ cá nhân',
+      desc: 'Trang bị cho mỗi thành viên bộ công cụ AI riêng — ChatGPT, Midjourney, Runway, Suno... tùy theo vai trò và nhu cầu.',
+    },
+    {
+      icon: Shield,
+      title: 'Đảm bảo chất lượng đầu ra',
+      desc: 'Kiểm soát chất lượng nội dung AI tạo ra, đảm bảo đúng tone of voice thương hiệu và chuẩn y khoa.',
+    },
+  ];
+
+  return (
+    <section className="relative py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
+          <span style={{ color: C.coral }} className="font-display font-semibold text-sm tracking-[0.2em] uppercase mb-4 block">
+            Cấu trúc đội ngũ mới
+          </span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+            Vị trí <span className="gradient-text-warm">AI Marketing</span>
+            <br />
+            trong phòng MKT
+          </h2>
+          <p className="text-white/50 text-lg leading-relaxed">
+            Không chỉ nâng cấp kỹ năng cá nhân — mà còn bổ sung <span className="text-white/80 font-medium">1 vị trí AI Marketing</span> vào cấu trúc phòng, phối hợp cùng TP MKT để đồng hành đào tạo và vận hành AI cho toàn bộ team.
+          </p>
+        </AnimatedSection>
+
+        {/* Org Chart Visual */}
+        <AnimatedSection className="mb-16">
+          <div className="max-w-2xl mx-auto">
+            {/* TP MKT */}
+            <div className="text-center mb-3">
+              <div className="inline-flex items-center gap-3 px-6 py-4 rounded-xl" style={{ backgroundColor: `${C.teal}15`, border: `1px solid ${C.teal}30` }}>
+                <Users className="w-5 h-5" style={{ color: C.teal }} />
+                <span className="font-display font-bold text-lg" style={{ color: C.teal }}>TP Marketing</span>
+              </div>
+            </div>
+            {/* Connector line */}
+            <div className="flex justify-center mb-3">
+              <div className="w-px h-8" style={{ backgroundColor: `${C.teal}40` }} />
+            </div>
+            {/* AI Marketing Role - highlighted */}
+            <div className="text-center mb-3">
+              <div className="inline-flex items-center gap-3 px-8 py-5 rounded-xl relative" style={{ background: `linear-gradient(135deg, ${C.coral}20, ${C.gold}15)`, border: `2px solid ${C.coral}60` }}>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-xs font-bold" style={{ backgroundColor: C.coral, color: C.bg }}>MỚI</div>
+                <UserCog className="w-6 h-6" style={{ color: C.coral }} />
+                <div className="text-left">
+                  <span className="font-display font-bold text-lg block" style={{ color: C.coral }}>AI Marketing</span>
+                  <span className="text-xs text-white/50">Phối hợp & đào tạo AI cho team</span>
+                </div>
+              </div>
+            </div>
+            {/* Connector lines to 3 teams */}
+            <div className="flex justify-center mb-3">
+              <div className="w-px h-6" style={{ backgroundColor: `${C.coral}40` }} />
+            </div>
+            <div className="relative flex justify-center mb-3">
+              <div className="absolute top-0 left-[16.67%] right-[16.67%] h-px" style={{ backgroundColor: `${C.coral}30` }} />
+              <div className="flex justify-between w-2/3">
+                <div className="w-px h-6" style={{ backgroundColor: `${C.coral}30` }} />
+                <div className="w-px h-6" style={{ backgroundColor: `${C.coral}30` }} />
+                <div className="w-px h-6" style={{ backgroundColor: `${C.coral}30` }} />
+              </div>
+            </div>
+            {/* 3 Teams */}
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { name: 'Content Team', color: C.teal, icon: PenTool },
+                { name: 'Design Team', color: C.gold, icon: Palette },
+                { name: 'Media / Editor', color: C.green, icon: Clapperboard },
+              ].map((team) => (
+                <div key={team.name} className="text-center">
+                  <div className="inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl w-full" style={{ backgroundColor: `${team.color}10`, border: `1px solid ${team.color}25` }}>
+                    <team.icon className="w-4 h-4" style={{ color: team.color }} />
+                    <span className="font-display font-semibold text-sm" style={{ color: team.color }}>{team.name}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Responsibilities Grid */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
+          {responsibilities.map((item, i) => (
+            <StaggerItem key={i}>
+              <div className="h-full p-6 rounded-xl transition-all duration-300" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${C.coral}12` }}>
+                  <item.icon className="w-6 h-6" style={{ color: C.coral }} />
+                </div>
+                <h4 className="font-display font-bold text-base mb-2" style={{ color: C.coral }}>{item.title}</h4>
+                <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+
+        {/* Bottom note */}
+        <AnimatedSection className="mt-12">
+          <div className="max-w-3xl mx-auto p-6 rounded-xl text-center" style={{ backgroundColor: `${C.coral}08`, border: `1px solid ${C.coral}20` }}>
+            <p className="text-sm leading-relaxed" style={{ color: C.coral }}>
+              <span className="font-bold">Đề xuất:</span> Bổ sung vị trí AI Marketing vào cấu trúc phòng MKT hiện tại — người này sẽ là đầu mối phối hợp với DeMAN AI LAB trong suốt 90 ngày, đồng thời là người duy trì và phát triển hệ thống AI sau khi bàn giao.
+            </p>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
