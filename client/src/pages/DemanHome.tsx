@@ -17,6 +17,9 @@ const IMAGES = {
   services: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/demanlab-services-euH6NUowesCcTH57W2UT4W.webp',
   ecosystem: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/demanlab-ecosystem-LXARB7sh7bBmvKfhb7nTCX.webp',
   cta: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/demanlab-cta-RCFmWLmqeXUkURSnPsT6w2.webp',
+  brandLogo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/deman-logo-transparent_731b623d.png',
+  brandAvatar2k: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/deman-avatar-2k_64370c57.png',
+  brandAvatar4k: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/deman-avatar-4k_40c0f4a0.png',
   avatar: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/haivn-avatar_be7140ce.png',
   oniizLogo: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/oniiz-logo_a0ad3679.png',
   oniizHero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/oniiz-hero_6b27dfab.jpeg',
@@ -26,19 +29,22 @@ const IMAGES = {
   gameofecomHero: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663384433292/4vJRkvfMLhNshaBfpcZZas/gameofecom-hero_7cb7a008.jpg',
 };
 
-// ═══ Brand Colors ═══
+// ═══ Brand Colors — Cyan-Blue-Purple System ═══
 const C = {
-  gold: '#D4A853',
-  goldLight: '#E8C068',
-  goldDark: '#B8860B',
-  charcoal: '#0A0A0A',
-  surface: '#141414',
-  surfaceLight: '#1A1A1A',
-  white: '#F5F5F0',
-  whiteMuted: 'rgba(245, 245, 240, 0.6)',
-  whiteDim: 'rgba(245, 245, 240, 0.35)',
-  goldAlpha: (a: number) => `rgba(212, 168, 83, ${a})`,
-  whiteAlpha: (a: number) => `rgba(245, 245, 240, ${a})`,
+  gold: '#00B4FF',
+  goldLight: '#00D4FF',
+  goldDark: '#4A90FF',
+  purple: '#7B2FBE',
+  deepPurple: '#3D1A78',
+  charcoal: '#0a0a14',
+  surface: '#0d0d1e',
+  surfaceLight: '#14142a',
+  white: '#E8EDF5',
+  whiteMuted: 'rgba(232, 237, 245, 0.6)',
+  whiteDim: 'rgba(232, 237, 245, 0.35)',
+  goldAlpha: (a: number) => `rgba(0, 180, 255, ${a})`,
+  purpleAlpha: (a: number) => `rgba(123, 47, 190, ${a})`,
+  whiteAlpha: (a: number) => `rgba(232, 237, 245, ${a})`,
 };
 
 // ═══ Reusable Components ═══
@@ -86,10 +92,7 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ border: `1px solid ${C.goldAlpha(0.4)}` }}>
-            <span className="font-display font-bold text-xs" style={{ color: C.gold }}>D</span>
-          </div>
-          <span className="font-display font-semibold text-sm tracking-wide" style={{ color: C.white }}>DEMAN AI LAB</span>
+          <img src={IMAGES.brandLogo} alt="DEMAN AI LAB" className="h-8 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -120,8 +123,8 @@ function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={IMAGES.hero} alt="" className="w-full h-full object-cover opacity-[0.25]" />
-        <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${C.charcoal} 0%, ${C.charcoal}dd 40%, ${C.charcoal}bb 100%)` }} />
+        <img src={IMAGES.brandAvatar4k} alt="" className="w-full h-full object-cover opacity-[0.20]" style={{ objectPosition: 'center 30%' }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${C.charcoal} 0%, ${C.charcoal}cc 30%, rgba(61,26,120,0.3) 70%, ${C.charcoal}dd 100%)` }} />
       </div>
 
       <motion.div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16 w-full">
@@ -942,8 +945,8 @@ function VisionSection() {
   return (
     <section className="relative py-28 md:py-36 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={IMAGES.cta} alt="" className="w-full h-full object-cover opacity-[0.15]" />
-        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${C.charcoal}, ${C.charcoal}cc 30%, ${C.charcoal}cc 70%, ${C.charcoal})` }} />
+        <img src={IMAGES.brandAvatar2k} alt="" className="w-full h-full object-cover opacity-[0.12]" style={{ objectPosition: 'center center' }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${C.charcoal}, rgba(61,26,120,0.15) 50%, ${C.charcoal})` }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
@@ -1151,10 +1154,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ border: `1px solid ${C.goldAlpha(0.3)}` }}>
-              <span className="font-display font-bold text-xs" style={{ color: C.gold }}>D</span>
-            </div>
-            <span className="font-display font-semibold text-sm" style={{ color: C.whiteMuted }}>DEMAN AI LAB</span>
+            <img src={IMAGES.brandLogo} alt="DEMAN AI LAB" className="h-7 w-auto" />
           </div>
 
           <div className="flex flex-wrap items-center gap-6 text-xs" style={{ color: C.whiteDim }}>
