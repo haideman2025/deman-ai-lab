@@ -323,7 +323,7 @@ function PositioningSection() {
                   { name: 'DEMAN AI LAB', desc: t('Trang chính thức', 'Official Page'), href: 'https://www.facebook.com/demanlab', icon: '🤖' },
                   { name: 'The Masculine Lab', desc: t('ONIIZ Menscare', 'ONIIZ Menscare'), href: 'https://www.facebook.com/themasculinelab', icon: '🧴' },
                   { name: 'BIG MANZ', desc: t('For The Big Things', 'For The Big Things'), href: 'https://www.facebook.com/bigmanz.forthebigthings/', icon: '💪' },
-                  { name: 'Ziino Nội Thất', desc: t('Nội thất thông minh', 'Smart Furniture'), href: 'https://www.facebook.com/ziinonoithiet', icon: '🏠' },
+                  { name: 'Ziino Nói Thiệt', desc: t('Hệ sinh thái truyện tranh từ mascot Ziino', 'Comic ecosystem from Ziino mascot'), href: 'https://www.facebook.com/ziinonoithiet', icon: '📚' },
                 ].map((project, i) => (
                   <a key={i} href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 transition-all duration-300 group" style={{ backgroundColor: C.whiteAlpha(0.02), borderRadius: '4px' }}
                     onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.whiteAlpha(0.06); }}
