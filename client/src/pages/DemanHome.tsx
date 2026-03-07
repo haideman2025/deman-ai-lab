@@ -139,8 +139,8 @@ function HeroSection() {
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.6 }} className="text-lg md:text-xl leading-relaxed max-w-xl mb-10" style={{ color: C.whiteMuted }}>
             {t(
-              'Mình là Hải — người đầu tiên ở Việt Nam thiết kế bản vẽ AI cho doanh nghiệp. Đã dùng AI vận hành 6 thương hiệu, bán 3 triệu sản phẩm, với đội ngũ chỉ 7 người.',
-              "I'm Hai — the first in Vietnam to design AI blueprints for businesses. Using AI to operate 6 brands, sell 3 million products, with a team of just 7."
+              'Mình là Hải — người thiết kế bản vẽ AI cho doanh nghiệp Việt. Đã xây dựng 6 mô hình kinh doanh, bán hơn 3 triệu sản phẩm trên ecom. Đội ngũ AI Lab mới thành lập gồm 7 người.',
+              "I'm Hai — the designer of AI blueprints for Vietnamese businesses. Built 6 business models, sold over 3 million products on ecom. AI Lab team newly established with 7 people."
             )}
           </motion.p>
 
@@ -156,8 +156,8 @@ function HeroSection() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="flex flex-wrap gap-12 mt-20 pt-8" style={{ borderTop: `1px solid ${C.whiteAlpha(0.08)}` }}>
             {[
               { num: '11+', label: t('Chương trình đã triển khai', 'Programs Delivered') },
-              { num: '6+', label: t('Thương hiệu vận hành', 'Brands Operated') },
-              { num: '3M+', label: t('Sản phẩm đã bán', 'Products Sold') },
+              { num: '6+', label: t('Mô hình kinh doanh', 'Business Models') },
+              { num: '3M+', label: t('Sản phẩm ecom', 'Ecom Products Sold') },
               { num: '8+', label: t('Framework độc quyền', 'Proprietary Frameworks') },
             ].map((stat, i) => (
               <div key={i}>
@@ -194,8 +194,8 @@ function PositioningSection() {
           </h2>
           <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: C.whiteMuted }}>
             {t(
-              'Bạn có thể mua 100 công cụ AI, nhưng không có bản vẽ hệ thống thì vẫn chạy vòng vòng. Mình đã tự chứng minh điều này bằng 6 thương hiệu, 3 triệu sản phẩm, và đội ngũ chỉ 7 người.',
-              'You can buy 100 AI tools, but without a system blueprint, you\'ll keep running in circles. I\'ve proven this with 6 brands, 3 million products, and a team of just 7.'
+              'Bạn có thể mua 100 công cụ AI, nhưng không có bản vẽ hệ thống thì vẫn chạy vòng vòng. Mình đã tự chứng minh điều này bằng 6 mô hình kinh doanh và hơn 3 triệu sản phẩm đã bán trên ecom.',
+              'You can buy 100 AI tools, but without a system blueprint, you\'ll keep running in circles. I\'ve proven this with 6 business models and over 3 million products sold on ecom.'
             )}
           </p>
         </FadeInSection>
@@ -792,9 +792,9 @@ function AboutSection() {
 
             <div className="flex flex-wrap gap-3 mb-6">
               {[
-                t('6 thương hiệu', '6 brands'),
-                t('3M+ sản phẩm', '3M+ products'),
-                t('7 người vận hành', '7-person team'),
+                t('6 mô hình kinh doanh', '6 business models'),
+                t('3M+ sản phẩm ecom', '3M+ ecom products'),
+                t('AI Lab 7 người', 'AI Lab 7-person team'),
                 t('11+ chương trình', '11+ programs'),
                 'Clone Your Mind™',
               ].map(tag => (
