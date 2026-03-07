@@ -185,81 +185,62 @@ function PositioningSection() {
   return (
     <section className="relative py-28 md:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <FadeInSection className="max-w-4xl mx-auto text-center mb-20">
-          <SectionLabel>{t('Vì sao chọn DEMAN AI LAB?', 'Why DEMAN AI LAB?')}</SectionLabel>
+        {/* Mission WHY */}
+        <FadeInSection className="max-w-4xl mx-auto text-center mb-24">
+          <SectionLabel>{t('Sứ mệnh', 'Our Mission')}</SectionLabel>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-8" style={{ color: C.white }}>
-            {t('Đa số doanh nghiệp mua công cụ.', 'Most businesses buy tools.')}
+            {t('Khai phá giới hạn con người', 'Unlock human potential')}
             <br />
-            <span className="gradient-text-gold">{t('Chúng tôi thiết kế bản vẽ.', 'We design the blueprint.')}</span>
+            <span className="gradient-text-gold">{t('trong kỷ nguyên số.', 'in the digital era.')}</span>
           </h2>
           <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: C.whiteMuted }}>
             {t(
-              'Bạn có thể mua 100 công cụ AI, nhưng không có bản vẽ hệ thống thì vẫn chạy vòng vòng. Mình đã tự chứng minh điều này bằng 6 mô hình kinh doanh và hơn 3 triệu sản phẩm đã bán trên ecom.',
-              'You can buy 100 AI tools, but without a system blueprint, you\'ll keep running in circles. I\'ve proven this with 6 business models and over 3 million products sold on ecom.'
+              'Chúng tôi tin rằng AI không thay thế con người — AI khai phá những gì con người chưa kịp chạm tới. Khi bạn có bản vẽ đúng, một người có thể làm được việc của mười người. Đó là lý do DEMAN AI LAB tồn tại.',
+              'We believe AI doesn\'t replace humans — AI unlocks what humans haven\'t reached yet. With the right blueprint, one person can do the work of ten. That\'s why DEMAN AI LAB exists.'
             )}
           </p>
         </FadeInSection>
 
-        {/* 1-3-5 Principle Visual */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {/* 1 Positioning */}
+        {/* CEO Pain Points → Solution */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           <FadeInSection delay={0}>
-            <div className="p-8 h-full text-center transition-all duration-500" style={{ backgroundColor: C.goldAlpha(0.06), border: `1px solid ${C.goldAlpha(0.2)}`, borderRadius: '4px' }}>
-              <div className="font-display font-bold text-5xl mb-4" style={{ color: C.gold }}>1</div>
-              <h3 className="font-display font-bold text-lg mb-3" style={{ color: C.white }}>{t('Định vị duy nhất', 'One Positioning')}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: C.whiteMuted }}>
-                {t('Hải VN = Người thiết kế "bản vẽ AI" cho doanh nghiệp Việt. Không phải người dạy dùng công cụ — mà là kiến trúc sư hệ thống.', 'Hai VN = The designer of "AI blueprints" for Vietnamese businesses. Not a tool instructor — but a system architect.')}
-              </p>
-            </div>
-          </FadeInSection>
-
-          {/* 3 Proof Stories */}
-          <FadeInSection delay={0.15}>
-            <div className="p-8 h-full text-center transition-all duration-500" style={{ backgroundColor: C.whiteAlpha(0.03), border: `1px solid ${C.whiteAlpha(0.08)}`, borderRadius: '4px' }}>
-              <div className="font-display font-bold text-5xl mb-4" style={{ color: C.gold }}>3</div>
-              <h3 className="font-display font-bold text-lg mb-3" style={{ color: C.white }}>{t('Câu chuyện chứng minh', 'Proof Stories')}</h3>
-              <div className="space-y-3 text-left">
-                <div className="flex items-center gap-3 p-2" style={{ backgroundColor: C.whiteAlpha(0.03), borderRadius: '4px' }}>
-                  <span className="text-lg">🧴</span>
-                  <div>
-<span className="font-display font-semibold text-sm block" style={{ color: C.white }}>ONIIZ US</span>
-                     <span className="text-xs" style={{ color: C.whiteDim }}>{t('1 người vận hành x AI, mở rộng quốc tế', '1 person x AI, international expansion')}</span>
+            <div className="p-8 h-full" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}>
+              <h3 className="font-display font-bold text-xl mb-6" style={{ color: '#EF4444' }}>
+                {t('Bạn đang ở đây?', 'Are you here?')}
+              </h3>
+              <div className="space-y-4">
+                {[
+                  t('Team 5-10 người làm content nhưng output vẫn không đủ', '5-10 person content team but output still not enough'),
+                  t('Mua hàng chục tool AI nhưng không ai biết dùng đúng cách', 'Bought dozens of AI tools but nobody knows how to use them right'),
+                  t('Chi phí marketing tăng nhưng hiệu quả giảm dần', 'Marketing costs rising but effectiveness declining'),
+                  t('Muốn scale nhưng cứ thuê thêm người là thêm rối', 'Want to scale but hiring more people just adds chaos'),
+                  t('Biết AI quan trọng nhưng không biết bắt đầu từ đâu', 'Know AI is important but don\'t know where to start'),
+                ].map((pain, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-sm mt-0.5" style={{ color: '#EF4444' }}>✕</span>
+                    <p className="text-sm leading-relaxed" style={{ color: C.whiteMuted }}>{pain}</p>
                   </div>
-                </div>
-                <div className="flex items-center gap-3 p-2" style={{ backgroundColor: C.whiteAlpha(0.03), borderRadius: '4px' }}>
-                  <span className="text-lg">💜</span>
-                  <div>
-                    <span className="font-display font-semibold text-sm block" style={{ color: C.white }}>V2JOY</span>
-                    <span className="text-xs" style={{ color: C.whiteDim }}>{t('80% AI-powered, co-branded', '80% AI-powered, co-branded')}</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-2" style={{ backgroundColor: C.whiteAlpha(0.03), borderRadius: '4px' }}>
-                  <span className="text-lg">🤖</span>
-                  <div>
-                    <span className="font-display font-semibold text-sm block" style={{ color: C.white }}>DEMAN AI LAB</span>
-                    <span className="text-xs" style={{ color: C.whiteDim }}>{t('Từ 0 đến hệ sinh thái', 'From 0 to ecosystem')}</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </FadeInSection>
 
-          {/* 5 Content Pillars */}
-          <FadeInSection delay={0.3}>
-            <div className="p-8 h-full text-center transition-all duration-500" style={{ backgroundColor: C.whiteAlpha(0.03), border: `1px solid ${C.whiteAlpha(0.08)}`, borderRadius: '4px' }}>
-              <div className="font-display font-bold text-5xl mb-4" style={{ color: C.gold }}>5</div>
-              <h3 className="font-display font-bold text-lg mb-3" style={{ color: C.white }}>{t('Trụ cột nội dung', 'Content Pillars')}</h3>
-              <div className="space-y-2 text-left">
+          <FadeInSection delay={0.15}>
+            <div className="p-8 h-full" style={{ backgroundColor: C.goldAlpha(0.04), border: `1px solid ${C.goldAlpha(0.15)}`, borderRadius: '4px' }}>
+              <h3 className="font-display font-bold text-xl mb-6" style={{ color: C.gold }}>
+                {t('Đây là nơi bạn cần đến.', 'This is where you need to be.')}
+              </h3>
+              <div className="space-y-4">
                 {[
-                  { icon: Brain, label: t('AI Architecture — Bản vẽ hệ thống', 'AI Architecture — System Blueprint') },
-                  { icon: Users, label: t('Câu chuyện thực chiến', 'Real Battle Stories') },
-                  { icon: TrendingUp, label: t('Behind-the-scenes vận hành', 'Operations Behind-the-scenes') },
-                  { icon: Sparkles, label: t('Triết lý kinh doanh & phát triển', 'Business Philosophy & Growth') },
-                  { icon: Rocket, label: t('Case study & kết quả thực tế', 'Case Studies & Real Results') },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 py-1.5">
-                    <item.icon size={14} style={{ color: C.gold }} />
-                    <span className="text-xs" style={{ color: C.whiteMuted }}>{item.label}</span>
+                  t('1 người vận hành cả thương hiệu quốc tế nhờ AI (ONIIZ US)', '1 person operates entire international brand with AI (ONIIZ US)'),
+                  t('80% quy trình từ ý tưởng đến publish tự động (V2JOY)', '80% process from idea to publish automated (V2JOY)'),
+                  t('Từ 0 đến hệ sinh thái 6 mô hình kinh doanh', 'From 0 to ecosystem of 6 business models'),
+                  t('Team 7 người AI Lab vận hành ngang team 30 người truyền thống', '7-person AI Lab team operates at the level of 30-person traditional team'),
+                  t('Bản vẽ hệ thống — không phải dạy dùng tool', 'System blueprint — not tool training'),
+                ].map((solution, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-sm mt-0.5" style={{ color: C.gold }}>✓</span>
+                    <p className="text-sm leading-relaxed" style={{ color: C.whiteMuted }}>{solution}</p>
                   </div>
                 ))}
               </div>
@@ -267,20 +248,23 @@ function PositioningSection() {
           </FadeInSection>
         </div>
 
-        {/* Funnel Visualization */}
+        {/* Journey: Stranger → Partner (CEO perspective, no prices) */}
         <FadeInSection>
           <div className="text-center mb-12">
-            <SectionLabel>{t('Phễu chuyển đổi', 'Conversion Funnel')}</SectionLabel>
+            <SectionLabel>{t('Hành trình đồng hành', 'Partnership Journey')}</SectionLabel>
             <h3 className="font-display font-bold text-2xl sm:text-3xl leading-tight" style={{ color: C.white }}>
-              {t('Hành trình từ ', 'Journey from ')}<span className="gradient-text-gold">{t('người lạ đến đối tác', 'stranger to partner')}</span>
+              {t('Từ ', 'From ')}<span className="gradient-text-gold">{t('tìm hiểu đến đồng hành', 'discovery to partnership')}</span>
             </h3>
+            <p className="text-sm mt-3 max-w-xl mx-auto" style={{ color: C.whiteDim }}>
+              {t('Mỗi bước đều được thiết kế để bạn trải nghiệm giá trị thật trước khi quyết định đi tiếp.', 'Each step is designed for you to experience real value before deciding to go further.')}
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { step: '01', title: t('Thu hút', 'Attract'), desc: t('Content WHY trên Facebook & TikTok — câu chuyện, triết lý, behind-the-scenes', 'WHY content on Facebook & TikTok — stories, philosophy, behind-the-scenes'), color: '#10B981', channel: 'Facebook + TikTok' },
-              { step: '02', title: t('Giáo dục', 'Educate'), desc: t('Lead magnet miễn phí, email sequence, ebook Game of Ecom, blog haivn.ai', 'Free lead magnets, email sequence, Game of Ecom ebook, haivn.ai blog'), color: '#3B82F6', channel: 'haivn.ai + Email' },
-              { step: '03', title: t('Chuyển đổi', 'Convert'), desc: t('Group Coaching, Workshop chiến lược, Webinar hàng tháng — thiết kế bản vẽ AI trong 60 phút', 'Group Coaching, Strategy Workshop, Monthly Webinar — design AI blueprint in 60 min'), color: '#F59E0B', channel: t('~100 triệu VNĐ', '~$4,000 USD') },
-              { step: '04', title: t('Nâng cấp', 'Upgrade'), desc: t('1-on-1 Mentoring & Consulting — thiết kế hệ thống AI toàn diện cho doanh nghiệp', '1-on-1 Mentoring & Consulting — design complete AI system for business'), color: '#EF4444', channel: t('~300 triệu VNĐ', '~$12,000 USD') },
+              { step: '01', title: t('Khám phá', 'Discover'), desc: t('Đọc Game of Ecom, xem video behind-the-scenes, tham gia cộng đồng — cảm nhận tư duy trước khi đầu tư.', 'Read Game of Ecom, watch behind-the-scenes videos, join community — feel the thinking before investing.'), color: '#10B981', channel: t('Miễn phí', 'Free') },
+              { step: '02', title: t('Trải nghiệm', 'Experience'), desc: t('Tham gia workshop, webinar chiến lược — thấy được cách AI thay đổi vận hành thực tế trong 60 phút.', 'Join workshops, strategy webinars — see how AI changes real operations in 60 minutes.'), color: '#3B82F6', channel: t('Workshop & Webinar', 'Workshop & Webinar') },
+              { step: '03', title: t('Chuyển đổi', 'Transform'), desc: t('Group coaching chuyên sâu — thiết kế bản vẽ AI cho chính doanh nghiệp của bạn, thực hành ngay.', 'Intensive group coaching — design AI blueprint for your own business, practice immediately.'), color: '#F59E0B', channel: t('Group Coaching', 'Group Coaching') },
+              { step: '04', title: t('Đồng hành', 'Partner'), desc: t('1-on-1 consulting — 90 ngày đồng hành trực tiếp, thiết kế hệ thống AI toàn diện, đào tạo team.', '1-on-1 consulting — 90 days direct mentoring, design complete AI system, train your team.'), color: '#EF4444', channel: t('1-on-1 Consulting', '1-on-1 Consulting') },
             ].map((item, i) => (
               <FadeInSection key={i} delay={i * 0.1}>
                 <div className="p-6 h-full relative transition-all duration-500" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}
@@ -300,6 +284,62 @@ function PositioningSection() {
             ))}
           </div>
         </FadeInSection>
+
+        {/* Community & Real Projects */}
+        <FadeInSection className="mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Communities */}
+            <div className="p-8" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}>
+              <h3 className="font-display font-bold text-lg mb-6" style={{ color: C.white }}>
+                {t('Cộng đồng', 'Communities')}
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { name: 'Clone Your Mind™ Academy', desc: 'Skool', href: 'https://www.skool.com/clone-your-mind-academy-4398', icon: '🎓' },
+                  { name: t('Cộng đồng AI Marketing', 'AI Marketing Community'), desc: 'Facebook Group', href: 'https://www.facebook.com/groups/471620336015059', icon: '👥' },
+                  { name: t('Cộng đồng AI Ecom', 'AI Ecom Community'), desc: 'Facebook Group', href: 'https://www.facebook.com/groups/31029373586675973', icon: '🛒' },
+                ].map((community, i) => (
+                  <a key={i} href={community.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 transition-all duration-300 group" style={{ backgroundColor: C.whiteAlpha(0.02), borderRadius: '4px' }}
+                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.whiteAlpha(0.06); }}
+                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = C.whiteAlpha(0.02); }}>
+                    <span className="text-xl">{community.icon}</span>
+                    <div className="flex-1">
+                      <span className="font-display font-semibold text-sm block" style={{ color: C.white }}>{community.name}</span>
+                      <span className="text-xs" style={{ color: C.whiteDim }}>{community.desc}</span>
+                    </div>
+                    <ExternalLink size={14} style={{ color: C.whiteDim }} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Real Projects */}
+            <div className="p-8" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}>
+              <h3 className="font-display font-bold text-lg mb-6" style={{ color: C.white }}>
+                {t('Dự án đang triển khai', 'Active Projects')}
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { name: 'DEMAN AI LAB', desc: t('Trang chính thức', 'Official Page'), href: 'https://www.facebook.com/demanlab', icon: '🤖' },
+                  { name: 'The Masculine Lab', desc: t('ONIIZ Menscare', 'ONIIZ Menscare'), href: 'https://www.facebook.com/themasculinelab', icon: '🧴' },
+                  { name: 'BIG MANZ', desc: t('For The Big Things', 'For The Big Things'), href: 'https://www.facebook.com/bigmanz.forthebigthings/', icon: '💪' },
+                  { name: 'Ziino Nội Thất', desc: t('Nội thất thông minh', 'Smart Furniture'), href: 'https://www.facebook.com/ziinonoithiet', icon: '🏠' },
+                ].map((project, i) => (
+                  <a key={i} href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 transition-all duration-300 group" style={{ backgroundColor: C.whiteAlpha(0.02), borderRadius: '4px' }}
+                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.whiteAlpha(0.06); }}
+                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = C.whiteAlpha(0.02); }}>
+                    <span className="text-xl">{project.icon}</span>
+                    <div className="flex-1">
+                      <span className="font-display font-semibold text-sm block" style={{ color: C.white }}>{project.name}</span>
+                      <span className="text-xs" style={{ color: C.whiteDim }}>{project.desc}</span>
+                    </div>
+                    <ExternalLink size={14} style={{ color: C.whiteDim }} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </FadeInSection>
       </div>
     </section>
   );
@@ -311,7 +351,7 @@ function ServicesSection() {
 
   const tiers = [
     {
-      tier: t('Tầng 1 — Miễn phí / Low-end', 'Tier 1 — Free / Low-end'),
+      tier: t('Tầng 1 — Khám phá', 'Tier 1 — Discover'),
       price: t('Miễn phí', 'Free'),
       color: '#10B981',
       desc: t('Nội dung giá trị miễn phí để bạn trải nghiệm tư duy AI-First trước khi đầu tư.', 'Free value content to experience AI-First thinking before investing.'),
@@ -324,9 +364,9 @@ function ServicesSection() {
     },
     {
       tier: t('Tầng 2 — Group Coaching', 'Tier 2 — Group Coaching'),
-      price: t('~100 triệu VNĐ', '~$4,000 USD'),
+      price: t('Liên hệ tư vấn', 'Contact Us'),
       color: '#F59E0B',
-      desc: t('Khóa học nhóm chuyên sâu — thiết kế bản vẽ AI trong 60 phút, thực hành với case study thực tế.', 'Intensive group courses — design AI blueprint in 60 min, practice with real case studies.'),
+      desc: t('Khóa học nhóm chuyên sâu — thiết kế bản vẽ AI trong 60 phút, thực hành với case study thực tế. Báo giá cá nhân hóa theo nhu cầu.', 'Intensive group courses — design AI blueprint in 60 min, practice with real case studies. Personalized pricing based on needs.'),
       items: [
         { icon: Bitcoin, name: 'AI for Crypto', detail: t('5 buổi chuyên sâu — AI x Crypto ecosystem', '5 intensive sessions — AI x Crypto ecosystem') },
         { icon: ShoppingCart, name: 'AI for Affiliate', detail: t('4 buổi + Workshop — Affiliate Engine™', '4 sessions + Workshop — Affiliate Engine™') },
@@ -338,9 +378,9 @@ function ServicesSection() {
     },
     {
       tier: t('Tầng 3 — 1-on-1 Consulting', 'Tier 3 — 1-on-1 Consulting'),
-      price: t('~300 triệu VNĐ', '~$12,000 USD'),
+      price: t('Liên hệ tư vấn', 'Contact Us'),
       color: '#EF4444',
-      desc: t('Thiết kế hệ thống AI toàn diện cho doanh nghiệp — 90 ngày chuyển đổi, đồng hành trực tiếp.', 'Design complete AI system for business — 90-day transformation, direct mentoring.'),
+      desc: t('Thiết kế hệ thống AI toàn diện cho doanh nghiệp — 90 ngày chuyển đổi, đồng hành trực tiếp. Báo giá cá nhân hóa theo quy mô doanh nghiệp.', 'Design complete AI system for business — 90-day transformation, direct mentoring. Personalized pricing based on business scale.'),
       items: [
         { icon: Cpu, name: t('AI System Architecture', 'AI System Architecture'), detail: t('Thiết kế SOP, workflow, CRM tự động', 'Design SOP, workflow, automated CRM') },
         { icon: Zap, name: t('AI Content Factory', 'AI Content Factory'), detail: t('Nhà máy content vô hạn 24/7', 'Infinite content factory 24/7') },
@@ -362,13 +402,13 @@ function ServicesSection() {
         <FadeInSection>
           <SectionLabel>{t('Dịch vụ', 'Services')}</SectionLabel>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6" style={{ color: C.white }}>
-            {t('3 tầng giá trị.', '3 value tiers.')}
-            <span className="gradient-text-gold"> {t('1 hệ sinh thái.', '1 ecosystem.')}</span>
+            {t('Hệ sinh thái giá trị.', 'Value ecosystem.')}
+            <span className="gradient-text-gold"> {t('Một hành trình.', 'One journey.')}</span>
           </h2>
           <p className="text-lg max-w-2xl mb-16" style={{ color: C.whiteMuted }}>
             {t(
-              'Từ nội dung miễn phí đến tư vấn 1-on-1 — mỗi tầng đều được thiết kế để bạn trải nghiệm giá trị trước khi đầu tư sâu hơn.',
-              'From free content to 1-on-1 consulting — each tier is designed for you to experience value before investing deeper.'
+              'Từ nội dung miễn phí đến đồng hành 1-on-1 — mỗi tầng đều được thiết kế để bạn trải nghiệm giá trị thật trước khi quyết định đi tiếp. Báo giá cá nhân hóa theo nhu cầu của bạn.',
+              'From free content to 1-on-1 partnership — each tier is designed for you to experience real value before deciding to go further. Personalized pricing based on your needs.'
             )}
           </p>
         </FadeInSection>
@@ -1082,12 +1122,14 @@ function ContactSection() {
             </a>
           </div>
 
-          <div className="flex justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-6">
             {[
               { label: 'Facebook', href: 'https://www.facebook.com/demanlab' },
               { label: 'HAIVN.AI', href: 'https://haivn.ai' },
+              { label: 'Skool', href: 'https://www.skool.com/clone-your-mind-academy-4398' },
               { label: 'Game of Ecom', href: '/game-of-ecom', internal: true },
-              { label: 'Skool', href: '#' },
+              { label: 'The Masculine Lab', href: 'https://www.facebook.com/themasculinelab' },
+              { label: 'BIG MANZ', href: 'https://www.facebook.com/bigmanz.forthebigthings/' },
             ].map(social => (
               <a key={social.label} href={social.href} {...(!('internal' in social) ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-xs font-medium tracking-wider uppercase transition-colors duration-300" style={{ color: C.whiteDim }} onMouseEnter={e => (e.currentTarget.style.color = C.gold)} onMouseLeave={e => (e.currentTarget.style.color = C.whiteDim)}>
                 {social.label}
@@ -1115,11 +1157,12 @@ function Footer() {
             <span className="font-display font-semibold text-sm" style={{ color: C.whiteMuted }}>DEMAN AI LAB</span>
           </div>
 
-          <div className="flex items-center gap-6 text-xs" style={{ color: C.whiteDim }}>
+          <div className="flex flex-wrap items-center gap-6 text-xs" style={{ color: C.whiteDim }}>
             <a href="#services" className="hover:opacity-80 transition-opacity">{t('Dịch vụ', 'Services')}</a>
-            <a href="#programs" className="hover:opacity-80 transition-opacity">{t('Chương trình', 'Programs')}</a>
             <a href="#cases" className="hover:opacity-80 transition-opacity">{t('Dự án', 'Projects')}</a>
             <a href="https://haivn.ai" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">HAIVN.AI</a>
+            <a href="https://www.skool.com/clone-your-mind-academy-4398" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">Skool</a>
+            <a href="https://www.facebook.com/groups/471620336015059" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">{t('Cộng đồng', 'Community')}</a>
           </div>
 
           <div className="text-xs" style={{ color: C.whiteDim }}>
