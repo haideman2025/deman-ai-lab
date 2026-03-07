@@ -1,32 +1,29 @@
-# TODO: Google Drive Data Crawl & Website Restructure
+# DEMANLAB.AI Restructuring - Brand Repositioning Strategy 2026
 
-## Phase 1: Cào dữ liệu Google Drive
-- [ ] Authenticate with Google Drive API using OAuth token
-- [ ] List all files in "DEMAN AI LAB" folder
-- [ ] List all files in "HAIVN - GAME OF ECOM" folder
-- [ ] Download key documents from both folders
+## Phase 1: Read current structure
+- [ ] Read DemanHome.tsx to understand all sections
+- [ ] Map current sections to new strategy requirements
 
-## Phase 2: Phân tích tài liệu
-- [ ] Analyze all documents for insights about capabilities, services, projects
-- [ ] Extract real metrics, case studies, testimonials
-- [ ] Map actual services vs what's on website
+## Phase 2: Hero Section Update
+- [ ] Update tagline to align with "Người thiết kế bản vẽ AI cho doanh nghiệp Việt"
+- [ ] Update subtitle with proof: "6 thương hiệu, 3M+ sản phẩm, 7 người"
+- [ ] Update CTAs: Primary → haivn.ai, Secondary → Xem case study
+- [ ] Add cross-link to haivn.ai
 
-## Phase 3: Tổng hợp & Kế hoạch
-- [ ] Create comprehensive knowledge base
-- [ ] Plan website restructure based on real data
+## Phase 3: About Section - Personal Brand Connection
+- [ ] Strengthen Hải VN = AI Architect positioning
+- [ ] Connect personal brand (haivn.ai) with org brand (demanlab.ai)
 
-## Phase 4: Tái cấu trúc website
-- [ ] Update all sections with real data
-- [ ] Restructure services based on actual offerings
-- [ ] Update case studies with real metrics
+## Phase 4: Services/Programs - 3-Tier Funnel
+- [ ] Restructure around Low/Mid/High-end funnel
+- [ ] Add clear conversion path CTAs
+- [ ] Add funnel visualization section
 
-## Phase 5: Kiểm tra & Bàn giao
-- [ ] Test all pages and language toggle
-- [ ] Save checkpoint and deliver
+## Phase 5: Case Studies & Cross-links
+- [ ] Focus on 3 proof stories: ONIIZ, V2JOY, DEMAN AI LAB
+- [ ] Add cross-links to haivn.ai
+- [ ] Update navigation for conversion path
 
-## Current Task: Remove gameofecom.com CTA + Update About
-- [ ] Remove gameofecom.com CTA link from GAME OF ECOM case study card
-- [ ] Scrape data from https://gameofecom-ap55h3md.manus.space/about
-- [ ] Update #about section in DemanHome.tsx with scraped Hải VN data
-- [ ] Verify all changes in browser
+## Phase 6: Verify & Checkpoint
+- [ ] Test all sections in browser
 - [ ] Save checkpoint
