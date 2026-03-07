@@ -123,7 +123,7 @@ function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={IMAGES.brandAvatar4k} alt="" className="w-full h-full object-cover opacity-[0.20]" style={{ objectPosition: 'center 30%' }} />
+        <img src={IMAGES.brandAvatar4k} alt="DEMAN AI LAB hero background" className="w-full h-full object-cover opacity-[0.20]" style={{ objectPosition: 'center 30%' }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${C.charcoal} 0%, ${C.charcoal}cc 30%, rgba(61,26,120,0.3) 70%, ${C.charcoal}dd 100%)` }} />
       </div>
 
@@ -532,7 +532,7 @@ function ServicesSection() {
   return (
     <section id="services" className="relative py-28 md:py-36">
       <div className="absolute inset-0">
-        <img src={IMAGES.services} alt="" className="w-full h-full object-cover opacity-[0.06]" />
+        <img src={IMAGES.services} alt="DEMAN AI LAB services background" className="w-full h-full object-cover opacity-[0.06]" />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${C.charcoal}, ${C.charcoal}ee 30%, ${C.charcoal}ee 70%, ${C.charcoal})` }} />
       </div>
 
@@ -1080,7 +1080,7 @@ function VisionSection() {
   return (
     <section className="relative py-28 md:py-36 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={IMAGES.brandAvatar2k} alt="" className="w-full h-full object-cover opacity-[0.12]" style={{ objectPosition: 'center center' }} />
+        <img src={IMAGES.brandAvatar2k} alt="DEMAN AI LAB vision background" className="w-full h-full object-cover opacity-[0.12]" style={{ objectPosition: 'center center' }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${C.charcoal}, rgba(61,26,120,0.15) 50%, ${C.charcoal})` }} />
       </div>
 
