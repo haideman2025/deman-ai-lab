@@ -222,8 +222,8 @@ function PositioningSection() {
                 <div className="flex items-center gap-3 p-2" style={{ backgroundColor: C.whiteAlpha(0.03), borderRadius: '4px' }}>
                   <span className="text-lg">🧴</span>
                   <div>
-                    <span className="font-display font-semibold text-sm block" style={{ color: C.white }}>ONIIZ</span>
-                    <span className="text-xs" style={{ color: C.whiteDim }}>{t('3M+ sản phẩm, 1 người vận hành', '3M+ products, 1 person operates')}</span>
+<span className="font-display font-semibold text-sm block" style={{ color: C.white }}>ONIIZ US</span>
+                     <span className="text-xs" style={{ color: C.whiteDim }}>{t('1 người vận hành x AI, mở rộng quốc tế', '1 person x AI, international expansion')}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-2" style={{ backgroundColor: C.whiteAlpha(0.03), borderRadius: '4px' }}>
@@ -575,10 +575,10 @@ function CaseStudiesSection() {
       name: 'ONIIZ',
       type: t('Menscare — Tôn vinh nam tính mới', 'Menscare — Celebrating New Masculinity'),
       desc: t(
-        'Thương hiệu Menscare mà mình xây từ con số 0 giữa đại dịch COVID. Sản phẩm chiến lược Masculine Foam — tôn vinh nam tính mới. Từ cái tiệm tạp hóa nhỏ xíu của bố mẹ đến 3 triệu sản phẩm đã bán, 300K+ đánh giá 5 sao trên Shopee, và đang mở rộng ra Amazon quốc tế.',
-        "The Menscare brand I built from zero during COVID. Hero product Masculine Foam — celebrating new masculinity. From my parents' tiny grocery store to 3M+ products sold, 300K+ 5-star Shopee reviews, and expanding to Amazon internationally."
+        'Thương hiệu Menscare xây từ con số 0 giữa đại dịch COVID. Sản phẩm chiến lược Masculine Foam — tôn vinh nam tính mới. ONIIZ VN với đội ngũ vận hành riêng đã bán 3M+ sản phẩm, 300K+ đánh giá 5 sao. ONIIZ US đang mở rộng quốc tế với mô hình 1 người x AI.',
+        "Menscare brand built from zero during COVID. Hero product Masculine Foam — celebrating new masculinity. ONIIZ VN with dedicated team sold 3M+ products, 300K+ 5-star reviews. ONIIZ US expanding internationally with 1 person x AI model."
       ),
-      results: [t('3M+ sản phẩm đã bán', '3M+ products sold'), t('Masculine Foam', 'Masculine Foam'), t('Shopee + Amazon', 'Shopee + Amazon'), t('Mascot Ziino', 'Mascot Ziino')],
+      results: [t('ONIIZ VN: 3M+ sản phẩm', 'ONIIZ VN: 3M+ products'), t('ONIIZ US: 1 người x AI', 'ONIIZ US: 1 person x AI'), t('Shopee + Amazon', 'Shopee + Amazon'), t('Mascot Ziino', 'Mascot Ziino')],
       links: [{ label: 'oniiz.vn', href: 'https://oniiz.vn' }, { label: 'Shopee', href: 'https://shopee.vn/oniizvietnam' }],
       icon: ShoppingCart, color: '#3B82F6',
       image: IMAGES.oniizHero,
