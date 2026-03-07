@@ -7,7 +7,7 @@
  */
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Brain, Zap, BarChart3, Users, ChevronRight, ExternalLink, Layers, Cpu, MessageSquare, TrendingUp, CheckCircle2, ArrowUpRight, Globe, ShoppingCart, Star, Rocket, BookOpen, Palette, Bitcoin, Package, Megaphone, GraduationCap, Play, FileText, Headphones, Image, Sparkles, Quote } from 'lucide-react';
+import { ArrowRight, Brain, Zap, BarChart3, Users, ChevronRight, ExternalLink, Layers, Cpu, MessageSquare, TrendingUp, CheckCircle2, ArrowUpRight, Globe, ShoppingCart, Star, Rocket, BookOpen, Palette, Bitcoin, Package, Megaphone, GraduationCap, Play, FileText, Headphones, Image, Sparkles, Quote, Wrench, Eye, Heart, Settings, Cog } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // ═══ CDN Image URLs ═══
@@ -78,9 +78,9 @@ function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: t('Dịch vụ', 'Services'), href: '#services' },
+    { label: t('Năng lực', 'Capabilities'), href: '#services' },
+    { label: t('Đội ngũ', 'Team'), href: '#team' },
     { label: t('Bằng chứng', 'Proof'), href: '#cases' },
-    { label: t('Về Hải VN', 'About Hai VN'), href: '#about' },
     { label: 'HAIVN.AI', href: 'https://haivn.ai', external: true },
   ];
 
@@ -135,21 +135,21 @@ function HeroSection() {
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-8" style={{ color: C.white }}>
-            {t('Thiết kế', 'Designing')}
+            {t('Khai phá giới hạn', 'Unlocking human')}
             <br />
-            <span className="gradient-text-gold">{t('bản vẽ AI cho doanh nghiệp.', 'AI blueprints for businesses.')}</span>
+            <span className="gradient-text-gold">{t('con người trong kỷ nguyên số.', 'potential in the digital era.')}</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.6 }} className="text-lg md:text-xl leading-relaxed max-w-xl mb-10" style={{ color: C.whiteMuted }}>
             {t(
-              'Mình là Hải — người thiết kế bản vẽ AI cho doanh nghiệp Việt. Đã xây dựng 6 mô hình kinh doanh, bán hơn 3 triệu sản phẩm trên ecom. Đội ngũ AI Lab mới thành lập gồm 7 người.',
-              "I'm Hai — the designer of AI blueprints for Vietnamese businesses. Built 6 business models, sold over 3 million products on ecom. AI Lab team newly established with 7 people."
+              'DEMAN AI LAB — Đội ngũ 7 người thiết kế hệ thống AI toàn diện cho doanh nghiệp Việt. Từ AI Architecture, Content Engine, Performance Marketing đến Automation Workflow. Không dạy dùng tool — chúng tôi thiết kế bản vẽ.',
+              'DEMAN AI LAB — A 7-person team designing comprehensive AI systems for Vietnamese businesses. From AI Architecture, Content Engine, Performance Marketing to Automation Workflow. We don\'t teach tools — we design blueprints.'
             )}
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.6 }} className="flex flex-wrap gap-4">
-            <a href="https://haivn.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-base transition-all duration-300" style={{ color: C.charcoal, backgroundColor: C.gold, borderRadius: '2px' }} onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.goldLight; e.currentTarget.style.transform = 'translateY(-2px)'; }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = C.gold; e.currentTarget.style.transform = 'translateY(0)'; }}>
-              {t('Tìm hiểu về Hải VN', 'Learn about Hai VN')} <ArrowRight size={16} />
+            <a href="#services" className="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-base transition-all duration-300" style={{ color: C.charcoal, backgroundColor: C.gold, borderRadius: '2px' }} onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.goldLight; e.currentTarget.style.transform = 'translateY(-2px)'; }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = C.gold; e.currentTarget.style.transform = 'translateY(0)'; }}>
+              {t('Năng lực của chúng tôi', 'Our Capabilities')} <ArrowRight size={16} />
             </a>
             <a href="#cases" className="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-base transition-all duration-300" style={{ color: C.white, border: `1px solid ${C.whiteAlpha(0.2)}`, borderRadius: '2px' }} onMouseEnter={e => { e.currentTarget.style.borderColor = C.goldAlpha(0.5); e.currentTarget.style.color = C.gold; }} onMouseLeave={e => { e.currentTarget.style.borderColor = C.whiteAlpha(0.2); e.currentTarget.style.color = C.white; }}>
               {t('Xem bằng chứng thực chiến', 'See Real Proof')}
@@ -158,9 +158,9 @@ function HeroSection() {
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="flex flex-wrap gap-12 mt-20 pt-8" style={{ borderTop: `1px solid ${C.whiteAlpha(0.08)}` }}>
             {[
-              { num: '11+', label: t('Chương trình đã triển khai', 'Programs Delivered') },
+              { num: '7', label: t('Chuyên gia AI', 'AI Experts') },
               { num: '6+', label: t('Mô hình kinh doanh', 'Business Models') },
-              { num: '3M+', label: t('Sản phẩm ecom', 'Ecom Products Sold') },
+              { num: '11+', label: t('Chương trình đã triển khai', 'Programs Delivered') },
               { num: '8+', label: t('Framework độc quyền', 'Proprietary Frameworks') },
             ].map((stat, i) => (
               <div key={i}>
@@ -341,6 +341,141 @@ function PositioningSection() {
                 ))}
               </div>
             </div>
+          </div>
+        </FadeInSection>
+      </div>
+    </section>
+  );
+}
+
+// ═══ CORE TEAM SECTION ═══
+function CoreTeamSection() {
+  const { t } = useLanguage();
+
+  const team = [
+    {
+      name: t('Hải VN', 'Hai VN'),
+      role: 'AI Architect',
+      title: t('Kiến trúc sư AI', 'AI Architect'),
+      desc: t(
+        'Đứng ở tầng cao nhất, vẽ ra kiến trúc tổng thể, định hướng chiến lược doanh nghiệp và xác định chính xác công năng của từng "phòng ban AI".',
+        'Stands at the highest level, designs overall architecture, directs business strategy and precisely defines the function of each "AI department".'
+      ),
+      icon: Brain,
+      color: '#00D4FF',
+    },
+    {
+      name: t('Thành VN', 'Thanh VN'),
+      role: 'AI Systems Builder',
+      title: t('Người kiến tạo hệ thống AI', 'AI Systems Builder'),
+      desc: t(
+        'Mũi nhọn thực thi, biến bản vẽ chiến lược thành các hệ thống thực chiến để tự động hóa việc kết nối con người với doanh nghiệp.',
+        'Execution spearhead, transforms strategic blueprints into battle-tested systems to automate human-business connections.'
+      ),
+      icon: Layers,
+      color: '#4A90FF',
+    },
+    {
+      name: t('Huân VN', 'Huan VN'),
+      role: 'AI Automator',
+      title: t('Người kết nối mạch điện', 'Circuit Connector'),
+      desc: t(
+        'Thiết kế các Workflow tự động hoàn hảo, đấu nối các nền tảng lại với nhau để giải quyết các tác vụ kỹ thuật mà không cần con người can thiệp.',
+        'Designs perfect automated workflows, connecting platforms together to handle technical tasks without human intervention.'
+      ),
+      icon: Cog,
+      color: '#7B2FBE',
+    },
+    {
+      name: t('Trọng VN', 'Trong VN'),
+      role: 'AI Operator',
+      title: t('Người vận hành AI', 'AI Operator'),
+      desc: t(
+        'Trực tiếp điều khiển các AI Agent, giám sát luồng dữ liệu và đảm bảo cỗ máy vận hành trơn tru mỗi ngày.',
+        'Directly controls AI Agents, monitors data flows and ensures the machine runs smoothly every day.'
+      ),
+      icon: Settings,
+      color: '#10B981',
+    },
+    {
+      name: t('Team Design', 'Design Team'),
+      role: 'AI Visual Storytelling',
+      title: t('Người kể chuyện bằng thị giác AI', 'AI Visual Storytellers'),
+      desc: t(
+        'Dùng gu thẩm mỹ và tư duy hình ảnh của con người để “điều khiển” AI, biến chiến lược khô khan thành câu chuyện thị giác có chiều sâu.',
+        'Use human aesthetics and visual thinking to "control" AI, transforming dry strategies into deep visual stories.'
+      ),
+      icon: Palette,
+      color: '#EC4899',
+    },
+    {
+      name: t('Thúy VN', 'Thuy VN'),
+      role: 'Energy Builder',
+      title: t('Người kiến tạo năng lượng', 'Energy Builder'),
+      desc: t(
+        'Chất dẫn duy trì sự cân bằng. Năng lượng tích cực và sự thấu cảm là thứ AI không thể học được.',
+        'The catalyst maintaining balance. Positive energy and empathy are what AI cannot learn.'
+      ),
+      icon: Heart,
+      color: '#F59E0B',
+    },
+  ];
+
+  return (
+    <section id="team" className="relative py-28 md:py-36">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <FadeInSection className="text-center max-w-4xl mx-auto mb-20">
+          <SectionLabel>{t('Đội ngũ lõi', 'Core Team')}</SectionLabel>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6" style={{ color: C.white }}>
+            {t('7 người.', '7 people.')}
+            <span className="gradient-text-gold"> {t('1 cỗ máy.', '1 machine.')}</span>
+          </h2>
+          <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: C.whiteMuted }}>
+            {t(
+              'Không dùng sức người để cày cuốc sự vụ. Dùng năng lực con người để thiết kế hệ thống, và để AI tự đi làm việc. Mỗi người là một mắt xích không thể thay thế.',
+              'We don\'t use human labor for grunt work. We use human capability to design systems, and let AI do the work. Each person is an irreplaceable link.'
+            )}
+          </p>
+        </FadeInSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {team.map((member, i) => (
+            <FadeInSection key={i} delay={i * 0.08}>
+              <div className="p-8 h-full transition-all duration-500 group relative overflow-hidden" style={{ backgroundColor: C.whiteAlpha(0.02), border: `1px solid ${C.whiteAlpha(0.06)}`, borderRadius: '4px' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = member.color + '40'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = C.whiteAlpha(0.06); e.currentTarget.style.transform = 'translateY(0)'; }}>
+                {/* Subtle glow on hover */}
+                <div className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500 opacity-0 group-hover:opacity-100" style={{ background: `linear-gradient(90deg, transparent, ${member.color}60, transparent)` }} />
+                
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-sm flex items-center justify-center" style={{ backgroundColor: member.color + '12', border: `1px solid ${member.color}25` }}>
+                    <member.icon size={22} style={{ color: member.color }} />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-lg" style={{ color: C.white }}>{member.name}</h3>
+                    <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: member.color }}>{member.role}</span>
+                  </div>
+                </div>
+                
+                <p className="text-xs font-display font-semibold mb-3" style={{ color: C.goldLight }}>{member.title}</p>
+                <p className="text-sm leading-relaxed" style={{ color: C.whiteMuted }}>{member.desc}</p>
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+
+        {/* Moonshot quote */}
+        <FadeInSection className="mt-16">
+          <div className="p-8 text-center" style={{ backgroundColor: C.goldAlpha(0.04), border: `1px solid ${C.goldAlpha(0.12)}`, borderRadius: '4px' }}>
+            <p className="text-lg md:text-xl font-display italic leading-relaxed max-w-3xl mx-auto" style={{ color: C.goldLight }}>
+              {t(
+                '"Trong kỷ nguyên mà AI có thể sao chép mọi thứ, thứ duy nhất không thể làm giả chính là Nhân tính, gu thẩm mỹ và trải nghiệm thực tế."',
+                '"In an era where AI can copy everything, the only thing that cannot be faked is Humanity, aesthetic taste, and real experience."'
+              )}
+            </p>
+            <p className="text-sm mt-4 font-display font-semibold" style={{ color: C.whiteDim }}>
+              — DEMAN AI LAB · {t('Chiến lược Moonshot 2026', 'Moonshot Strategy 2026')}
+            </p>
           </div>
         </FadeInSection>
       </div>
@@ -1182,6 +1317,8 @@ export default function DemanHome() {
       <HeroSection />
       <GoldDivider />
       <PositioningSection />
+      <GoldDivider />
+      <CoreTeamSection />
       <GoldDivider />
       <ServicesSection />
       <GoldDivider />
