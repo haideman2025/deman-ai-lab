@@ -106,6 +106,7 @@ function GlowLine() {
 /* ═══ NAVBAR ═══ */
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
@@ -114,43 +115,165 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
+  const navLinks = [
+    { label: 'Vấn đề', href: '#problem' },
+    { label: '5 Module', href: '#modules' },
+    { label: 'Hành trình', href: '#journey' },
+    { label: 'Tính năng', href: '#features' },
+  ];
+
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+    if (href.startsWith('#')) {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setLocation(href);
+    }
+  };
+
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{
-        backgroundColor: scrolled ? `${C.bg}EE` : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? `1px solid rgba(0, 180, 255, 0.08)` : '1px solid transparent',
-      }}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <button onClick={() => setLocation('/')} className="flex items-center gap-3 group">
-          <img src={IMAGES.demanLogo} alt="DEMAN AI LAB" className="h-8 w-auto opacity-80 group-hover:opacity-100 transition-opacity" />
-        </button>
+    <>
+      <motion.nav
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          backgroundColor: scrolled || mobileOpen ? `${C.bg}EE` : 'transparent',
+          backdropFilter: scrolled || mobileOpen ? 'blur(20px)' : 'none',
+          borderBottom: scrolled ? `1px solid rgba(0, 180, 255, 0.08)` : '1px solid transparent',
+        }}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+          <button onClick={() => setLocation('/')} className="flex items-center gap-3 group">
+            <img src={IMAGES.demanLogo} alt="DEMAN AI LAB" className="h-8 w-auto opacity-80 group-hover:opacity-100 transition-opacity" />
+          </button>
 
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#problem" className="text-sm text-white/50 hover:text-white transition-colors">Vấn đề</a>
-          <a href="#modules" className="text-sm text-white/50 hover:text-white transition-colors">5 Module</a>
-          <a href="#journey" className="text-sm text-white/50 hover:text-white transition-colors">Hành trình</a>
-          <a href="#features" className="text-sm text-white/50 hover:text-white transition-colors">Tính năng</a>
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="text-sm text-white/50 hover:text-white transition-colors">{link.label}</a>
+            ))}
+            <a href="/blueprint/survey" className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300" style={{ color: C.cyan }}>
+              <Sparkles className="w-3.5 h-3.5" />
+              Vào ứng dụng
+            </a>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="#cta"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
+              style={{ background: `linear-gradient(135deg, ${C.cyan}, ${C.cyanDark})`, color: C.bg }}
+            >
+              Bắt đầu miễn phí
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden flex items-center justify-center w-10 h-10 transition-colors"
+              style={{ color: C.white }}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+              )}
+            </button>
+          </div>
         </div>
+      </motion.nav>
 
-        <a
-          href="#cta"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
-          style={{
-            background: `linear-gradient(135deg, ${C.cyan}, ${C.cyanDark})`,
-            color: C.bg,
-          }}
+      {/* Mobile menu overlay */}
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-40 pt-16"
+          style={{ backgroundColor: `${C.bg}F5`, backdropFilter: 'blur(24px)' }}
         >
-          Bắt đầu miễn phí
-          <ArrowRight className="w-4 h-4" />
-        </a>
-      </div>
-    </motion.nav>
+          <div className="max-w-lg mx-auto px-5 py-8 flex flex-col gap-2 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 4rem)' }}>
+            {/* Section label */}
+            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase mb-2" style={{ color: C.whiteDim }}>Trang</span>
+
+            {/* Nav links — large tabs */}
+            {navLinks.map(link => (
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className="flex items-center justify-between px-5 py-4 rounded-xl text-left transition-all duration-200 active:scale-[0.98] w-full"
+                style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+              >
+                <span className="text-base font-semibold" style={{ color: C.white }}>{link.label}</span>
+                <ChevronRight size={18} style={{ color: C.whiteDim }} />
+              </button>
+            ))}
+
+            {/* Divider */}
+            <div className="h-px my-4" style={{ background: `linear-gradient(90deg, transparent, ${C.cyan}30, transparent)` }} />
+
+            {/* App link label */}
+            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase mb-2" style={{ color: C.cyan }}>Ứng dụng</span>
+
+            {/* App link — featured large tab */}
+            <button
+              onClick={() => handleNavClick('/blueprint/survey')}
+              className="flex items-center gap-4 px-5 py-5 rounded-xl transition-all duration-200 active:scale-[0.98] w-full text-left"
+              style={{ backgroundColor: `rgba(0, 180, 255, 0.06)`, border: `1px solid rgba(0, 180, 255, 0.15)` }}
+            >
+              <div className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center" style={{ backgroundColor: `rgba(0, 180, 255, 0.12)` }}>
+                <Sparkles size={22} style={{ color: C.cyan }} />
+              </div>
+              <div className="min-w-0">
+                <span className="text-base font-bold block" style={{ color: C.cyan }}>Vào ứng dụng Blueprint™</span>
+                <span className="text-sm block mt-0.5" style={{ color: C.whiteMuted }}>Bắt đầu khảo sát & xây dựng chiến lược</span>
+              </div>
+              <ArrowRight size={18} className="flex-shrink-0 ml-auto" style={{ color: `rgba(0, 180, 255, 0.5)` }} />
+            </button>
+
+            <button
+              onClick={() => handleNavClick('/')}
+              className="flex items-center gap-4 px-5 py-5 rounded-xl transition-all duration-200 active:scale-[0.98] w-full text-left"
+              style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+            >
+              <div className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+                <Globe size={22} style={{ color: C.whiteMuted }} />
+              </div>
+              <div className="min-w-0">
+                <span className="text-base font-bold block" style={{ color: C.white }}>Trang chủ DEMAN</span>
+                <span className="text-sm block mt-0.5" style={{ color: C.whiteMuted }}>Về trang chính DEMAN AI LAB</span>
+              </div>
+              <ArrowRight size={18} className="flex-shrink-0 ml-auto" style={{ color: 'rgba(255,255,255,0.2)' }} />
+            </button>
+
+            {/* CTA */}
+            <button
+              onClick={() => handleNavClick('#cta')}
+              className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl mt-4 font-display font-bold text-base transition-all duration-200"
+              style={{ background: `linear-gradient(135deg, ${C.cyan}, ${C.cyanDark})`, color: C.bg }}
+            >
+              Bắt đầu miễn phí
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </>
   );
 }
 

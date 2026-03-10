@@ -55,3 +55,10 @@
 - [x] Mobile responsive design with sticky nav
 - [x] All 23 tests passing
 - [x] Checkpoint
+
+## Phase 9: Header Nav + Mobile Menu
+- [x] Add Blueprint app link to main header bar (DemanHome navbar)
+- [x] Add Blueprint app link to BlueprintLanding navbar with "Vào ứng dụng" link
+- [x] Implement mobile hamburger menu with large expandable tabs (both pages)
+- [x] Test on desktop and mobile viewport
+- [x] Checkpoint

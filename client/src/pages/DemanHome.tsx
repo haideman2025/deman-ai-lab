@@ -7,7 +7,7 @@
  */
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Brain, Zap, BarChart3, Users, ChevronRight, ExternalLink, Layers, Cpu, MessageSquare, TrendingUp, CheckCircle2, ArrowUpRight, Globe, ShoppingCart, Star, Rocket, BookOpen, Palette, Bitcoin, Package, Megaphone, GraduationCap, Play, FileText, Headphones, Image, Sparkles, Quote, Wrench, Eye, Heart, Settings, Cog } from 'lucide-react';
+import { ArrowRight, Brain, Zap, BarChart3, Users, ChevronRight, ExternalLink, Layers, Cpu, MessageSquare, TrendingUp, CheckCircle2, ArrowUpRight, Globe, ShoppingCart, Star, Rocket, BookOpen, Palette, Bitcoin, Package, Megaphone, GraduationCap, Play, FileText, Headphones, Image, Sparkles, Quote, Wrench, Eye, Heart, Settings, Cog, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // ═══ CDN Image URLs ═══
@@ -69,6 +69,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 // ═══ NAVBAR ═══
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { lang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
@@ -77,6 +78,19 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   const navLinks = [
     { label: t('Năng lực', 'Capabilities'), href: '#services' },
     { label: t('Đội ngũ', 'Team'), href: '#team' },
@@ -84,35 +98,124 @@ function Navbar() {
     { label: 'HAIVN.AI', href: 'https://haivn.ai', external: true },
   ];
 
+  const appLinks = [
+    { label: 'AI Transformation Blueprint™', href: '/blueprint', description: t('Xây dựng thương hiệu cá nhân cùng AI', 'Build personal brand with AI'), icon: Sparkles },
+    { label: 'Game of Ecom', href: '/game-of-ecom', description: t('Chiến lược thương mại điện tử', 'E-commerce strategy game'), icon: ShoppingCart },
+  ];
+
   return (
-    <motion.nav
-      initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-      style={{ backgroundColor: scrolled ? `${C.charcoal}ee` : 'transparent', backdropFilter: scrolled ? 'blur(20px)' : 'none', borderBottom: scrolled ? `1px solid ${C.whiteAlpha(0.06)}` : 'none' }}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-3">
-          <img src={IMAGES.brandLogo} alt="DEMAN AI LAB" className="h-8 w-auto" />
-        </a>
-
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map(link => (
-            <a key={link.href} href={link.href} {...('external' in link && link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-xs font-medium tracking-wider uppercase transition-colors duration-300" style={{ color: link.label === 'HAIVN.AI' ? C.gold : C.whiteDim }} onMouseEnter={e => (e.currentTarget.style.color = C.goldLight)} onMouseLeave={e => (e.currentTarget.style.color = link.label === 'HAIVN.AI' ? C.gold : C.whiteDim)}>
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-4">
-          <button onClick={toggleLang} className="text-xs font-display font-semibold tracking-wider px-3 py-1.5 transition-all duration-300" style={{ color: C.gold, border: `1px solid ${C.goldAlpha(0.3)}`, borderRadius: '2px' }}>
-            {lang === 'vi' ? 'EN' : 'VN'}
-          </button>
-          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 px-5 py-2 font-display font-semibold text-xs tracking-wider transition-all duration-300" style={{ color: C.charcoal, backgroundColor: C.gold, borderRadius: '2px' }}>
-            {t('Liên hệ', 'Contact')}
+    <>
+      <motion.nav
+        initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.6 }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{ backgroundColor: scrolled || mobileOpen ? `${C.charcoal}ee` : 'transparent', backdropFilter: scrolled || mobileOpen ? 'blur(20px)' : 'none', borderBottom: scrolled ? `1px solid ${C.whiteAlpha(0.06)}` : 'none' }}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+          <a href="#" className="flex items-center gap-3">
+            <img src={IMAGES.brandLogo} alt="DEMAN AI LAB" className="h-8 w-auto" />
           </a>
+
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} {...('external' in link && link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-xs font-medium tracking-wider uppercase transition-colors duration-300" style={{ color: link.label === 'HAIVN.AI' ? C.gold : C.whiteDim }} onMouseEnter={e => (e.currentTarget.style.color = C.goldLight)} onMouseLeave={e => (e.currentTarget.style.color = link.label === 'HAIVN.AI' ? C.gold : C.whiteDim)}>
+                {link.label}
+              </a>
+            ))}
+            <a href="/blueprint" className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase transition-all duration-300" style={{ color: C.gold }} onMouseEnter={e => (e.currentTarget.style.color = C.goldLight)} onMouseLeave={e => (e.currentTarget.style.color = C.gold)}>
+              <Sparkles size={14} />
+              Blueprint™
+            </a>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button onClick={toggleLang} className="text-xs font-display font-semibold tracking-wider px-3 py-1.5 transition-all duration-300" style={{ color: C.gold, border: `1px solid ${C.goldAlpha(0.3)}`, borderRadius: '2px' }}>
+              {lang === 'vi' ? 'EN' : 'VN'}
+            </button>
+            <a href="#contact" className="hidden sm:inline-flex items-center gap-2 px-5 py-2 font-display font-semibold text-xs tracking-wider transition-all duration-300" style={{ color: C.charcoal, backgroundColor: C.gold, borderRadius: '2px' }}>
+              {t('Liên hệ', 'Contact')}
+            </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden flex items-center justify-center w-10 h-10 transition-colors"
+              style={{ color: C.white }}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      </div>
-    </motion.nav>
+      </motion.nav>
+
+      {/* Mobile menu overlay */}
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-40 pt-16"
+          style={{ backgroundColor: `${C.charcoal}F5`, backdropFilter: 'blur(24px)' }}
+        >
+          <div className="max-w-lg mx-auto px-6 py-8 flex flex-col gap-2 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 4rem)' }}>
+            {/* Section label */}
+            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase mb-2" style={{ color: C.whiteDim }}>Menu</span>
+
+            {/* Nav links — large tabs */}
+            {navLinks.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                {...('external' in link && link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="flex items-center justify-between px-5 py-4 rounded-xl transition-all duration-200 active:scale-[0.98]"
+                style={{ backgroundColor: C.whiteAlpha(0.04), border: `1px solid ${C.whiteAlpha(0.06)}` }}
+              >
+                <span className="text-base font-semibold" style={{ color: link.label === 'HAIVN.AI' ? C.gold : C.white }}>{link.label}</span>
+                <ChevronRight size={18} style={{ color: C.whiteDim }} />
+              </a>
+            ))}
+
+            {/* Divider */}
+            <div className="h-px my-4" style={{ background: `linear-gradient(90deg, transparent, ${C.goldAlpha(0.2)}, transparent)` }} />
+
+            {/* App links label */}
+            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase mb-2" style={{ color: C.gold }}>{t('Ứng dụng', 'Applications')}</span>
+
+            {/* App links — large featured tabs */}
+            {appLinks.map(app => (
+              <a
+                key={app.href}
+                href={app.href}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-4 px-5 py-5 rounded-xl transition-all duration-200 active:scale-[0.98]"
+                style={{ backgroundColor: C.goldAlpha(0.06), border: `1px solid ${C.goldAlpha(0.15)}` }}
+              >
+                <div className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center" style={{ backgroundColor: C.goldAlpha(0.12) }}>
+                  <app.icon size={22} style={{ color: C.gold }} />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-base font-bold block" style={{ color: C.gold }}>{app.label}</span>
+                  <span className="text-sm block mt-0.5" style={{ color: C.whiteMuted }}>{app.description}</span>
+                </div>
+                <ArrowRight size={18} className="flex-shrink-0 ml-auto" style={{ color: C.goldAlpha(0.5) }} />
+              </a>
+            ))}
+
+            {/* Contact CTA */}
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl mt-4 font-display font-bold text-base transition-all duration-200"
+              style={{ backgroundColor: C.gold, color: C.charcoal }}
+            >
+              {t('Liên hệ ngay', 'Contact Us')}
+              <ArrowRight size={18} />
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </>
   );
 }
 
