@@ -6,6 +6,7 @@
  * Visual: Dreamy, magical, warm glow, DNA/cell motifs
  */
 
+import { useAuth } from '@/_core/hooks/useAuth';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/AnimatedSection';
 import { CountUpNumber } from '@/components/CountUpNumber';
 import { ParticleBackground } from '@/components/ParticleBackground';
@@ -77,6 +78,10 @@ const C = {
 };
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden" style={{ backgroundColor: C.bg }}>
       <ParticleBackground />
