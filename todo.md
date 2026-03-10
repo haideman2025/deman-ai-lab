@@ -62,3 +62,6 @@
 - [x] Implement mobile hamburger menu with large expandable tabs (both pages)
 - [x] Test on desktop and mobile viewport
 - [x] Checkpoint
+
+## Phase 10: Bug Fix - Landing CTA buttons
+- [x] Fix CTA buttons on BlueprintLanding to navigate to /blueprint/survey instead of anchor or login

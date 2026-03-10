@@ -174,7 +174,7 @@ function Navbar() {
 
           <div className="flex items-center gap-3">
             <a
-              href="#cta"
+              href="/blueprint/survey"
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
               style={{ background: `linear-gradient(135deg, ${C.cyan}, ${C.cyanDark})`, color: C.bg }}
             >
@@ -263,7 +263,7 @@ function Navbar() {
 
             {/* CTA */}
             <button
-              onClick={() => handleNavClick('#cta')}
+              onClick={() => handleNavClick('/blueprint/survey')}
               className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl mt-4 font-display font-bold text-base transition-all duration-200"
               style={{ background: `linear-gradient(135deg, ${C.cyan}, ${C.cyanDark})`, color: C.bg }}
             >
@@ -348,7 +348,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 1.1 }}
         >
           <a
-            href="#cta"
+            href="/blueprint/survey"
             className="group inline-flex items-center gap-3 px-8 py-4 font-display font-bold text-lg rounded-xl transition-all duration-500"
             style={{ background: `linear-gradient(135deg, ${C.cyan}, ${C.cyanDark})`, color: C.bg }}
           >
@@ -963,11 +963,7 @@ function CTASection() {
   const { user } = useAuth();
 
   const handleStart = () => {
-    if (user) {
-      setLocation('/blueprint/survey');
-    } else {
-      window.location.href = getLoginUrl();
-    }
+    setLocation('/blueprint/survey');
   };
 
   return (
