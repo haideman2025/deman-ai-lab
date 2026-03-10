@@ -18,7 +18,7 @@ import { useLocation } from "wouter";
 import { useState } from "react";
 
 const navItems = [
-  { icon: ClipboardList, label: "Khảo sát", path: "/blueprint", description: "Khám phá tiềm năng" },
+  { icon: ClipboardList, label: "Khảo sát", path: "/blueprint/survey", description: "Khám phá tiềm năng" },
   { icon: Brain, label: "Chiến lược", path: "/blueprint/strategy", description: "Bản vẽ thương hiệu" },
   { icon: FileText, label: "Kế hoạch", path: "/blueprint/plan", description: "Lộ trình thực thi" },
   { icon: Palette, label: "Nhận diện", path: "/blueprint/identity", description: "Thiết kế thương hiệu" },
@@ -69,9 +69,7 @@ export default function BlueprintLayout({ children }: { children: React.ReactNod
         {/* Navigation */}
         <nav className="flex-1 py-3 px-2 space-y-1 overflow-y-auto">
           {navItems.map((item) => {
-            const isActive = location === item.path || (item.path !== "/blueprint" && location.startsWith(item.path));
-            const isExactActive = location === item.path;
-            const active = item.path === "/blueprint" ? isExactActive : isActive;
+            const active = location === item.path;
 
             return (
               <button

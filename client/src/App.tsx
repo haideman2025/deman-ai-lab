@@ -12,7 +12,10 @@ import DemanHome from "./pages/DemanHome";
 import Home from "./pages/Home";
 import GameOfEcom from "./pages/GameOfEcom";
 
-// Blueprint pages (lazy loaded)
+// Blueprint Landing (eager — it's the entry point)
+import BlueprintLanding from "./pages/BlueprintLanding";
+
+// Blueprint app pages (lazy loaded)
 const BlueprintSurvey = lazy(() => import("./pages/BlueprintSurvey"));
 const BlueprintStrategy = lazy(() => import("./pages/BlueprintStrategy"));
 const BlueprintPlan = lazy(() => import("./pages/BlueprintPlan"));
@@ -44,8 +47,11 @@ function Router() {
       <Route path={"/mescells-proposal"} component={Home} />
       <Route path={"/game-of-ecom"} component={GameOfEcom} />
 
-      {/* Blueprint routes */}
-      <Route path="/blueprint">
+      {/* Blueprint Landing Page (public, no sidebar) */}
+      <Route path="/blueprint" component={BlueprintLanding} />
+
+      {/* Blueprint App Routes (with sidebar layout) */}
+      <Route path="/blueprint/survey">
         <BlueprintShell><BlueprintSurvey /></BlueprintShell>
       </Route>
       <Route path="/blueprint/strategy">

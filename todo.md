@@ -40,3 +40,18 @@
 - [x] Vitest tests for all API routes (23 tests passing)
 - [x] TypeScript error-free build
 - [x] Checkpoint & deliver
+
+## Phase 8: Blueprint Landing Page
+- [x] Design and build detailed landing page for AI Transformation Blueprint™
+- [x] Hero section with product tagline and CTA
+- [x] Problem/Pain point section
+- [x] 5-module showcase with interactive tabs and visual details
+- [x] User journey / How it works section with AI-generated journey image
+- [x] Feature deep-dive: Brand Identity + AI Content Studio + Framework sections
+- [x] Trust / Why Blueprint section with stats
+- [x] Final CTA section
+- [x] Integrate with routing (/blueprint → landing, /blueprint/survey → survey)
+- [x] AI-generated visual assets (hero, journey, brand identity)
+- [x] Mobile responsive design with sticky nav
+- [x] All 23 tests passing
+- [x] Checkpoint
