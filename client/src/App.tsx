@@ -16,11 +16,14 @@ import GameOfEcom from "./pages/GameOfEcom";
 import BlueprintLanding from "./pages/BlueprintLanding";
 
 // Blueprint app pages (lazy loaded)
+const BlueprintDashboard = lazy(() => import("./pages/BlueprintDashboard"));
 const BlueprintSurvey = lazy(() => import("./pages/BlueprintSurvey"));
 const BlueprintStrategy = lazy(() => import("./pages/BlueprintStrategy"));
 const BlueprintPlan = lazy(() => import("./pages/BlueprintPlan"));
 const BlueprintIdentity = lazy(() => import("./pages/BlueprintIdentity"));
 const BlueprintStudio = lazy(() => import("./pages/BlueprintStudio"));
+const BlueprintCalendar = lazy(() => import("./pages/BlueprintCalendar"));
+const BlueprintTasks = lazy(() => import("./pages/BlueprintTasks"));
 
 // Layout
 import BlueprintLayout from "./components/BlueprintLayout";
@@ -51,6 +54,9 @@ function Router() {
       <Route path="/blueprint" component={BlueprintLanding} />
 
       {/* Blueprint App Routes (with sidebar layout) */}
+      <Route path="/blueprint/dashboard">
+        <BlueprintShell><BlueprintDashboard /></BlueprintShell>
+      </Route>
       <Route path="/blueprint/survey">
         <BlueprintShell><BlueprintSurvey /></BlueprintShell>
       </Route>
@@ -65,6 +71,12 @@ function Router() {
       </Route>
       <Route path="/blueprint/studio">
         <BlueprintShell><BlueprintStudio /></BlueprintShell>
+      </Route>
+      <Route path="/blueprint/calendar">
+        <BlueprintShell><BlueprintCalendar /></BlueprintShell>
+      </Route>
+      <Route path="/blueprint/tasks">
+        <BlueprintShell><BlueprintTasks /></BlueprintShell>
       </Route>
 
       <Route path={"/404"} component={NotFound} />

@@ -73,6 +73,24 @@ vi.mock("./db", () => ({
   createContentPiece: vi.fn().mockResolvedValue(100),
   getContentPiecesByBrandId: vi.fn().mockResolvedValue([]),
   updateContentPiece: vi.fn().mockResolvedValue(undefined),
+  createCalendarEvent: vi.fn().mockResolvedValue(99),
+  createCalendarEvents: vi.fn().mockResolvedValue(undefined),
+  getCalendarEventsByUserId: vi.fn().mockResolvedValue([]),
+  updateCalendarEvent: vi.fn().mockResolvedValue(undefined),
+  deleteCalendarEvent: vi.fn().mockResolvedValue(undefined),
+  createActivityLog: vi.fn().mockResolvedValue(55),
+  getActivityLogsByUserId: vi.fn().mockResolvedValue([]),
+  getDashboardStats: vi.fn().mockResolvedValue({
+    totalTasks: 10,
+    completedTasks: 5,
+    totalContent: 8,
+    totalEvents: 3,
+    streak: 2,
+  }),
+  getTasksByUserId: vi.fn().mockResolvedValue([]),
+  getTaskById: vi.fn().mockResolvedValue(null),
+  getContentPiecesByUserId: vi.fn().mockResolvedValue([]),
+  getContentPieceById: vi.fn().mockResolvedValue(null),
 }));
 
 // Mock LLM
@@ -382,6 +400,99 @@ describe("content routes", () => {
       status: "ready",
     });
     expect(result).toEqual({ success: true });
+  });
+});
+
+describe("dashboard routes", () => {
+  it("stats requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(caller.dashboard.stats()).rejects.toThrow();
+  });
+
+  it("stats returns dashboard data for authenticated user", async () => {
+    const { getDashboardStats } = await import("./db");
+    (getDashboardStats as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
+      totalTasks: 10,
+      completedTasks: 5,
+      totalContent: 8,
+      totalEvents: 3,
+      streak: 2,
+    });
+    const caller = appRouter.createCaller(createAuthContext());
+    const result = await caller.dashboard.stats();
+    expect(result).toBeDefined();
+    expect(result.totalTasks).toBe(10);
+    expect(result.completedTasks).toBe(5);
+    expect(result.streak).toBe(2);
+  });
+
+  it("overview requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(caller.dashboard.overview()).rejects.toThrow();
+  });
+});
+
+describe("calendar routes", () => {
+  it("getEvents requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(
+      caller.calendar.getEvents({ startDate: new Date().toISOString(), endDate: new Date().toISOString() })
+    ).rejects.toThrow();
+  });
+
+  it("create requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(
+      caller.calendar.create({
+        title: "Test event",
+        eventType: "content",
+        scheduledDate: new Date().toISOString(),
+      })
+    ).rejects.toThrow();
+  });
+
+  it("create event works for authenticated user", async () => {
+    const { createCalendarEvent } = await import("./db");
+    (createCalendarEvent as ReturnType<typeof vi.fn>).mockResolvedValueOnce(99);
+    const caller = appRouter.createCaller(createAuthContext());
+    const result = await caller.calendar.create({
+      title: "Test event",
+      eventType: "content",
+      scheduledDate: new Date().toISOString(),
+    });
+    expect(result.eventId).toBe(99);
+  });
+
+  it("delete requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(caller.calendar.delete({ id: 1 })).rejects.toThrow();
+  });
+});
+
+describe("activity routes", () => {
+  it("list requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(caller.activity.list({})).rejects.toThrow();
+  });
+
+  it("log requires authentication", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    await expect(
+      caller.activity.log({ action: "test_action", entityType: "task", title: "Test" })
+    ).rejects.toThrow();
+  });
+
+  it("log creates activity for authenticated user", async () => {
+    const { createActivityLog } = await import("./db");
+    (createActivityLog as ReturnType<typeof vi.fn>).mockResolvedValueOnce(55);
+    const caller = appRouter.createCaller(createAuthContext());
+    const result = await caller.activity.log({
+      action: "task_completed",
+      entityType: "task",
+      entityId: 1,
+      title: "Completed a task",
+    });
+    expect(result.logId).toBe(55);
   });
 });
 

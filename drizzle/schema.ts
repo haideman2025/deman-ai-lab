@@ -149,3 +149,56 @@ export const contentPieces = mysqlTable("content_pieces", {
 
 export type ContentPiece = typeof contentPieces.$inferSelect;
 export type InsertContentPiece = typeof contentPieces.$inferInsert;
+
+/**
+ * Calendar events — content scheduling and task scheduling on calendar
+ */
+export const calendarEvents = mysqlTable("calendar_events", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  brandProfileId: int("brandProfileId"),
+  // Event info
+  title: varchar("calEventTitle", { length: 500 }).notNull(),
+  description: text("calEventDescription"),
+  eventType: mysqlEnum("eventType", ["content", "task", "milestone", "custom"]).default("custom").notNull(),
+  // Scheduling
+  scheduledDate: timestamp("scheduledDate").notNull(),
+  endDate: timestamp("endDate"),
+  allDay: int("allDay").default(0), // boolean: 0 = false, 1 = true
+  // Links to other entities
+  contentPieceId: int("contentPieceId"),
+  taskId: int("calTaskId"),
+  executionPlanId: int("calPlanId"),
+  // Status
+  status: mysqlEnum("calEventStatus", ["scheduled", "in_progress", "completed", "cancelled"]).default("scheduled").notNull(),
+  // Metadata
+  color: varchar("color", { length: 20 }),
+  metadata: json("calEventMetadata"),
+  // Timestamps
+  createdAt: timestamp("calEventCreatedAt").defaultNow().notNull(),
+  updatedAt: timestamp("calEventUpdatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CalendarEvent = typeof calendarEvents.$inferSelect;
+export type InsertCalendarEvent = typeof calendarEvents.$inferInsert;
+
+/**
+ * Activity logs — track all user actions for history display
+ */
+export const activityLogs = mysqlTable("activity_logs", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("actUserId").notNull(),
+  // Action info
+  action: varchar("action", { length: 100 }).notNull(), // e.g. "survey_completed", "content_created", "task_completed"
+  entityType: varchar("entityType", { length: 50 }), // e.g. "survey", "content", "task", "brand"
+  entityId: int("entityId"),
+  // Details
+  title: varchar("actTitle", { length: 500 }),
+  description: text("actDescription"),
+  metadata: json("actMetadata"),
+  // Timestamps
+  createdAt: timestamp("actCreatedAt").defaultNow().notNull(),
+});
+
+export type ActivityLog = typeof activityLogs.$inferSelect;
+export type InsertActivityLog = typeof activityLogs.$inferInsert;

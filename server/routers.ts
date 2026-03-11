@@ -9,8 +9,11 @@ import {
   createSurveySubmission, getSurveyById, getSurveysByUserId, getAllSurveys,
   createBrandProfile, getBrandProfileBySurveyId, getBrandProfileById, getBrandProfilesByUserId, updateBrandProfile,
   createExecutionPlan, getExecutionPlansByBrandId, updateExecutionPlan,
-  createTasks, getTasksByPlanId, updateTask,
-  createContentPiece, getContentPiecesByBrandId, updateContentPiece,
+  createTasks, getTasksByPlanId, getTasksByUserId, getTaskById, updateTask,
+  createContentPiece, getContentPiecesByBrandId, getContentPiecesByUserId, getContentPieceById, updateContentPiece,
+  createCalendarEvent, createCalendarEvents, getCalendarEventsByUserId, updateCalendarEvent, deleteCalendarEvent,
+  createActivityLog, getActivityLogsByUserId,
+  getDashboardStats,
 } from "./db";
 import { z } from "zod";
 import { nanoid } from "nanoid";
@@ -515,6 +518,201 @@ Hãy phát triển thành nội dung hoàn chỉnh, giữ nguyên giọng nói v
         });
 
         return { enhanced: response.choices[0].message.content as string };
+      }),
+  }),
+
+  // ─── DASHBOARD ──────────────────────────────────────────────
+  dashboard: router({
+    stats: protectedProcedure.query(async ({ ctx }) => {
+      return getDashboardStats(ctx.user.id);
+    }),
+
+    // Get user's full overview: latest brand, plan, tasks, content
+    overview: protectedProcedure.query(async ({ ctx }) => {
+      const userId = ctx.user.id;
+      const [brandProfiles, recentTasks, recentContent, recentActivity] = await Promise.all([
+        getBrandProfilesByUserId(userId),
+        getTasksByUserId(userId),
+        getContentPiecesByUserId(userId),
+        getActivityLogsByUserId(userId, 20),
+      ]);
+      return {
+        brandProfile: brandProfiles[0] || null,
+        recentTasks: recentTasks.slice(0, 10),
+        pendingTasks: recentTasks.filter(t => t.status === 'pending' || t.status === 'in_progress').slice(0, 5),
+        recentContent: recentContent.slice(0, 10),
+        recentActivity,
+        hasSurvey: brandProfiles.length > 0,
+      };
+    }),
+  }),
+
+  // ─── CALENDAR ──────────────────────────────────────────────
+  calendar: router({
+    getEvents: protectedProcedure
+      .input(z.object({
+        startDate: z.string().optional(),
+        endDate: z.string().optional(),
+      }))
+      .query(async ({ input, ctx }) => {
+        const start = input.startDate ? new Date(input.startDate) : undefined;
+        const end = input.endDate ? new Date(input.endDate) : undefined;
+        return getCalendarEventsByUserId(ctx.user.id, start, end);
+      }),
+
+    create: protectedProcedure
+      .input(z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        eventType: z.enum(["content", "task", "milestone", "custom"]),
+        scheduledDate: z.string(),
+        endDate: z.string().optional(),
+        allDay: z.boolean().optional(),
+        contentPieceId: z.number().optional(),
+        taskId: z.number().optional(),
+        executionPlanId: z.number().optional(),
+        color: z.string().optional(),
+        brandProfileId: z.number().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        const eventId = await createCalendarEvent({
+          userId: ctx.user.id,
+          brandProfileId: input.brandProfileId ?? null,
+          title: input.title,
+          description: input.description ?? null,
+          eventType: input.eventType,
+          scheduledDate: new Date(input.scheduledDate),
+          endDate: input.endDate ? new Date(input.endDate) : null,
+          allDay: input.allDay ? 1 : 0,
+          contentPieceId: input.contentPieceId ?? null,
+          taskId: input.taskId ?? null,
+          executionPlanId: input.executionPlanId ?? null,
+          color: input.color ?? null,
+          status: "scheduled",
+        });
+
+        // Log activity
+        await createActivityLog({
+          userId: ctx.user.id,
+          action: "calendar_event_created",
+          entityType: "calendar_event",
+          entityId: eventId,
+          title: `Đã tạo sự kiện: ${input.title}`,
+        });
+
+        return { eventId };
+      }),
+
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        title: z.string().optional(),
+        description: z.string().optional(),
+        scheduledDate: z.string().optional(),
+        endDate: z.string().optional(),
+        status: z.enum(["scheduled", "in_progress", "completed", "cancelled"]).optional(),
+        color: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...data } = input;
+        const updateData: Record<string, unknown> = {};
+        if (data.title) updateData.title = data.title;
+        if (data.description !== undefined) updateData.description = data.description;
+        if (data.scheduledDate) updateData.scheduledDate = new Date(data.scheduledDate);
+        if (data.endDate) updateData.endDate = new Date(data.endDate);
+        if (data.status) updateData.status = data.status;
+        if (data.color) updateData.color = data.color;
+        await updateCalendarEvent(id, updateData as Parameters<typeof updateCalendarEvent>[1]);
+        return { success: true };
+      }),
+
+    delete: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteCalendarEvent(input.id);
+        return { success: true };
+      }),
+
+    // Auto-generate calendar events from execution plan tasks
+    generateFromPlan: protectedProcedure
+      .input(z.object({
+        executionPlanId: z.number(),
+        brandProfileId: z.number(),
+        startDate: z.string(), // The Monday of week 1
+      }))
+      .mutation(async ({ input, ctx }) => {
+        const planTasks = await getTasksByPlanId(input.executionPlanId);
+        if (planTasks.length === 0) return { count: 0 };
+
+        const startDate = new Date(input.startDate);
+        const categoryColors: Record<string, string> = {
+          content: "#00B4FF",
+          branding: "#A855F7",
+          networking: "#22C55E",
+          learning: "#F59E0B",
+          strategy: "#EF4444",
+        };
+
+        const events: Parameters<typeof createCalendarEvents>[0] = planTasks.map(task => {
+          const dayOffset = ((task.week - 1) * 7) + (task.day ? task.day - 1 : 0);
+          const eventDate = new Date(startDate);
+          eventDate.setDate(eventDate.getDate() + dayOffset);
+
+          return {
+            userId: ctx.user.id,
+            brandProfileId: input.brandProfileId,
+            title: task.title,
+            description: task.description,
+            eventType: "task" as const,
+            scheduledDate: eventDate,
+            allDay: 1,
+            taskId: task.id,
+            executionPlanId: input.executionPlanId,
+            color: categoryColors[task.category] || "#00B4FF",
+            status: "scheduled" as const,
+          };
+        });
+
+        await createCalendarEvents(events);
+
+        await createActivityLog({
+          userId: ctx.user.id,
+          action: "calendar_generated",
+          entityType: "execution_plan",
+          entityId: input.executionPlanId,
+          title: `Đã tạo ${events.length} sự kiện từ kế hoạch thực thi`,
+        });
+
+        return { count: events.length };
+      }),
+  }),
+
+  // ─── ACTIVITY LOG ──────────────────────────────────────────
+  activity: router({
+    list: protectedProcedure
+      .input(z.object({ limit: z.number().default(50) }))
+      .query(async ({ input, ctx }) => {
+        return getActivityLogsByUserId(ctx.user.id, input.limit);
+      }),
+
+    log: protectedProcedure
+      .input(z.object({
+        action: z.string(),
+        entityType: z.string().optional(),
+        entityId: z.number().optional(),
+        title: z.string().optional(),
+        description: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        const logId = await createActivityLog({
+          userId: ctx.user.id,
+          action: input.action,
+          entityType: input.entityType ?? null,
+          entityId: input.entityId ?? null,
+          title: input.title ?? null,
+          description: input.description ?? null,
+        });
+        return { logId };
       }),
   }),
 });

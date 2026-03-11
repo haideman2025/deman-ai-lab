@@ -15,6 +15,13 @@
       "when": 1773143650452,
       "tag": "0001_ambiguous_nighthawk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1773190941668,
+      "tag": "0002_pink_inertia",
+      "breakpoints": true
     }
   ]
 }

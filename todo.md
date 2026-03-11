@@ -65,3 +65,17 @@
 
 ## Phase 10: Bug Fix - Landing CTA buttons
 - [x] Fix CTA buttons on BlueprintLanding to navigate to /blueprint/survey instead of anchor or login
+
+## Phase 11: Personal Dashboard + Content Calendar + Task System
+- [x] Add calendar_events table to DB schema (title, type, date, status, content_id, user_id)
+- [x] Add activity_logs table to DB schema (user_id, action, entity_type, entity_id, metadata)
+- [x] Push DB migrations
+- [x] Build backend API routes: dashboard stats, calendar CRUD, activity log
+- [x] Build Personal Dashboard page (overview stats, activity history, quick actions, streak)
+- [x] Build Content Calendar page (week/month toggle, add events, delete events)
+- [x] Build guided Task System page with AI tools integration for each task step
+- [x] Update sidebar navigation with Dashboard, Calendar, Tasks + section grouping + mobile drawer
+- [x] Update post-survey redirect flow to go to Dashboard
+- [x] Auto-generate calendar events from execution plan (via calendar.autoGenerate route)
+- [x] Write vitest tests for new routes (33 tests passing)
+- [ ] Checkpoint

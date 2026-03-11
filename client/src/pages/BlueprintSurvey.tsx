@@ -417,14 +417,23 @@ export default function BlueprintSurvey() {
             <Button
               size="lg"
               className="w-full gap-2"
-              onClick={() => setLocation(`/blueprint/strategy?surveyId=${surveyResult.surveyId}`)}
+              onClick={() => setLocation(`/blueprint/dashboard`)}
             >
               <Sparkles className="w-4 h-4" />
-              Tạo Bản Vẽ Chiến Lược
+              Vào Dashboard cá nhân
               <ChevronRight className="w-4 h-4" />
             </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full gap-2"
+              onClick={() => setLocation(`/blueprint/strategy?surveyId=${surveyResult.surveyId}`)}
+            >
+              <Brain className="w-4 h-4" />
+              Tạo Bản Vẽ Chiến Lược ngay
+            </Button>
             <p className="text-xs text-muted-foreground">
-              AI sẽ phân tích câu trả lời và tạo chiến lược phát triển thương hiệu cá nhân riêng cho bạn
+              Dashboard sẽ là trung tâm quản lý toàn bộ hành trình xây dựng thương hiệu của bạn
             </p>
           </div>
         </div>
