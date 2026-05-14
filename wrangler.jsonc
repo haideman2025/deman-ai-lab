@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "demanlab",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2026-05-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "NODE_ENV": "production"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CACHE",
+      "id": "18ca13576a014ad9a7a8842611abdfc8"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "ASSETS_BUCKET",
+      "bucket_name": "demanlab-assets"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "demanlab.ai",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.demanlab.ai",
+      "custom_domain": true
+    }
+  ]
+  // SECRETS to set manually (via `wrangler secret put`):
+  // - DATABASE_URL          (Neon or existing Postgres)
+  // - ANTHROPIC_API_KEY
+  // - OAUTH_CLIENT_ID
+  // - OAUTH_CLIENT_SECRET
+  // - COOKIE_SECRET
+}
