@@ -1389,22 +1389,70 @@ function Footer() {
 
   return (
     <footer style={{ borderTop: `1px solid ${C.whiteAlpha(0.06)}` }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3">
-            <img src={IMAGES.brandLogo} alt="DEMAN AI LAB" className="h-7 w-auto" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand & Info */}
+          <div className="col-span-1">
+            <img src={IMAGES.brandLogo} alt="DEMAN AI LAB" className="h-8 w-auto mb-4" />
+            <p className="text-xs" style={{ color: C.whiteMuted }}>
+              {t('Đội ngũ thiết kế hệ thống AI toàn diện cho doanh nghiệp Việt.', 'Team designing comprehensive AI systems for Vietnamese businesses.')}
+            </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs" style={{ color: C.whiteDim }}>
-            <a href="#services" className="hover:opacity-80 transition-opacity">{t('Dịch vụ', 'Services')}</a>
-            <a href="#cases" className="hover:opacity-80 transition-opacity">{t('Dự án', 'Projects')}</a>
-            <a href="https://haivn.ai" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">HAIVN.AI</a>
-            <a href="https://www.skool.com/clone-your-mind-academy-4398" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">Skool</a>
-            <a href="https://www.facebook.com/groups/471620336015059" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">{t('Cộng đồng', 'Community')}</a>
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xs font-semibold mb-4" style={{ color: C.gold }}>{t('Điều hướng', 'Navigation')}</h4>
+            <div className="flex flex-col gap-2 text-xs" style={{ color: C.whiteDim }}>
+              <a href="#services" className="hover:opacity-80 transition-opacity">{t('Dịch vụ', 'Services')}</a>
+              <a href="#cases" className="hover:opacity-80 transition-opacity">{t('Dự án', 'Projects')}</a>
+              <a href="#team" className="hover:opacity-80 transition-opacity">{t('Đội ngũ', 'Team')}</a>
+              <a href="#contact" className="hover:opacity-80 transition-opacity">{t('Liên hệ', 'Contact')}</a>
+            </div>
           </div>
 
-          <div className="text-xs" style={{ color: C.whiteDim }}>
+          {/* Resources */}
+          <div>
+            <h4 className="text-xs font-semibold mb-4" style={{ color: C.gold }}>{t('Tài nguyên', 'Resources')}</h4>
+            <div className="flex flex-col gap-2 text-xs" style={{ color: C.whiteDim }}>
+              <a href="https://haivn.ai" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">HAIVN.AI</a>
+              <a href="https://www.skool.com/clone-your-mind-academy-4398" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">{t('Học tập', 'Academy')}</a>
+              <a href="https://www.facebook.com/groups/471620336015059" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">{t('Cộng đồng', 'Community')}</a>
+              <a href="https://www.facebook.com/demanlab" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">Facebook</a>
+            </div>
+          </div>
+
+          {/* Business Info */}
+          <div>
+            <h4 className="text-xs font-semibold mb-4" style={{ color: C.gold }}>{t('Thông tin', 'Information')}</h4>
+            <div className="flex flex-col gap-3 text-xs" style={{ color: C.whiteMuted }}>
+              <div>
+                <p className="font-semibold">{t('Công ty', 'Company')}</p>
+                <p>DEMAN AI LAB COMPANY LIMITED</p>
+              </div>
+              <div>
+                <p className="font-semibold">{t('Địa chỉ', 'Address')}</p>
+                <p>B-TT09-34, Khu nhà ở Ngân Hà Văn Phúc, Phường Hà Đông, TP Hà Nội, Việt Nam</p>
+              </div>
+              <div>
+                <p className="font-semibold">{t('Điện thoại', 'Phone')}</p>
+                <p>+84 (0)38 880 6527</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div style={{ borderTop: `1px solid ${C.whiteAlpha(0.06)}`, marginBottom: '1.5rem' }} />
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs" style={{ color: C.whiteDim }}>
+          <div>
             © 2026 DEMAN AI LAB. {t('Đã đăng ký bản quyền.', 'All rights reserved.')}
+          </div>
+          <div className="flex gap-4">
+            <a href="#" className="hover:opacity-80 transition-opacity">{t('Chính sách bảo mật', 'Privacy Policy')}</a>
+            <a href="#" className="hover:opacity-80 transition-opacity">{t('Điều khoản sử dụng', 'Terms of Service')}</a>
           </div>
         </div>
       </div>
